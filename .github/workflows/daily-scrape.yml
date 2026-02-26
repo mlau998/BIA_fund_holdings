@@ -1,0 +1,37 @@
+name: Daily Holdings Scrape
+
+on:
+  schedule:
+    - cron: '0 20 * * *'   # 8pm UTC = ~3pm ET after US markets close
+  workflow_dispatch:         # Allow manual trigger
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scrapers
+        run: python scrapers/run_all.py
+
+      - name: Commit new snapshots
+        run: |
+          git config user.name "BIA Bot"
+          git config user.email "bot@bia.local"
+          git add data/snapshots/
+          git diff --staged --quiet || git commit -m "chore: daily snapshot $(date -u +%Y-%m-%d)"
+          git push

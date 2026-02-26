@@ -1,0 +1,37 @@
+"""TCI Fund Management connector — quarterly 13F-HR filings."""
+
+import logging
+from typing import Any
+
+import scrapers.edgar as edgar
+from scrapers.base import Connector
+
+logger = logging.getLogger(__name__)
+
+CIK = "1647251"
+
+
+class TCIConnector(Connector):
+    fund_name = "TCI Fund Management"
+    fund_ticker = "TCI"
+
+    def fetch_raw(self) -> Any:
+        filing = edgar.get_latest_13f(CIK)
+        if not filing:
+            raise RuntimeError("TCI: No 13F-HR filing found on EDGAR")
+        xml_text = edgar.fetch_13f_xml(CIK, filing)
+        return {
+            "source": "edgar_13f",
+            "xml": xml_text,
+            "filing": filing,
+            "url": (
+                f"https://www.sec.gov/cgi-bin/browse-edgar?"
+                f"action=getcompany&CIK={CIK}&type=13F-HR"
+            ),
+        }
+
+    def parse_holdings(self, raw: Any) -> tuple[list[dict], str, str]:
+        holdings = edgar.parse_13f_xml(raw["xml"])
+        # 13F report date is the quarter-end date
+        as_of_date = raw["filing"].get("report_date", raw["filing"].get("filing_date", ""))
+        return holdings, as_of_date, raw["url"]

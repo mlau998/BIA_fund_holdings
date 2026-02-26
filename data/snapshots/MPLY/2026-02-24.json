@@ -1,0 +1,91 @@
+{
+  "fund_name": "Monopoly ETF",
+  "fund_ticker": "MPLY",
+  "as_of_date": "2026-02-24",
+  "source": "website",
+  "source_url": "https://strategysharesetfs.com/mply/",
+  "scrape_timestamp": "2026-02-25T21:00:04Z",
+  "warnings": [],
+  "holdings": [
+    {
+      "security_name": "CASH AND CASH EQUIVALENTS",
+      "security_ticker": null,
+      "shares": null,
+      "portfolio_weight": 10.457639,
+      "market_value": 169061066.45,
+      "holding_key": "CASH AND CASH EQUIVALENTS"
+    },
+    {
+      "security_name": "RECV NASDAQ 7 HANDL TRS",
+      "security_ticker": null,
+      "shares": null,
+      "portfolio_weight": 0.325144,
+      "market_value": 5256359.19,
+      "holding_key": "RECV NASDAQ 7 HANDL TRS"
+    },
+    {
+      "security_name": "PAYB NASDAQ 7 HANDL TRS",
+      "security_ticker": null,
+      "shares": null,
+      "portfolio_weight": 0.0,
+      "market_value": 0.0,
+      "holding_key": "PAYB NASDAQ 7 HANDL TRS"
+    },
+    {
+      "security_name": "ALERIAN MLP ETF",
+      "security_ticker": "AMLP",
+      "shares": null,
+      "portfolio_weight": 0.0,
+      "market_value": 0.0,
+      "holding_key": "AMLP"
+    },
+    {
+      "security_name": "FIDELITY TOTAL BOND ETF",
+      "security_ticker": "FBND US",
+      "shares": null,
+      "portfolio_weight": 1.689063,
+      "market_value": 27305850.0,
+      "holding_key": "FBND US"
+    },
+    {
+      "security_name": "GLOBAL X US PREFERRED ETF",
+      "security_ticker": "PFFD US",
+      "shares": null,
+      "portfolio_weight": 3.96528,
+      "market_value": 64103811.2,
+      "holding_key": "PFFD US"
+    },
+    {
+      "security_name": "INVESCO QQQ TRUST SERIES",
+      "security_ticker": "QQQ US",
+      "shares": null,
+      "portfolio_weight": 6.793452,
+      "market_value": 109824807.95,
+      "holding_key": "QQQ US"
+    },
+    {
+      "security_name": "INVESCO TAXABLE MUNICIPAL",
+      "security_ticker": "BAB US",
+      "shares": null,
+      "portfolio_weight": 2.776664,
+      "market_value": 44888317.76,
+      "holding_key": "BAB US"
+    },
+    {
+      "security_name": "ISHARES CORE S&P 500 ETF",
+      "security_ticker": "IVV US",
+      "shares": null,
+      "portfolio_weight": 2.257294,
+      "market_value": 36492027.0,
+      "holding_key": "IVV US"
+    },
+    {
+      "security_name": "ISHARES CORE U.S. AGGREGA",
+      "security_ticker": "AGG US",
+      "shares": null,
+      "portfolio_weight": 10.246711,
+      "market_value": 165651142.8,
+      "holding_key": "AGG US"
+    }
+  ]
+}

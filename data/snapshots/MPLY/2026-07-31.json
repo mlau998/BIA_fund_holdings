@@ -1,0 +1,816 @@
+{
+  "fund_name": "Monopoly ETF",
+  "fund_ticker": "MPLY",
+  "as_of_date": "2026-07-31",
+  "source": "csv",
+  "source_url": "https://strategysharesetfs.com/feeds/STRATEGYSHARES_STRATEGYSHARESMPLY_ETF_TOPHOLDINGS.CSV",
+  "scrape_timestamp": "2026-02-26T18:56:25Z",
+  "warnings": [
+    {
+      "level": "warning",
+      "message": "Holding count changed by 900%: 10 \u2192 100"
+    }
+  ],
+  "holdings": [
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": null,
+      "shares": 40484.43,
+      "portfolio_weight": 0.32642124,
+      "market_value": 0.32642124,
+      "holding_key": "MONOPOLY ETF"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "TSM US",
+      "shares": 1704.0,
+      "portfolio_weight": 5.29987836,
+      "market_value": 5.29987836,
+      "holding_key": "TSM US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ABT US",
+      "shares": 570.0,
+      "portfolio_weight": 0.52659175,
+      "market_value": 0.52659175,
+      "holding_key": "ABT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ABBV US",
+      "shares": 572.0,
+      "portfolio_weight": 1.05355826,
+      "market_value": 1.05355826,
+      "holding_key": "ABBV US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ADBE US",
+      "shares": 134.0,
+      "portfolio_weight": 0.2756924,
+      "market_value": 0.2756924,
+      "holding_key": "ADBE US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AMD US",
+      "shares": 532.0,
+      "portfolio_weight": 0.91725683,
+      "market_value": 0.91725683,
+      "holding_key": "AMD US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "A US",
+      "shares": 90.0,
+      "portfolio_weight": 0.09027204,
+      "market_value": 0.09027204,
+      "holding_key": "A US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "GOOG US",
+      "shares": 3895.0,
+      "portfolio_weight": 9.76442105,
+      "market_value": 9.76442105,
+      "holding_key": "GOOG US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AMZN US",
+      "shares": 3452.0,
+      "portfolio_weight": 5.80486578,
+      "market_value": 5.80486578,
+      "holding_key": "AMZN US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AXP US",
+      "shares": 224.0,
+      "portfolio_weight": 0.5788144,
+      "market_value": 0.5788144,
+      "holding_key": "AXP US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AMGN US",
+      "shares": 175.0,
+      "portfolio_weight": 0.54023133,
+      "market_value": 0.54023133,
+      "holding_key": "AMGN US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "1874329D",
+      "shares": 187.0,
+      "portfolio_weight": 0.17208056,
+      "market_value": 0.17208056,
+      "holding_key": "1874329D"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AAPL US",
+      "shares": 4586.0,
+      "portfolio_weight": 10.06275289,
+      "market_value": 10.06275289,
+      "holding_key": "AAPL US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AMAT US",
+      "shares": 259.0,
+      "portfolio_weight": 0.78922623,
+      "market_value": 0.78922623,
+      "holding_key": "AMAT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "APP US",
+      "shares": 111.0,
+      "portfolio_weight": 0.35192406,
+      "market_value": 0.35192406,
+      "holding_key": "APP US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ARES US",
+      "shares": 110.0,
+      "portfolio_weight": 0.10391122,
+      "market_value": 0.10391122,
+      "holding_key": "ARES US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ADSK US",
+      "shares": 69.0,
+      "portfolio_weight": 0.12290084,
+      "market_value": 0.12290084,
+      "holding_key": "ADSK US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ADP US",
+      "shares": 132.0,
+      "portfolio_weight": 0.21890535,
+      "market_value": 0.21890535,
+      "holding_key": "ADP US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AXON US",
+      "shares": 26.0,
+      "portfolio_weight": 0.09276557,
+      "market_value": 0.09276557,
+      "holding_key": "AXON US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "2481632D",
+      "shares": 53.0,
+      "portfolio_weight": 0.46196814,
+      "market_value": 0.46196814,
+      "holding_key": "2481632D"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "BX US",
+      "shares": 409.0,
+      "portfolio_weight": 0.3838875,
+      "market_value": 0.3838875,
+      "holding_key": "BX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "BSX US",
+      "shares": 495.0,
+      "portfolio_weight": 0.29993321,
+      "market_value": 0.29993321,
+      "holding_key": "BSX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AVGO",
+      "shares": 1543.0,
+      "portfolio_weight": 4.04943054,
+      "market_value": 4.04943054,
+      "holding_key": "AVGO"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "BR US",
+      "shares": 39.0,
+      "portfolio_weight": 0.05590336,
+      "market_value": 0.05590336,
+      "holding_key": "BR US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CDNS US",
+      "shares": 90.0,
+      "portfolio_weight": 0.21089842,
+      "market_value": 0.21089842,
+      "holding_key": "CDNS US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CAT US",
+      "shares": 156.0,
+      "portfolio_weight": 0.96628723,
+      "market_value": 0.96628723,
+      "holding_key": "CAT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CBOE US",
+      "shares": 35.0,
+      "portfolio_weight": 0.08266794,
+      "market_value": 0.08266794,
+      "holding_key": "CBOE US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "COR US",
+      "shares": 66.0,
+      "portfolio_weight": 0.19390493,
+      "market_value": 0.19390493,
+      "holding_key": "COR US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CI US",
+      "shares": 86.0,
+      "portfolio_weight": 0.19484764,
+      "market_value": 0.19484764,
+      "holding_key": "CI US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CTAS US",
+      "shares": 133.0,
+      "portfolio_weight": 0.21291777,
+      "market_value": 0.21291777,
+      "holding_key": "CTAS US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CSCO US",
+      "shares": 1300.0,
+      "portfolio_weight": 0.81904382,
+      "market_value": 0.81904382,
+      "holding_key": "CSCO US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CME US",
+      "shares": 121.0,
+      "portfolio_weight": 0.3112485,
+      "market_value": 0.3112485,
+      "holding_key": "CME US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CPRT US",
+      "shares": 323.0,
+      "portfolio_weight": 0.0918801,
+      "market_value": 0.0918801,
+      "holding_key": "CPRT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CSGP US",
+      "shares": 139.0,
+      "portfolio_weight": 0.05508441,
+      "market_value": 0.05508441,
+      "holding_key": "CSGP US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "COST US",
+      "shares": 144.0,
+      "portfolio_weight": 1.15923235,
+      "market_value": 1.15923235,
+      "holding_key": "COST US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CSX US",
+      "shares": 625.0,
+      "portfolio_weight": 0.21401916,
+      "market_value": 0.21401916,
+      "holding_key": "CSX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "DHI US",
+      "shares": 96.0,
+      "portfolio_weight": 0.12690333,
+      "market_value": 0.12690333,
+      "holding_key": "DHI US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "DE US",
+      "shares": 89.0,
+      "portfolio_weight": 0.46251973,
+      "market_value": 0.46251973,
+      "holding_key": "DE US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LLY US",
+      "shares": 309.0,
+      "portfolio_weight": 2.59644477,
+      "market_value": 2.59644477,
+      "holding_key": "LLY US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "EFX US",
+      "shares": 41.0,
+      "portfolio_weight": 0.06423796,
+      "market_value": 0.06423796,
+      "holding_key": "EFX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "EQIX US",
+      "shares": 32.0,
+      "portfolio_weight": 0.24560188,
+      "market_value": 0.24560188,
+      "holding_key": "EQIX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "FICO US",
+      "shares": 7.0,
+      "portfolio_weight": 0.06928766,
+      "market_value": 0.06928766,
+      "holding_key": "FICO US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "FISV US",
+      "shares": 198.0,
+      "portfolio_weight": 0.09439814,
+      "market_value": 0.09439814,
+      "holding_key": "FISV US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "FTNT US",
+      "shares": 252.0,
+      "portfolio_weight": 0.15285582,
+      "market_value": 0.15285582,
+      "holding_key": "FTNT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "HCA US",
+      "shares": 75.0,
+      "portfolio_weight": 0.3183952,
+      "market_value": 0.3183952,
+      "holding_key": "HCA US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "HD US",
+      "shares": 324.0,
+      "portfolio_weight": 1.00440564,
+      "market_value": 1.00440564,
+      "holding_key": "HD US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "IDXX US",
+      "shares": 28.0,
+      "portfolio_weight": 0.14657064,
+      "market_value": 0.14657064,
+      "holding_key": "IDXX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ICE US",
+      "shares": 186.0,
+      "portfolio_weight": 0.23299282,
+      "market_value": 0.23299282,
+      "holding_key": "ICE US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "INTU US",
+      "shares": 91.0,
+      "portfolio_weight": 0.26319356,
+      "market_value": 0.26319356,
+      "holding_key": "INTU US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ISRG US",
+      "shares": 117.0,
+      "portfolio_weight": 0.4660374,
+      "market_value": 0.4660374,
+      "holding_key": "ISRG US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "IQV US",
+      "shares": 54.0,
+      "portfolio_weight": 0.07178804,
+      "market_value": 0.07178804,
+      "holding_key": "IQV US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "JKHY US",
+      "shares": 25.0,
+      "portfolio_weight": 0.03148153,
+      "market_value": 0.03148153,
+      "holding_key": "JKHY US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "KLAC US",
+      "shares": 43.0,
+      "portfolio_weight": 0.52236156,
+      "market_value": 0.52236156,
+      "holding_key": "KLAC US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LRCX U",
+      "shares": 412.0,
+      "portfolio_weight": 0.81137602,
+      "market_value": 0.81137602,
+      "holding_key": "LRCX U"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LNTH US",
+      "shares": 25.0,
+      "portfolio_weight": 0.01483772,
+      "market_value": 0.01483772,
+      "holding_key": "LNTH US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LEN US",
+      "shares": 84.0,
+      "portfolio_weight": 0.07883565,
+      "market_value": 0.07883565,
+      "holding_key": "LEN US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LYV US",
+      "shares": 80.0,
+      "portfolio_weight": 0.10190195,
+      "market_value": 0.10190195,
+      "holding_key": "LYV US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LMT US",
+      "shares": 76.0,
+      "portfolio_weight": 0.40714884,
+      "market_value": 0.40714884,
+      "holding_key": "LMT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LOW US",
+      "shares": 182.0,
+      "portfolio_weight": 0.40881544,
+      "market_value": 0.40881544,
+      "holding_key": "LOW US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "MA US",
+      "shares": 295.0,
+      "portfolio_weight": 1.18451819,
+      "market_value": 1.18451819,
+      "holding_key": "MA US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "META",
+      "shares": 813.0,
+      "portfolio_weight": 4.19069088,
+      "market_value": 4.19069088,
+      "holding_key": "META"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "MSFT US",
+      "shares": 2402.0,
+      "portfolio_weight": 7.53378083,
+      "market_value": 7.53378083,
+      "holding_key": "MSFT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "MCO US",
+      "shares": 58.0,
+      "portfolio_weight": 0.21164311,
+      "market_value": 0.21164311,
+      "holding_key": "MCO US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "MSCI US",
+      "shares": 27.0,
+      "portfolio_weight": 0.11945299,
+      "market_value": 0.11945299,
+      "holding_key": "MSCI US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "NDAQ US",
+      "shares": 192.0,
+      "portfolio_weight": 0.12556425,
+      "market_value": 0.12556425,
+      "holding_key": "NDAQ US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "NFLX US",
+      "shares": 1502.0,
+      "portfolio_weight": 0.94509958,
+      "market_value": 0.94509958,
+      "holding_key": "NFLX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "NOC US",
+      "shares": 46.0,
+      "portfolio_weight": 0.2699097,
+      "market_value": 0.2699097,
+      "holding_key": "NOC US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "NVDA US",
+      "shares": 7101.0,
+      "portfolio_weight": 11.04153702,
+      "market_value": 11.04153702,
+      "holding_key": "NVDA US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ODFL US",
+      "shares": 66.0,
+      "portfolio_weight": 0.10467396,
+      "market_value": 0.10467396,
+      "holding_key": "ODFL US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ORCL US",
+      "shares": 941.0,
+      "portfolio_weight": 1.1087895,
+      "market_value": 1.1087895,
+      "holding_key": "ORCL US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "PLTR US",
+      "shares": 781.0,
+      "portfolio_weight": 0.8113199,
+      "market_value": 0.8113199,
+      "holding_key": "PLTR US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "PH US",
+      "shares": 41.0,
+      "portfolio_weight": 0.33818813,
+      "market_value": 0.33818813,
+      "holding_key": "PH US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "POOL US",
+      "shares": 10.0,
+      "portfolio_weight": 0.01751742,
+      "market_value": 0.01751742,
+      "holding_key": "POOL US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "QCOM US",
+      "shares": 351.0,
+      "portfolio_weight": 0.40973783,
+      "market_value": 0.40973783,
+      "holding_key": "QCOM US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "RSG US",
+      "shares": 98.0,
+      "portfolio_weight": 0.17442049,
+      "market_value": 0.17442049,
+      "holding_key": "RSG US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ROL US",
+      "shares": 168.0,
+      "portfolio_weight": 0.08196469,
+      "market_value": 0.08196469,
+      "holding_key": "ROL US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "SPGI US",
+      "shares": 100.0,
+      "portfolio_weight": 0.33724622,
+      "market_value": 0.33724622,
+      "holding_key": "SPGI US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "CRM US",
+      "shares": 306.0,
+      "portfolio_weight": 0.45747607,
+      "market_value": 0.45747607,
+      "holding_key": "CRM US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "NOW US",
+      "shares": 339.0,
+      "portfolio_weight": 0.28013771,
+      "market_value": 0.28013771,
+      "holding_key": "NOW US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "SHW US",
+      "shares": 81.0,
+      "portfolio_weight": 0.23820281,
+      "market_value": 0.23820281,
+      "holding_key": "SHW US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AOS US",
+      "shares": 37.0,
+      "portfolio_weight": 0.02303082,
+      "market_value": 0.02303082,
+      "holding_key": "AOS US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "SYK US",
+      "shares": 125.0,
+      "portfolio_weight": 0.38432741,
+      "market_value": 0.38432741,
+      "holding_key": "SYK US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "SNPS US",
+      "shares": 58.0,
+      "portfolio_weight": 0.20610149,
+      "market_value": 0.20610149,
+      "holding_key": "SNPS US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "TMUS US",
+      "shares": 365.0,
+      "portfolio_weight": 0.65327658,
+      "market_value": 0.65327658,
+      "holding_key": "TMUS US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "TSLA US",
+      "shares": 1073.0,
+      "portfolio_weight": 3.54174036,
+      "market_value": 3.54174036,
+      "holding_key": "TSLA US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "TXN US",
+      "shares": 318.0,
+      "portfolio_weight": 0.54702874,
+      "market_value": 0.54702874,
+      "holding_key": "TXN US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "TDG US",
+      "shares": 17.0,
+      "portfolio_weight": 0.17734949,
+      "market_value": 0.17734949,
+      "holding_key": "TDG US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "UBER US",
+      "shares": 1224.0,
+      "portfolio_weight": 0.70444702,
+      "market_value": 0.70444702,
+      "holding_key": "UBER US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "UNH US",
+      "shares": 295.0,
+      "portfolio_weight": 0.65160393,
+      "market_value": 0.65160393,
+      "holding_key": "UNH US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "VRSN US",
+      "shares": 32.0,
+      "portfolio_weight": 0.05507272,
+      "market_value": 0.05507272,
+      "holding_key": "VRSN US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "VRTX US",
+      "shares": 84.0,
+      "portfolio_weight": 0.33012766,
+      "market_value": 0.33012766,
+      "holding_key": "VRTX US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "V US",
+      "shares": 642.0,
+      "portfolio_weight": 1.59028473,
+      "market_value": 1.59028473,
+      "holding_key": "V US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "VMC US",
+      "shares": 44.0,
+      "portfolio_weight": 0.11277684,
+      "market_value": 0.11277684,
+      "holding_key": "VMC US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "WMT US",
+      "shares": 2623.0,
+      "portfolio_weight": 2.68062853,
+      "market_value": 2.68062853,
+      "holding_key": "WMT US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "WM US",
+      "shares": 133.0,
+      "portfolio_weight": 0.24619321,
+      "market_value": 0.24619321,
+      "holding_key": "WM US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "WST US",
+      "shares": 25.0,
+      "portfolio_weight": 0.04946176,
+      "market_value": 0.04946176,
+      "holding_key": "WST US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ZTS US",
+      "shares": 150.0,
+      "portfolio_weight": 0.15560559,
+      "market_value": 0.15560559,
+      "holding_key": "ZTS US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "AON US",
+      "shares": 72.0,
+      "portfolio_weight": 0.18537988,
+      "market_value": 0.18537988,
+      "holding_key": "AON US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "ASML US",
+      "shares": 128.0,
+      "portfolio_weight": 1.5458031,
+      "market_value": 1.5458031,
+      "holding_key": "ASML US"
+    },
+    {
+      "security_name": "MONOPOLY ETF",
+      "security_ticker": "LIN U",
+      "shares": 155.0,
+      "portfolio_weight": 0.62987245,
+      "market_value": 0.62987245,
+      "holding_key": "LIN U"
+    }
+  ]
+}
