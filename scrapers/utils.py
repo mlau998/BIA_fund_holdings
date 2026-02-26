@@ -35,6 +35,60 @@ def normalize_key(ticker: Optional[str], name: str) -> str:
     return re.sub(r"\s+", " ", name.strip().upper())
 
 
+OPENFIGI_URL = "https://api.openfigi.com/v3/mapping"
+_US_EXCH_CODES = {"US", "UN", "UQ", "UW", "UA", "UR", "UP", "UU"}
+
+
+def cusip_to_tickers(cusips: list[str]) -> dict[str, str]:
+    """Look up exchange tickers for a list of CUSIPs via the OpenFIGI API.
+
+    Returns a dict mapping CUSIP -> ticker (US listing preferred).
+    CUSIPs with no match are omitted. No API key required for basic use.
+    """
+    if not cusips:
+        return {}
+
+    result: dict[str, str] = {}
+    for i in range(0, len(cusips), 10):  # max 10 jobs per unauthenticated request
+        batch = cusips[i : i + 10]
+        payload = [{"idType": "ID_CUSIP", "idValue": c} for c in batch]
+        try:
+            resp = requests.post(
+                OPENFIGI_URL,
+                json=payload,
+                headers={"Content-Type": "application/json"},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        except Exception as e:
+            logger.warning("OpenFIGI CUSIP lookup failed: %s", e)
+            continue
+
+        for cusip, item in zip(batch, data):
+            if "data" not in item:
+                continue
+            # Prefer US-listed equity
+            candidates = [
+                d for d in item["data"]
+                if d.get("marketSector") == "Equity"
+                and d.get("exchCode") in _US_EXCH_CODES
+                and d.get("ticker")
+            ]
+            if not candidates:
+                candidates = [
+                    d for d in item["data"]
+                    if d.get("marketSector") == "Equity" and d.get("ticker")
+                ]
+            if candidates:
+                result[cusip] = candidates[0]["ticker"]
+
+        if i + 10 < len(cusips):
+            time.sleep(1)  # stay well under 25 req/min unauthenticated limit
+
+    return result
+
+
 def retry_get(
     url: str,
     max_retries: int = 3,

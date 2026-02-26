@@ -4,6 +4,7 @@ import { FUND_CONFIG, ALL_TICKERS } from "@/lib/config";
 import { readLatestSnapshot, getFundStatus, listSnapshotDates } from "@/lib/snapshots";
 import { isErrorSnapshot, Snapshot } from "@/types";
 import HoldingsTable from "@/components/HoldingsTable";
+import MPLYHoldingsTable from "@/components/MPLYHoldingsTable";
 import WarningBanner from "@/components/WarningBanner";
 
 export const dynamic = "force-dynamic";
@@ -94,7 +95,7 @@ export default async function FundDetailPage({ params }: Props) {
       {/* Warnings */}
       {warnings.length > 0 && (
         <section>
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">Warnings</h2>
+          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">Notifications</h2>
           <WarningBanner warnings={warnings} />
         </section>
       )}
@@ -113,7 +114,11 @@ export default async function FundDetailPage({ params }: Props) {
               View changes →
             </Link>
           </div>
-          <HoldingsTable holdings={snapshot.holdings} showFund={false} showExtraColumns />
+          {upperTicker === "MPLY" ? (
+            <MPLYHoldingsTable holdings={snapshot.holdings} />
+          ) : (
+            <HoldingsTable holdings={snapshot.holdings} showFund={false} showExtraColumns fundTicker={upperTicker} />
+          )}
         </section>
       )}
     </div>

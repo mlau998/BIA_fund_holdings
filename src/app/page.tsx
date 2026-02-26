@@ -83,7 +83,7 @@ export default function DashboardPage() {
       {allWarnings.length > 0 && (
         <section>
           <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Warnings
+            Notifications
           </h2>
           <WarningBanner warnings={allWarnings} />
         </section>

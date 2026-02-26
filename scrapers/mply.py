@@ -100,19 +100,35 @@ class MPLYConnector(Connector):
 
         col_map = {}
         if reader.fieldnames:
+            # Pass 1: exact normalized name match
+            normalized_map = {(f or "").strip().replace(" ", "").lower(): f for f in reader.fieldnames}
+            exact_map = {
+                "name":               normalized_map.get("holdingname"),
+                "ticker":             normalized_map.get("ticker"),
+                "weight":             normalized_map.get("marketvalue%"),
+                "value":              normalized_map.get("marketvalue"),
+                "shares":             normalized_map.get("sharesquantity"),
+                "asset_group":        normalized_map.get("assetgroup"),
+                "notional_value_pct": normalized_map.get("notionalvalue%"),
+                "notional_value":     normalized_map.get("notionalvalue"),
+                "date":               normalized_map.get("effectivedate"),
+            }
+            col_map = {k: v for k, v in exact_map.items() if v is not None}
+
+            # Pass 2: keyword fallback for any still-unmapped fields
             for raw_col in reader.fieldnames:
                 h = (raw_col or "").strip().lower()
                 if not col_map.get("name") and ("name" in h or "security" in h or "holding" in h or "description" in h):
                     col_map["name"] = raw_col
-                if "ticker" in h or "symbol" in h:
+                if not col_map.get("ticker") and ("ticker" in h or "symbol" in h):
                     col_map["ticker"] = raw_col
-                if "share" in h and "weight" not in h:
+                if not col_map.get("shares") and "share" in h and "weight" not in h:
                     col_map["shares"] = raw_col
-                if "weight" in h or ("%" in h):
+                if not col_map.get("weight") and ("weight" in h or ("%" in h)):
                     col_map.setdefault("weight", raw_col)
-                if "value" in h or "market" in h or "notional" in h:
+                if not col_map.get("value") and ("value" in h or "market" in h or "notional" in h):
                     col_map.setdefault("value", raw_col)
-                if "date" in h and not as_of_date:
+                if not col_map.get("date") and "date" in h and not as_of_date:
                     col_map["date"] = raw_col
 
         def get_field(row, key):
@@ -149,6 +165,10 @@ class MPLYConnector(Connector):
                 "shares": shares,
                 "portfolio_weight": weight,
                 "market_value": value,
+                "effective_date": get_field(row, "date") or None,
+                "asset_group": get_field(row, "asset_group") or None,
+                "notional_value_pct": parse_number(get_field(row, "notional_value_pct")),
+                "notional_value": parse_number(get_field(row, "notional_value")),
                 "holding_key": normalize_key(ticker, name),
             })
 

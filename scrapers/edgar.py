@@ -222,6 +222,12 @@ def parse_13f_xml(xml_bytes: bytes) -> list[dict]:
             find_text(it, ".//{*}shrsOrPrnAmt/{*}sshPrnamt")
             or find_text(it, "shrsOrPrnAmt/sshPrnamt")
         )
+        title_of_class = (
+            find_text(it, ".//{*}titleOfClass") or find_text(it, "titleOfClass") or None
+        )
+        ticker = (
+            find_text(it, ".//{*}ticker") or find_text(it, "ticker") or None
+        )
 
         value = (parse_number(value_str) or 0)  # convert to USD
         shares = parse_number(shares_str)
@@ -229,10 +235,11 @@ def parse_13f_xml(xml_bytes: bytes) -> list[dict]:
         if name:
             raw.append({
                 "security_name": name,
-                "security_ticker": None,  # 13F has CUSIP not ticker
+                "security_ticker": ticker,
                 "cusip": cusip,
                 "shares": shares,
                 "market_value": value,
+                "title_of_class": title_of_class,
                 "holding_key": cusip if cusip else normalize_key(None, name),
             })
             total_value += value

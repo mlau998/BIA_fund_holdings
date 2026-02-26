@@ -8,6 +8,15 @@ export interface HoldingRecord {
   portfolio_weight?: number;
   market_value?: number;
   holding_key: string;
+  // Fund-specific optional fields
+  title_of_class?: string;      // TCI 13F titleOfClass
+  sector?: string;               // GRNY
+  last_price?: number;           // GRNY
+  market_price_change?: number;  // GRNY (MarketPriceCh%)
+  effective_date?: string;       // MPLY
+  asset_group?: string;          // MPLY
+  notional_value_pct?: number;   // MPLY (NotionalValue%)
+  notional_value?: number;       // MPLY
 }
 
 export interface SnapshotWarning {

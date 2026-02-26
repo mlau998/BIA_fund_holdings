@@ -4,92 +4,96 @@
   "as_of_date": "2025-12-31",
   "source": "edgar_13f",
   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1647251&type=13F-HR",
-  "scrape_timestamp": "2026-02-26T18:56:27Z",
-  "warnings": [
-    {
-      "level": "warning",
-      "message": "Low ticker coverage: only 0% of holdings have tickers"
-    }
-  ],
+  "scrape_timestamp": "2026-02-26T20:24:31Z",
+  "warnings": [],
   "holdings": [
     {
       "security_name": "ALPHABET INC",
-      "security_ticker": null,
+      "security_ticker": "GOOG",
       "cusip": "02079K107",
       "shares": 7596819.0,
       "market_value": 2383881802.0,
+      "title_of_class": "CAP STK CL C",
       "holding_key": "02079K107",
       "portfolio_weight": 4.4435
     },
     {
       "security_name": "CANADIAN NATL RY CO",
-      "security_ticker": null,
+      "security_ticker": "CNI",
       "cusip": "136375102",
       "shares": 9849934.0,
       "market_value": 974114657.0,
+      "title_of_class": "COM",
       "holding_key": "136375102",
       "portfolio_weight": 1.8157
     },
     {
       "security_name": "CANADIAN PACIFIC KANSAS CITY",
-      "security_ticker": null,
+      "security_ticker": "CP",
       "cusip": "13646K108",
       "shares": 47654423.0,
       "market_value": 3508630329.0,
+      "title_of_class": "COM",
       "holding_key": "13646K108",
       "portfolio_weight": 6.54
     },
     {
       "security_name": "FERROVIAL SE",
-      "security_ticker": null,
+      "security_ticker": "FERR",
       "cusip": "N3168P101",
       "shares": 20740214.0,
       "market_value": 1348162940.0,
+      "title_of_class": "ORD SHS",
       "holding_key": "N3168P101",
       "portfolio_weight": 2.5129
     },
     {
       "security_name": "GE AEROSPACE",
-      "security_ticker": null,
+      "security_ticker": "GE",
       "cusip": "369604301",
       "shares": 47510431.0,
       "market_value": 14634638061.0,
+      "title_of_class": "COM NEW",
       "holding_key": "369604301",
       "portfolio_weight": 27.2786
     },
     {
       "security_name": "MICROSOFT CORP",
-      "security_ticker": null,
+      "security_ticker": "MSFT",
       "cusip": "594918104",
       "shares": 16781953.0,
       "market_value": 8116088110.0,
+      "title_of_class": "COM",
       "holding_key": "594918104",
       "portfolio_weight": 15.1282
     },
     {
       "security_name": "MOODYS CORP",
-      "security_ticker": null,
+      "security_ticker": "MCO",
       "cusip": "615369105",
       "shares": 13308479.0,
       "market_value": 6798636497.0,
+      "title_of_class": "COM",
       "holding_key": "615369105",
       "portfolio_weight": 12.6725
     },
     {
       "security_name": "S&P GLOBAL INC",
-      "security_ticker": null,
+      "security_ticker": "SPGI",
       "cusip": "78409V104",
       "shares": 11790310.0,
       "market_value": 6161498103.0,
+      "title_of_class": "COM",
       "holding_key": "78409V104",
       "portfolio_weight": 11.4849
     },
     {
       "security_name": "VISA INC",
-      "security_ticker": null,
+      "security_ticker": "V",
       "cusip": "92826C839",
       "shares": 27724233.0,
       "market_value": 9723165755.0,
+      "title_of_class": "COM CL A",
       "holding_key": "92826C839",
       "portfolio_weight": 18.1237
     }

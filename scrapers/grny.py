@@ -87,10 +87,16 @@ class GRNYConnector(Connector):
                 col_map["ticker"] = i
             if "share" in h and "weight" not in h:
                 col_map["shares"] = i
-            if "weight" in h or "%" in h:
-                col_map["weight"] = i
-            if "value" in h or "market" in h:
-                col_map["value"] = i
+            if "sector" in h:
+                col_map["sector"] = i
+            if ("price" in h or "last" in h) and "chg" not in h and "change" not in h and "%" not in h:
+                col_map.setdefault("last_price", i)
+            if ("chg" in h or "change" in h or "ch%" in h) and "%" in h:
+                col_map["market_price_change"] = i
+            elif "weight" in h or ("%" in h and "chg" not in h and "change" not in h and "price" not in h):
+                col_map.setdefault("weight", i)
+            if ("value" in h or "market" in h) and "%" not in h and "chg" not in h and "change" not in h:
+                col_map.setdefault("value", i)
 
         for row in rows[1:]:
             cells = row.find_all(["td", "th"])
@@ -119,6 +125,9 @@ class GRNYConnector(Connector):
                 "shares": shares,
                 "portfolio_weight": weight,
                 "market_value": value,
+                "sector": get_col("sector") or None,
+                "last_price": parse_number(get_col("last_price")),
+                "market_price_change": parse_number(get_col("market_price_change")),
                 "holding_key": normalize_key(ticker, name),
             })
 

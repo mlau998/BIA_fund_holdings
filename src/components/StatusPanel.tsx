@@ -39,7 +39,7 @@ export default function StatusPanel({ statuses }: Props) {
                 {status.hasError
                   ? "Error"
                   : status.warningCount > 0
-                  ? `${status.warningCount} warn`
+                  ? `${status.warningCount} notice`
                   : "OK"}
               </span>
             </div>

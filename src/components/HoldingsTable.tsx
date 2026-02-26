@@ -15,6 +15,7 @@ interface Props {
   holdings: HoldingRow[];
   showFund?: boolean;
   showExtraColumns?: boolean;
+  fundTicker?: string;
 }
 
 function hasAny(rows: HoldingRow[], key: keyof HoldingRow): boolean {
@@ -30,16 +31,28 @@ function fmtCurrency(val: number | undefined | null): string {
   if (val == null) return "—";
   if (val >= 1_000_000_000) return `$${(val / 1_000_000_000).toFixed(2)}B`;
   if (val >= 1_000_000) return `$${(val / 1_000_000).toFixed(2)}M`;
+  if (val >= 1_000) return `$${(val / 1_000).toFixed(2)}K`;
   return `$${val.toLocaleString()}`;
 }
 
-export default function HoldingsTable({ holdings, showFund = true, showExtraColumns = false }: Props) {
+function fmtCurrencyWhole(val: number | undefined | null): string {
+  if (val == null) return "—";
+  return `$${Math.round(val).toLocaleString()}`;
+}
+
+export default function HoldingsTable({
+  holdings,
+  showFund = true,
+  showExtraColumns = false,
+  fundTicker,
+}: Props) {
   const [sortKey, setSortKey] = useState<SortKey>("portfolio_weight");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
-  const showCusip = showExtraColumns && hasAny(holdings, "cusip");
-  const showSedol = showExtraColumns && hasAny(holdings, "sedol");
-  const showIsin = showExtraColumns && hasAny(holdings, "isin");
+  const showTitleOfClass = fundTicker === "TCI" && hasAny(holdings, "title_of_class");
+  const showGrnyCols = fundTicker === "GRNY" && (
+    hasAny(holdings, "sector") || hasAny(holdings, "last_price") || hasAny(holdings, "market_price_change")
+  );
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
@@ -87,6 +100,8 @@ export default function HoldingsTable({ holdings, showFund = true, showExtraColu
     );
   }
 
+  const useWholeDollar = fundTicker === "IVES" || fundTicker === "GRNY" || fundTicker === "TCI" || fundTicker === "MPLY";
+
   return (
     <div className="overflow-x-auto rounded-lg border border-gray-200">
       <table className="min-w-full divide-y divide-gray-200 text-sm">
@@ -95,12 +110,17 @@ export default function HoldingsTable({ holdings, showFund = true, showExtraColu
             {showFund && <Th col="fund_ticker" label="Fund" />}
             <Th col="security_name" label="Security" />
             <Th col="security_ticker" label="Ticker" />
-            {showCusip && <Th col="cusip" label="CUSIP" />}
-            {showSedol && <Th col="sedol" label="SEDOL" />}
-            {showIsin && <Th col="isin" label="ISIN" />}
             <Th col="shares" label="Shares" />
-            <Th col="portfolio_weight" label="Weight %" />
+            {showTitleOfClass && <Th col="title_of_class" label="Title of Class" />}
             <Th col="market_value" label="Market Value" />
+            <Th col="portfolio_weight" label="Weight %" />
+            {showGrnyCols && (
+              <>
+                <Th col="sector" label="Sector" />
+                <Th col="last_price" label="Last Price" />
+                <Th col="market_price_change" label="Price Chg %" />
+              </>
+            )}
             {showFund && <Th col="as_of_date" label="As of Date" />}
           </tr>
         </thead>
@@ -118,24 +138,29 @@ export default function HoldingsTable({ holdings, showFund = true, showExtraColu
               <td className="px-3 py-2 font-mono text-xs text-gray-600">
                 {h.security_ticker || "—"}
               </td>
-              {showCusip && (
-                <td className="px-3 py-2 font-mono text-xs text-gray-500">{h.cusip || "—"}</td>
-              )}
-              {showSedol && (
-                <td className="px-3 py-2 font-mono text-xs text-gray-500">{h.sedol || "—"}</td>
-              )}
-              {showIsin && (
-                <td className="px-3 py-2 font-mono text-xs text-gray-500">{h.isin || "—"}</td>
-              )}
               <td className="px-3 py-2 text-right text-gray-700">
                 {h.shares != null ? h.shares.toLocaleString() : "—"}
+              </td>
+              {showTitleOfClass && (
+                <td className="px-3 py-2 text-xs text-gray-600">{h.title_of_class || "—"}</td>
+              )}
+              <td className="px-3 py-2 text-right text-gray-700">
+                {useWholeDollar ? fmtCurrencyWhole(h.market_value) : fmtCurrency(h.market_value)}
               </td>
               <td className="px-3 py-2 text-right text-gray-700">
                 {h.portfolio_weight != null ? `${fmt(h.portfolio_weight)}%` : "—"}
               </td>
-              <td className="px-3 py-2 text-right text-gray-700">
-                {fmtCurrency(h.market_value)}
-              </td>
+              {showGrnyCols && (
+                <>
+                  <td className="px-3 py-2 text-gray-700">{h.sector || "—"}</td>
+                  <td className="px-3 py-2 text-right text-gray-700">
+                    {h.last_price != null ? `$${h.last_price.toLocaleString()}` : "—"}
+                  </td>
+                  <td className={`px-3 py-2 text-right font-medium ${h.market_price_change != null && h.market_price_change < 0 ? "text-red-600" : h.market_price_change != null && h.market_price_change > 0 ? "text-green-600" : "text-gray-700"}`}>
+                    {h.market_price_change != null ? `${fmt(h.market_price_change)}%` : "—"}
+                  </td>
+                </>
+              )}
               {showFund && (
                 <td className="px-3 py-2 text-xs text-gray-400 whitespace-nowrap">
                   {h.as_of_date}
