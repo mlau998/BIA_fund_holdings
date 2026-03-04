@@ -1,0 +1,267 @@
+{
+  "fund_name": "Dan Ives Wedbush AI Revolution ETF",
+  "fund_ticker": "IVES",
+  "as_of_date": "2026-03-03",
+  "source": "csv",
+  "source_url": "https://wedbushfunds.com/latest-sod-holdings-ives",
+  "scrape_timestamp": "2026-03-04T20:24:08Z",
+  "warnings": [],
+  "holdings": [
+    {
+      "security_name": "AMAZON.COM INC",
+      "security_ticker": "AMZN",
+      "shares": 214514.0,
+      "portfolio_weight": 4.9562,
+      "market_value": 44775507.22,
+      "holding_key": "AMZN"
+    },
+    {
+      "security_name": "MICROSOFT CORP",
+      "security_ticker": "MSFT",
+      "shares": 109907.0,
+      "portfolio_weight": 4.9141,
+      "market_value": 44394734.51,
+      "holding_key": "MSFT"
+    },
+    {
+      "security_name": "TAIWAN SEMICONDUCTOR-SP ADR",
+      "security_ticker": "TSM",
+      "shares": 125547.0,
+      "portfolio_weight": 4.9074,
+      "market_value": 44334412.11,
+      "holding_key": "TSM"
+    },
+    {
+      "security_name": "APPLE INC",
+      "security_ticker": "AAPL",
+      "shares": 167565.0,
+      "portfolio_weight": 4.892,
+      "market_value": 44195268.75,
+      "holding_key": "AAPL"
+    },
+    {
+      "security_name": "NVIDIA CORP",
+      "security_ticker": "NVDA",
+      "shares": 243088.0,
+      "portfolio_weight": 4.8447,
+      "market_value": 43767994.4,
+      "holding_key": "NVDA"
+    },
+    {
+      "security_name": "META PLATFORMS INC-CLASS A",
+      "security_ticker": "META",
+      "shares": 65342.0,
+      "portfolio_weight": 4.738,
+      "market_value": 42804237.36,
+      "holding_key": "META"
+    },
+    {
+      "security_name": "ALPHABET INC-CL A",
+      "security_ticker": "GOOGL",
+      "shares": 137655.0,
+      "portfolio_weight": 4.6257,
+      "market_value": 41789304.9,
+      "holding_key": "GOOGL"
+    },
+    {
+      "security_name": "TESLA INC",
+      "security_ticker": "TSLA",
+      "shares": 105063.0,
+      "portfolio_weight": 4.5638,
+      "market_value": 41229873.09,
+      "holding_key": "TSLA"
+    },
+    {
+      "security_name": "BROADCOM INC",
+      "security_ticker": "AVGO",
+      "shares": 129099.0,
+      "portfolio_weight": 4.4848,
+      "market_value": 40516430.16,
+      "holding_key": "AVGO"
+    },
+    {
+      "security_name": "MICRON TECHNOLOGY INC",
+      "security_ticker": "MU",
+      "shares": 101900.0,
+      "portfolio_weight": 4.2826,
+      "market_value": 38689392.0,
+      "holding_key": "MU"
+    },
+    {
+      "security_name": "PALANTIR TECHNOLOGIES INC-A",
+      "security_ticker": "PLTR",
+      "shares": 252252.0,
+      "portfolio_weight": 4.1107,
+      "market_value": 37136539.44,
+      "holding_key": "PLTR"
+    },
+    {
+      "security_name": "GE VERNOVA INC",
+      "security_ticker": "GEV",
+      "shares": 41015.0,
+      "portfolio_weight": 3.8227,
+      "market_value": 34534630.0,
+      "holding_key": "GEV"
+    },
+    {
+      "security_name": "ORACLE CORP",
+      "security_ticker": "ORCL",
+      "shares": 221520.0,
+      "portfolio_weight": 3.6538,
+      "market_value": 33008695.2,
+      "holding_key": "ORCL"
+    },
+    {
+      "security_name": "ADVANCED MICRO DEVICES",
+      "security_ticker": "AMD",
+      "shares": 171855.0,
+      "portfolio_weight": 3.6324,
+      "market_value": 32815712.25,
+      "holding_key": "AMD"
+    },
+    {
+      "security_name": "ALIBABA GROUP HOLDING-SP ADR",
+      "security_ticker": "BABA",
+      "shares": 233458.0,
+      "portfolio_weight": 3.5039,
+      "market_value": 31654570.22,
+      "holding_key": "BABA"
+    },
+    {
+      "security_name": "SALESFORCE INC",
+      "security_ticker": "CRM",
+      "shares": 161148.0,
+      "portfolio_weight": 3.4971,
+      "market_value": 31593065.4,
+      "holding_key": "CRM"
+    },
+    {
+      "security_name": "SHOPIFY INC - CLASS A",
+      "security_ticker": "SHOP",
+      "shares": 251209.0,
+      "portfolio_weight": 3.3888,
+      "market_value": 30614840.83,
+      "holding_key": "SHOP"
+    },
+    {
+      "security_name": "SERVICENOW INC",
+      "security_ticker": "NOW",
+      "shares": 266363.0,
+      "portfolio_weight": 3.3373,
+      "market_value": 30149627.97,
+      "holding_key": "NOW"
+    },
+    {
+      "security_name": "INTL BUSINESS MACHINES CORP",
+      "security_ticker": "IBM",
+      "shares": 118004.0,
+      "portfolio_weight": 3.2038,
+      "market_value": 28944021.12,
+      "holding_key": "IBM"
+    },
+    {
+      "security_name": "PALO ALTO NETWORKS INC",
+      "security_ticker": "PANW",
+      "shares": 169298.0,
+      "portfolio_weight": 2.9251,
+      "market_value": 26425724.82,
+      "holding_key": "PANW"
+    },
+    {
+      "security_name": "CROWDSTRIKE HOLDINGS INC - A",
+      "security_ticker": "CRWD",
+      "shares": 66393.0,
+      "portfolio_weight": 2.8766,
+      "market_value": 25987548.06,
+      "holding_key": "CRWD"
+    },
+    {
+      "security_name": "SNOWFLAKE INC",
+      "security_ticker": "SNOW",
+      "shares": 134578.0,
+      "portfolio_weight": 2.4697,
+      "market_value": 22311686.62,
+      "holding_key": "SNOW"
+    },
+    {
+      "security_name": "NEBIUS GROUP NV",
+      "security_ticker": "NBIS",
+      "shares": 192831.0,
+      "portfolio_weight": 1.8527,
+      "market_value": 16737730.8,
+      "holding_key": "NBIS"
+    },
+    {
+      "security_name": "ZSCALER INC",
+      "security_ticker": "ZS",
+      "shares": 103035.0,
+      "portfolio_weight": 1.764,
+      "market_value": 15936423.45,
+      "holding_key": "ZS"
+    },
+    {
+      "security_name": "COREWEAVE INC-CL A",
+      "security_ticker": "CRWV",
+      "shares": 205702.0,
+      "portfolio_weight": 1.6799,
+      "market_value": 15176693.56,
+      "holding_key": "CRWV"
+    },
+    {
+      "security_name": "MONGODB INC",
+      "security_ticker": "MDB",
+      "shares": 55235.0,
+      "portfolio_weight": 1.5452,
+      "market_value": 13959541.55,
+      "holding_key": "MDB"
+    },
+    {
+      "security_name": "IREN LTD",
+      "security_ticker": "IREN",
+      "shares": 358329.0,
+      "portfolio_weight": 1.5409,
+      "market_value": 13921081.65,
+      "holding_key": "IREN"
+    },
+    {
+      "security_name": "Pegasystems Inc",
+      "security_ticker": "PEGA",
+      "shares": 286665.0,
+      "portfolio_weight": 1.4282,
+      "market_value": 12902791.65,
+      "holding_key": "PEGA"
+    },
+    {
+      "security_name": "OKLO INC",
+      "security_ticker": "OKLO",
+      "shares": 199364.0,
+      "portfolio_weight": 1.3969,
+      "market_value": 12619741.2,
+      "holding_key": "OKLO"
+    },
+    {
+      "security_name": "INNODATA INC",
+      "security_ticker": "INOD",
+      "shares": 218684.0,
+      "portfolio_weight": 1.0583,
+      "market_value": 9560864.48,
+      "holding_key": "INOD"
+    },
+    {
+      "security_name": "DREYFUS TR & AG CSH MGMT-INS",
+      "security_ticker": "DTRXX",
+      "shares": 1239018.0,
+      "portfolio_weight": 0.1371,
+      "market_value": 1239017.59,
+      "holding_key": "DTRXX"
+    },
+    {
+      "security_name": "CASH",
+      "security_ticker": "CASH",
+      "shares": 0.0,
+      "portfolio_weight": 0.0,
+      "market_value": -0.41,
+      "holding_key": "CASH"
+    }
+  ]
+}
