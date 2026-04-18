@@ -4,7 +4,7 @@
   "as_of_date": "2025-12-31",
   "source": "edgar_13f",
   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1647251&type=13F-HR",
-  "scrape_timestamp": "2026-04-17T20:36:19Z",
+  "scrape_timestamp": "2026-04-18T20:27:20Z",
   "warnings": [],
   "holdings": [
     {
