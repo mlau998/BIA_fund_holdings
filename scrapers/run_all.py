@@ -11,6 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scrapers.funds import get_connectors
+from scrapers.email_report import send_report
 
 logging.basicConfig(
     level=logging.INFO,
@@ -171,6 +172,9 @@ def main():
         sys.exit(1)
     else:
         print("\nAll funds scraped successfully.")
+        app_url = os.environ.get("APP_URL", "")
+        succeeded = [t for t, s in results.items() if s == "OK"]
+        send_report(succeeded, app_url)
 
 
 if __name__ == "__main__":
