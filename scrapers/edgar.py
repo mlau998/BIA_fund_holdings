@@ -360,6 +360,8 @@ class NPortConnector(Connector):
     fund_ticker: str
     cik: str
     series_id: str
+    CUSIP_FALLBACK: dict = {}  # {cusip: ticker} for non-US CUSIPs OpenFIGI can't resolve
+    NAME_FALLBACK: dict = {}   # {uppercase_name: ticker} for holdings with placeholder CUSIPs
 
     def fetch_raw(self) -> Any:
         filing = get_latest_nport(self.cik, self.series_id)
@@ -405,6 +407,14 @@ class NPortConnector(Connector):
                 if not h.get("security_ticker") and h.get("cusip") in ticker_map:
                     h["security_ticker"] = ticker_map[h["cusip"]]
                     h["holding_key"] = normalize_key(h["security_ticker"], h["security_name"])
+
+        for h in holdings:
+            if not h.get("security_ticker") and h.get("cusip") in self.CUSIP_FALLBACK:
+                h["security_ticker"] = self.CUSIP_FALLBACK[h["cusip"]]
+                h["holding_key"] = normalize_key(h["security_ticker"], h["security_name"])
+            if not h.get("security_ticker") and h["security_name"].upper() in self.NAME_FALLBACK:
+                h["security_ticker"] = self.NAME_FALLBACK[h["security_name"].upper()]
+                h["holding_key"] = normalize_key(h["security_ticker"], h["security_name"])
 
         as_of_date = raw["filing"].get("report_date", raw["filing"].get("filing_date", ""))
         return holdings, as_of_date, raw["url"]

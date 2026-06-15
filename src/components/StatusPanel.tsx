@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FundMeta, FundStatus } from "@/types";
 
 interface Props {
@@ -38,9 +39,10 @@ export default function StatusPanel({ statuses, fundConfig }: Props) {
         const isOverdue = deadline && deadline.getTime() < Date.now();
 
         return (
-          <div
+          <Link
             key={status.ticker}
-            className={`rounded-lg border p-3 ${
+            href={`/fund/${status.ticker}`}
+            className={`block rounded-lg border p-3 transition-shadow hover:shadow-md ${
               status.hasError
                 ? "border-red-300 bg-red-50"
                 : status.warningCount > 0
@@ -89,7 +91,7 @@ export default function StatusPanel({ statuses, fundConfig }: Props) {
                 </span>
               </p>
             )}
-          </div>
+          </Link>
         );
       })}
     </div>

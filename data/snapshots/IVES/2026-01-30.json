@@ -4,257 +4,283 @@
   "as_of_date": "2026-01-30",
   "source": "edgar_nport",
   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055464&type=N-PORT",
-  "scrape_timestamp": "2026-06-15T05:20:53Z",
-  "warnings": [
-    {
-      "level": "warning",
-      "message": "Low ticker coverage: only 0% of holdings have tickers"
-    }
-  ],
+  "scrape_timestamp": "2026-06-15T07:59:36Z",
+  "warnings": [],
   "holdings": [
     {
       "security_name": "Oklo Inc",
-      "security_ticker": null,
+      "security_ticker": "OKLO",
+      "cusip": "02156V109",
       "shares": 191749.0,
       "market_value": 15267055.38,
       "portfolio_weight": 1.475808384131,
-      "holding_key": "OKLO INC"
+      "holding_key": "OKLO"
     },
     {
       "security_name": "Nebius Group NV",
-      "security_ticker": null,
+      "security_ticker": "NBIS",
+      "cusip": "000000000",
       "shares": 217183.0,
       "market_value": 18501819.77,
       "portfolio_weight": 1.788500798524,
-      "holding_key": "NEBIUS GROUP NV"
+      "holding_key": "NBIS"
     },
     {
       "security_name": "MongoDB Inc",
-      "security_ticker": null,
+      "security_ticker": "MDB",
+      "cusip": "60937P106",
       "shares": 52972.0,
       "market_value": 19670092.76,
       "portfolio_weight": 1.901433320918,
-      "holding_key": "MONGODB INC"
+      "holding_key": "MDB"
     },
     {
       "security_name": "Baidu Inc",
-      "security_ticker": null,
+      "security_ticker": "BIDU",
+      "cusip": "056752108",
       "shares": 179940.0,
       "market_value": 27563209.2,
       "portfolio_weight": 2.664430973651,
-      "holding_key": "BAIDU INC"
+      "holding_key": "BIDU"
     },
     {
       "security_name": "Palo Alto Networks Inc",
-      "security_ticker": null,
+      "security_ticker": "PANW",
+      "cusip": "697435105",
       "shares": 164342.0,
       "market_value": 29083603.74,
       "portfolio_weight": 2.811401751805,
-      "holding_key": "PALO ALTO NETWORKS INC"
+      "holding_key": "PANW"
     },
     {
       "security_name": "Crowdstrike Holdings Inc",
-      "security_ticker": null,
+      "security_ticker": "CRWD",
+      "cusip": "22788C105",
       "shares": 61175.0,
       "market_value": 27002950.88,
       "portfolio_weight": 2.610272925137,
-      "holding_key": "CROWDSTRIKE HOLDINGS INC"
+      "holding_key": "CRWD"
     },
     {
       "security_name": "CoreWeave Inc",
-      "security_ticker": null,
+      "security_ticker": "CRWV",
+      "cusip": "21873S108",
       "shares": 264685.0,
       "market_value": 24665995.15,
       "portfolio_weight": 2.384368271369,
-      "holding_key": "COREWEAVE INC"
+      "holding_key": "CRWV"
     },
     {
       "security_name": "Pegasystems Inc",
-      "security_ticker": null,
+      "security_ticker": "PEGA",
+      "cusip": "705573103",
       "shares": 238455.0,
       "market_value": 10418098.95,
       "portfolio_weight": 1.007078142734,
-      "holding_key": "PEGASYSTEMS INC"
+      "holding_key": "PEGA"
     },
     {
       "security_name": "TSMC",
-      "security_ticker": null,
+      "security_ticker": "TSM",
+      "cusip": "874039100",
       "shares": 162823.0,
       "market_value": 53822770.88,
       "portfolio_weight": 5.202843282138,
-      "holding_key": "TSMC"
+      "holding_key": "TSM"
     },
     {
       "security_name": "Snowflake Inc",
-      "security_ticker": null,
+      "security_ticker": "SNOW",
+      "cusip": "833445109",
       "shares": 124029.0,
       "market_value": 23900388.3,
       "portfolio_weight": 2.310359958694,
-      "holding_key": "SNOWFLAKE INC"
+      "holding_key": "SNOW"
     },
     {
       "security_name": "NVIDIA Corp",
-      "security_ticker": null,
+      "security_ticker": "NVDA",
+      "cusip": "67066G104",
       "shares": 282528.0,
       "market_value": 53999576.64,
       "portfolio_weight": 5.219934424894,
-      "holding_key": "NVIDIA CORP"
+      "holding_key": "NVDA"
     },
     {
       "security_name": "Alphabet Inc",
-      "security_ticker": null,
+      "security_ticker": "GOOGL",
+      "cusip": "02079K305",
       "shares": 154889.0,
       "market_value": 52352482.0,
       "portfolio_weight": 5.060716028244,
-      "holding_key": "ALPHABET INC"
+      "holding_key": "GOOGL"
     },
     {
       "security_name": "Zscaler Inc",
-      "security_ticker": null,
+      "security_ticker": "ZS",
+      "cusip": "98980G102",
       "shares": 87148.0,
       "market_value": 17430471.48,
       "portfolio_weight": 1.684937619551,
-      "holding_key": "ZSCALER INC"
+      "holding_key": "ZS"
     },
     {
       "security_name": "Alibaba Group Holding Ltd",
-      "security_ticker": null,
+      "security_ticker": "BABA",
+      "cusip": "01609W102",
       "shares": 261989.0,
       "market_value": 44422854.84,
       "portfolio_weight": 4.294189022579,
-      "holding_key": "ALIBABA GROUP HOLDING LTD"
+      "holding_key": "BABA"
     },
     {
       "security_name": "IREN Ltd",
-      "security_ticker": null,
+      "security_ticker": "IREN",
+      "cusip": "000000000",
       "shares": 426259.0,
       "market_value": 22907158.66,
       "portfolio_weight": 2.214348213561,
-      "holding_key": "IREN LTD"
+      "holding_key": "IREN"
     },
     {
       "security_name": "Micron Technology Inc",
-      "security_ticker": null,
+      "security_ticker": "MU",
+      "cusip": "595112103",
       "shares": 156081.0,
       "market_value": 64754885.28,
       "portfolio_weight": 6.259609350396,
-      "holding_key": "MICRON TECHNOLOGY INC"
+      "holding_key": "MU"
     },
     {
       "security_name": "Meta Platforms Inc",
-      "security_ticker": null,
+      "security_ticker": "META",
+      "cusip": "30303M102",
       "shares": 73620.0,
       "market_value": 52748730.0,
       "portfolio_weight": 5.099019820694,
-      "holding_key": "META PLATFORMS INC"
+      "holding_key": "META"
     },
     {
       "security_name": "Tesla Inc",
-      "security_ticker": null,
+      "security_ticker": "TSLA",
+      "cusip": "88160R101",
       "shares": 102570.0,
       "market_value": 44147153.7,
       "portfolio_weight": 4.267538038234,
-      "holding_key": "TESLA INC"
+      "holding_key": "TSLA"
     },
     {
       "security_name": "Apple Inc",
-      "security_ticker": null,
+      "security_ticker": "AAPL",
+      "cusip": "037833100",
       "shares": 177890.0,
       "market_value": 46158897.2,
       "portfolio_weight": 4.462005658225,
-      "holding_key": "APPLE INC"
+      "holding_key": "AAPL"
     },
     {
       "security_name": "ROBLOX Corp",
-      "security_ticker": null,
+      "security_ticker": "RBLX",
+      "cusip": "771049103",
       "shares": 284404.0,
       "market_value": 18702407.04,
       "portfolio_weight": 1.807890809724,
-      "holding_key": "ROBLOX CORP"
+      "holding_key": "RBLX"
     },
     {
       "security_name": "Dreyfus Treasury Obligations Cash Management Fund",
-      "security_ticker": null,
+      "security_ticker": "DTRXX",
+      "cusip": "261908107",
       "shares": 1701421.81,
       "market_value": 1701421.81,
       "portfolio_weight": 0.164469998283,
-      "holding_key": "DREYFUS TREASURY OBLIGATIONS CASH MANAGEMENT FUND"
+      "holding_key": "DTRXX"
     },
     {
       "security_name": "Advanced Micro Devices Inc",
-      "security_ticker": null,
+      "security_ticker": "AMD",
+      "cusip": "007903107",
       "shares": 188842.0,
       "market_value": 44704566.66,
       "portfolio_weight": 4.32142103658,
-      "holding_key": "ADVANCED MICRO DEVICES INC"
+      "holding_key": "AMD"
     },
     {
       "security_name": "Microsoft Corp",
-      "security_ticker": null,
+      "security_ticker": "MSFT",
+      "cusip": "594918104",
       "shares": 102860.0,
       "market_value": 44259629.4,
       "portfolio_weight": 4.27841063789,
-      "holding_key": "MICROSOFT CORP"
+      "holding_key": "MSFT"
     },
     {
       "security_name": "Oracle Corp",
-      "security_ticker": null,
+      "security_ticker": "ORCL",
+      "cusip": "68389X105",
       "shares": 207153.0,
       "market_value": 34093240.74,
       "portfolio_weight": 3.295664374952,
-      "holding_key": "ORACLE CORP"
+      "holding_key": "ORCL"
     },
     {
       "security_name": "Shopify Inc",
-      "security_ticker": null,
+      "security_ticker": "SHOP",
+      "cusip": "82509L107",
       "shares": 212461.0,
       "market_value": 27881257.03,
       "portfolio_weight": 2.695175452031,
-      "holding_key": "SHOPIFY INC"
+      "holding_key": "SHOP"
     },
     {
       "security_name": "Amazon.com Inc",
-      "security_ticker": null,
+      "security_ticker": "AMZN",
+      "cusip": "023135106",
       "shares": 213164.0,
       "market_value": 51010145.2,
       "portfolio_weight": 4.930957417009,
-      "holding_key": "AMAZON.COM INC"
+      "holding_key": "AMZN"
     },
     {
       "security_name": "GE Vernova Inc",
-      "security_ticker": null,
+      "security_ticker": "GEV",
+      "cusip": "36828A101",
       "shares": 50798.0,
       "market_value": 36898143.26,
       "portfolio_weight": 3.566803671473,
-      "holding_key": "GE VERNOVA INC"
+      "holding_key": "GEV"
     },
     {
       "security_name": "Broadcom Inc",
-      "security_ticker": null,
+      "security_ticker": "AVGO",
+      "cusip": "11135F101",
       "shares": 132636.0,
       "market_value": 43942306.8,
       "portfolio_weight": 4.247736264745,
-      "holding_key": "BROADCOM INC"
+      "holding_key": "AVGO"
     },
     {
       "security_name": "Innodata Inc",
-      "security_ticker": null,
+      "security_ticker": "INOD",
+      "cusip": "457642205",
       "shares": 218181.0,
       "market_value": 12095954.64,
       "portfolio_weight": 1.169270093509,
-      "holding_key": "INNODATA INC"
+      "holding_key": "INOD"
     },
     {
       "security_name": "Palantir Technologies Inc",
-      "security_ticker": null,
+      "security_ticker": "PLTR",
+      "cusip": "69608A108",
       "shares": 225876.0,
       "market_value": 33111162.84,
       "portfolio_weight": 3.200730626261,
-      "holding_key": "PALANTIR TECHNOLOGIES INC"
+      "holding_key": "PLTR"
     },
     {
       "security_name": "IBM",
-      "security_ticker": null,
+      "security_ticker": "IBM",
+      "cusip": "459200101",
       "shares": 123507.0,
       "market_value": 37879596.9,
       "portfolio_weight": 3.661677075315,

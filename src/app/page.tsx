@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import { getFunds, getFundConfig } from "@/lib/kv";
 import { readLatestSnapshot, getFundStatus } from "@/lib/snapshots";
 import { isErrorSnapshot, Snapshot } from "@/types";
@@ -66,19 +65,7 @@ export default async function DashboardPage() {
         <StatusPanel statuses={statuses} fundConfig={fundConfig} />
       </section>
 
-      <section className="flex flex-wrap gap-2">
-        {funds.map((fund) => (
-          <Link
-            key={fund.ticker}
-            href={`/fund/${fund.ticker}`}
-            className="rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 hover:bg-blue-100 transition-colors"
-          >
-            {fund.ticker} — {fund.name}
-          </Link>
-        ))}
-      </section>
-
-      {allWarnings.length > 0 && (
+{allWarnings.length > 0 && (
         <section>
           <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">
             Notifications

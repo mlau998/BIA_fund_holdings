@@ -32,6 +32,24 @@ _TCI_CUSIP_FALLBACK = {
     "N3168P101": "FERR",
 }
 
+# MPLY: non-US CUSIPs (N=Netherlands, G=Ireland) OpenFIGI won't resolve
+_MPLY_CUSIP_FALLBACK = {
+    "N07059210": "ASML",
+    "G0403H108": "AON",
+    "G54950103": "LIN",
+}
+
+# IVES: placeholder CUSIPs (000000000) — match by name instead
+_IVES_NAME_FALLBACK = {
+    "NEBIUS GROUP NV": "NBIS",
+    "IREN LTD": "IREN",
+}
+
+# GRNY: N/A CUSIP for Irish-domiciled holding — match by name
+_GRNY_NAME_FALLBACK = {
+    "EATON CORP PLC": "ETN",
+}
+
 
 # ─── KV fetch ─────────────────────────────────────────────────────────────────
 
@@ -68,12 +86,17 @@ def _make_connector(config: dict) -> Connector:
     series_id = config.get("series_id") or None
     form_type = config.get("form_type", "N-PORT")
 
+    _NPORT_CUSIP = {"MPLY": _MPLY_CUSIP_FALLBACK}
+    _NPORT_NAME  = {"IVES": _IVES_NAME_FALLBACK, "GRNY": _GRNY_NAME_FALLBACK}
+
     if form_type == "N-PORT":
         cls = type(f"{ticker}Connector", (NPortConnector,), {
             "fund_name": fund_name,
             "fund_ticker": ticker,
             "cik": cik,
             "series_id": series_id,
+            "CUSIP_FALLBACK": {**_NPORT_CUSIP.get(ticker, {}), **config.get("cusip_fallback", {})},
+            "NAME_FALLBACK":  {**_NPORT_NAME.get(ticker, {}),  **config.get("name_fallback", {})},
         })
         return cls()
 
@@ -118,6 +141,7 @@ class MPLYConnector(NPortConnector):
     fund_ticker = "MPLY"
     cik = "1506213"
     series_id = "S000092393"
+    CUSIP_FALLBACK = _MPLY_CUSIP_FALLBACK
 
 
 class IVESConnector(NPortConnector):
@@ -125,6 +149,7 @@ class IVESConnector(NPortConnector):
     fund_ticker = "IVES"
     cik = "2055464"
     series_id = "S000091902"
+    NAME_FALLBACK = _IVES_NAME_FALLBACK
 
 
 class GRNYConnector(NPortConnector):
@@ -132,6 +157,7 @@ class GRNYConnector(NPortConnector):
     fund_ticker = "GRNY"
     cik = "1722388"
     series_id = "S000088227"
+    NAME_FALLBACK = _GRNY_NAME_FALLBACK
 
 
 # ─── Old connector files (commented out, kept for reference) ───────────────────
