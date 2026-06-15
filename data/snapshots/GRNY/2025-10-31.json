@@ -4,7 +4,7 @@
   "as_of_date": "2025-10-31",
   "source": "edgar_nport",
   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1722388&type=N-PORT",
-  "scrape_timestamp": "2026-06-15T07:36:45Z",
+  "scrape_timestamp": "2026-06-15T08:34:04Z",
   "warnings": [],
   "holdings": [
     {
@@ -126,12 +126,12 @@
     },
     {
       "security_name": "Eaton Corp PLC",
-      "security_ticker": null,
+      "security_ticker": "ETN",
       "cusip": "N/A",
       "shares": 237957.0,
       "market_value": 90794872.92,
       "portfolio_weight": 2.4851099862045354,
-      "holding_key": "EATON CORP PLC"
+      "holding_key": "ETN"
     },
     {
       "security_name": "Emerson Electric Co",

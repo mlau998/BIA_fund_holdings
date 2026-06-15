@@ -4,188 +4,188 @@
   "as_of_date": "2025-10-31",
   "source": "edgar_nport",
   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055464&type=N-PORT",
-  "scrape_timestamp": "2026-06-15T07:30:55Z",
+  "scrape_timestamp": "2026-06-15T08:28:59Z",
   "warnings": [],
   "holdings": [
     {
       "security_name": "Alphabet Inc",
-      "security_ticker": "GOOGL",
+      "security_ticker": null,
       "cusip": "02079K305",
       "shares": 180970.0,
       "market_value": 50886954.3,
       "portfolio_weight": 4.960987951916,
-      "holding_key": "GOOGL"
+      "holding_key": "ALPHABET INC"
     },
     {
       "security_name": "Nebius Group NV",
-      "security_ticker": null,
+      "security_ticker": "NBIS",
       "cusip": "000000000",
       "shares": 213450.0,
       "market_value": 27923529.0,
       "portfolio_weight": 2.72227514595,
-      "holding_key": "NEBIUS GROUP NV"
+      "holding_key": "NBIS"
     },
     {
       "security_name": "MongoDB Inc",
-      "security_ticker": "MDB",
+      "security_ticker": null,
       "cusip": "60937P106",
       "shares": 54442.0,
       "market_value": 19589320.44,
       "portfolio_weight": 1.909770078125,
-      "holding_key": "MDB"
+      "holding_key": "MONGODB INC"
     },
     {
       "security_name": "Baidu Inc",
-      "security_ticker": "BIDU",
+      "security_ticker": null,
       "cusip": "056752108",
       "shares": 183308.0,
       "market_value": 22156437.96,
       "portfolio_weight": 2.160039312412,
-      "holding_key": "BIDU"
+      "holding_key": "BAIDU INC"
     },
     {
       "security_name": "Palo Alto Networks Inc",
-      "security_ticker": "PANW",
+      "security_ticker": null,
       "cusip": "697435105",
       "shares": 135223.0,
       "market_value": 29781513.52,
       "portfolio_weight": 2.903410742398,
-      "holding_key": "PANW"
+      "holding_key": "PALO ALTO NETWORKS INC"
     },
     {
       "security_name": "Crowdstrike Holdings Inc",
-      "security_ticker": "CRWD",
+      "security_ticker": null,
       "cusip": "22788C105",
       "shares": 57758.0,
       "market_value": 31363171.58,
       "portfolio_weight": 3.057607170297,
-      "holding_key": "CRWD"
+      "holding_key": "CROWDSTRIKE HOLDINGS INC"
     },
     {
       "security_name": "Pegasystems Inc",
-      "security_ticker": "PEGA",
+      "security_ticker": null,
       "cusip": "705573103",
       "shares": 212099.0,
       "market_value": 13500101.35,
       "portfolio_weight": 1.316129862128,
-      "holding_key": "PEGA"
+      "holding_key": "PEGASYSTEMS INC"
     },
     {
       "security_name": "Snowflake Inc",
-      "security_ticker": "SNOW",
+      "security_ticker": null,
       "cusip": "833445109",
       "shares": 95211.0,
       "market_value": 26171599.68,
       "portfolio_weight": 2.551478910084,
-      "holding_key": "SNOW"
+      "holding_key": "SNOWFLAKE INC"
     },
     {
       "security_name": "TSMC",
-      "security_ticker": "TSM",
+      "security_ticker": null,
       "cusip": "874039100",
       "shares": 166940.0,
       "market_value": 50153784.2,
       "portfolio_weight": 4.889510928328,
-      "holding_key": "TSM"
+      "holding_key": "TSMC"
     },
     {
       "security_name": "Salesforce Inc",
-      "security_ticker": "CRM",
+      "security_ticker": null,
       "cusip": "79466L302",
       "shares": 118033.0,
       "market_value": 30736973.53,
       "portfolio_weight": 2.996558891336,
-      "holding_key": "CRM"
+      "holding_key": "SALESFORCE INC"
     },
     {
       "security_name": "NVIDIA Corp",
-      "security_ticker": "NVDA",
+      "security_ticker": null,
       "cusip": "67066G104",
       "shares": 231565.0,
       "market_value": 46889596.85,
       "portfolio_weight": 4.571284099097,
-      "holding_key": "NVDA"
+      "holding_key": "NVIDIA CORP"
     },
     {
       "security_name": "Oklo Inc",
-      "security_ticker": "OKLO",
+      "security_ticker": null,
       "cusip": "02156V109",
       "shares": 174616.0,
       "market_value": 23183766.32,
       "portfolio_weight": 2.260193933311,
-      "holding_key": "OKLO"
+      "holding_key": "OKLO INC"
     },
     {
       "security_name": "Zscaler Inc",
-      "security_ticker": "ZS",
+      "security_ticker": null,
       "cusip": "98980G102",
       "shares": 63437.0,
       "market_value": 21006528.18,
       "portfolio_weight": 2.047934183645,
-      "holding_key": "ZS"
+      "holding_key": "ZSCALER INC"
     },
     {
       "security_name": "Alibaba Group Holding Ltd",
-      "security_ticker": "BABA",
+      "security_ticker": null,
       "cusip": "01609W102",
       "shares": 241361.0,
       "market_value": 41135155.23,
       "portfolio_weight": 4.010281462182,
-      "holding_key": "BABA"
+      "holding_key": "ALIBABA GROUP HOLDING LTD"
     },
     {
       "security_name": "Micron Technology Inc",
-      "security_ticker": "MU",
+      "security_ticker": null,
       "cusip": "595112103",
       "shares": 219411.0,
       "market_value": 49097599.47,
       "portfolio_weight": 4.78654308927,
-      "holding_key": "MU"
+      "holding_key": "MICRON TECHNOLOGY INC"
     },
     {
       "security_name": "Meta Platforms Inc",
-      "security_ticker": "META",
+      "security_ticker": null,
       "cusip": "30303M102",
       "shares": 52831.0,
       "market_value": 34252978.85,
       "portfolio_weight": 3.339335547384,
-      "holding_key": "META"
+      "holding_key": "META PLATFORMS INC"
     },
     {
       "security_name": "ServiceNow Inc",
-      "security_ticker": "NOW",
+      "security_ticker": null,
       "cusip": "81762P102",
       "shares": 31127.0,
       "market_value": 28614428.56,
       "portfolio_weight": 2.789631198995,
-      "holding_key": "NOW"
+      "holding_key": "SERVICENOW INC"
     },
     {
       "security_name": "Tesla Inc",
-      "security_ticker": "TSLA",
+      "security_ticker": null,
       "cusip": "88160R101",
       "shares": 114322.0,
       "market_value": 52194852.32,
       "portfolio_weight": 5.088495412498,
-      "holding_key": "TSLA"
+      "holding_key": "TESLA INC"
     },
     {
       "security_name": "Apple Inc",
-      "security_ticker": "AAPL",
+      "security_ticker": null,
       "cusip": "037833100",
       "shares": 172432.0,
       "market_value": 46620439.84,
       "portfolio_weight": 4.545043882873,
-      "holding_key": "AAPL"
+      "holding_key": "APPLE INC"
     },
     {
       "security_name": "ROBLOX Corp",
-      "security_ticker": "RBLX",
+      "security_ticker": null,
       "cusip": "771049103",
       "shares": 181161.0,
       "market_value": 20601628.92,
       "portfolio_weight": 2.00846040538,
-      "holding_key": "RBLX"
+      "holding_key": "ROBLOX CORP"
     },
     {
       "security_name": "Dreyfus Treasury Obligations Cash Management Fund",

@@ -4,7 +4,7 @@
   "as_of_date": "2025-10-31",
   "source": "edgar_nport",
   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1506213&type=N-PORT",
-  "scrape_timestamp": "2026-06-15T07:30:17Z",
+  "scrape_timestamp": "2026-06-15T08:27:31Z",
   "warnings": [],
   "holdings": [
     {
@@ -189,12 +189,12 @@
     },
     {
       "security_name": "ASML Holding N.V.",
-      "security_ticker": null,
+      "security_ticker": "ASML",
       "cusip": "N07059210",
       "shares": 113.0,
       "market_value": 119692.99,
       "portfolio_weight": 1.058386888068,
-      "holding_key": "ASML HOLDING N.V."
+      "holding_key": "ASML"
     },
     {
       "security_name": "AUTODESK, INC.",
@@ -279,12 +279,12 @@
     },
     {
       "security_name": "AON PUBLIC LIMITED COMPANY",
-      "security_ticker": null,
+      "security_ticker": "AON",
       "cusip": "G0403H108",
       "shares": 62.0,
       "market_value": 21122.16,
       "portfolio_weight": 0.186772986385,
-      "holding_key": "AON PUBLIC LIMITED COMPANY"
+      "holding_key": "AON"
     },
     {
       "security_name": "COSTAR GROUP, INC.",
@@ -891,12 +891,12 @@
     },
     {
       "security_name": "LINDE PUBLIC LIMITED COMPANY",
-      "security_ticker": null,
+      "security_ticker": "LIN",
       "cusip": "G54950103",
       "shares": 138.0,
       "market_value": 57725.4,
       "portfolio_weight": 0.510437632717,
-      "holding_key": "LINDE PUBLIC LIMITED COMPANY"
+      "holding_key": "LIN"
     }
   ]
 }
