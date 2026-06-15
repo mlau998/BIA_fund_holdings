@@ -1,8 +1,8 @@
-name: Daily Holdings Scrape
+name: Monthly Holdings Scrape
 
 on:
   schedule:
-    - cron: '0 20 * * *'   # 8pm UTC = ~3pm ET after US markets close
+    - cron: '0 20 1 * *'   # 8pm UTC on the 1st of each month
   workflow_dispatch:         # Allow manual trigger
 
 jobs:
@@ -27,6 +27,9 @@ jobs:
 
       - name: Run scrapers
         run: python scrapers/run_all.py
+        env:
+          KV_REST_API_URL: ${{ secrets.KV_REST_API_URL }}
+          KV_REST_API_TOKEN: ${{ secrets.KV_REST_API_TOKEN }}
 
       - name: Commit new snapshots
         run: |

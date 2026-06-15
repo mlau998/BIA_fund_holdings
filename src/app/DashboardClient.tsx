@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ALL_TICKERS } from "@/lib/config";
 import FundFilter from "@/components/FundFilter";
 import HoldingsTable from "@/components/HoldingsTable";
 import RefreshButton from "@/components/RefreshButton";
@@ -19,10 +18,11 @@ interface HoldingRow {
 
 interface Props {
   initialHoldings: HoldingRow[];
+  tickers: string[];
 }
 
-export default function DashboardClient({ initialHoldings }: Props) {
-  const [selectedFunds, setSelectedFunds] = useState<string[]>(ALL_TICKERS);
+export default function DashboardClient({ initialHoldings, tickers }: Props) {
+  const [selectedFunds, setSelectedFunds] = useState<string[]>(tickers);
   const [nameSearch, setNameSearch] = useState("");
   const [tickerSearch, setTickerSearch] = useState("");
 
@@ -39,7 +39,7 @@ export default function DashboardClient({ initialHoldings }: Props) {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-4">
         <RefreshButton onRefreshComplete={() => window.location.reload()} />
-        <FundFilter selected={selectedFunds} onChange={setSelectedFunds} />
+        <FundFilter tickers={tickers} selected={selectedFunds} onChange={setSelectedFunds} />
       </div>
 
       <div className="flex flex-wrap gap-3">

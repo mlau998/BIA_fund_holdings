@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ALL_TICKERS } from "@/lib/config";
+import { getFunds } from "@/lib/kv";
 import { readLatestSnapshot } from "@/lib/snapshots";
 import { isErrorSnapshot, HoldingRecord } from "@/types";
 
@@ -9,9 +9,12 @@ export async function GET(request: NextRequest) {
   const search = (searchParams.get("search") || "").toLowerCase();
   const tickerSearch = (searchParams.get("ticker") || "").toLowerCase();
 
+  const allFunds = await getFunds();
+  const allTickers = allFunds.map((f) => f.ticker);
+
   const tickers = fundsParam
     ? fundsParam.split(",").map((t) => t.trim().toUpperCase())
-    : ALL_TICKERS;
+    : allTickers;
 
   const result: Array<HoldingRecord & { fund_ticker: string; as_of_date: string }> = [];
 

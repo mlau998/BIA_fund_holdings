@@ -1,6 +1,6 @@
 import { FundMeta } from "@/types";
 
-export const FUND_CONFIG: Record<string, FundMeta> = {
+export const STATIC_FUND_CONFIG: Record<string, FundMeta> = {
   GRNY: {
     name: "Fundstrat Granny Shots US Large Cap ETF",
     ticker: "GRNY",
@@ -8,6 +8,9 @@ export const FUND_CONFIG: Record<string, FundMeta> = {
       "Rules-based large-cap ETF selecting 'Granny Shots' — stocks with multi-year, multi-thematic institutional conviction.",
     website: "https://grannyshots.com/holdings/",
     type: "ETF",
+    cik: "1722388",
+    series_id: "S000088227",
+    form_type: "N-PORT",
   },
   IVES: {
     name: "Dan Ives Wedbush AI Revolution ETF",
@@ -16,6 +19,9 @@ export const FUND_CONFIG: Record<string, FundMeta> = {
       "Actively managed ETF focusing on AI-driven technology companies, curated by analyst Dan Ives of Wedbush Securities.",
     website: "https://wedbushfunds.com/funds/ives/",
     type: "ETF",
+    cik: "2055464",
+    series_id: "S000091902",
+    form_type: "N-PORT",
   },
   MPLY: {
     name: "Monopoly ETF",
@@ -24,6 +30,9 @@ export const FUND_CONFIG: Record<string, FundMeta> = {
       "Actively managed ETF investing in companies with monopolistic or oligopolistic market structures and durable competitive advantages.",
     website: "https://strategysharesetfs.com/mply/",
     type: "ETF",
+    cik: "1506213",
+    series_id: "S000092393",
+    form_type: "N-PORT",
   },
   TCI: {
     name: "TCI Fund Management",
@@ -34,7 +43,14 @@ export const FUND_CONFIG: Record<string, FundMeta> = {
     type: "Hedge Fund",
     dataNote:
       "Holdings reported quarterly via SEC 13F filings. Data lags ~45 days after quarter-end.",
+    cik: "1647251",
+    series_id: null,
+    form_type: "13F-HR",
   },
 };
 
-export const ALL_TICKERS = Object.keys(FUND_CONFIG);
+export const STATIC_TICKERS = Object.keys(STATIC_FUND_CONFIG);
+
+// Legacy aliases — used by any code that hasn't been migrated to getFunds() yet
+export const FUND_CONFIG = STATIC_FUND_CONFIG;
+export const ALL_TICKERS = STATIC_TICKERS;

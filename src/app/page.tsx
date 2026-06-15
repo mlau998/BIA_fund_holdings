@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { ALL_TICKERS, FUND_CONFIG } from "@/lib/config";
+import { getFunds, getFundConfig } from "@/lib/kv";
 import { readLatestSnapshot, getFundStatus } from "@/lib/snapshots";
 import { isErrorSnapshot, Snapshot } from "@/types";
 import StatusPanel from "@/components/StatusPanel";
@@ -9,12 +9,14 @@ import DashboardClient from "./DashboardClient";
 
 export const dynamic = "force-dynamic";
 
-export default function DashboardPage() {
-  const statuses = ALL_TICKERS.map(getFundStatus);
+export default async function DashboardPage() {
+  const [funds, fundConfig] = await Promise.all([getFunds(), getFundConfig()]);
+  const tickers = funds.map((f) => f.ticker);
 
-  // Collect all warnings from latest snapshots
+  const statuses = tickers.map(getFundStatus);
+
   const allWarnings: Array<{ level: "error" | "warning"; message: string; fund_ticker: string }> = [];
-  for (const ticker of ALL_TICKERS) {
+  for (const ticker of tickers) {
     const snap = readLatestSnapshot(ticker);
     if (!snap) continue;
     if (isErrorSnapshot(snap)) {
@@ -26,7 +28,6 @@ export default function DashboardPage() {
     }
   }
 
-  // Collect all holdings for initial display
   const initialHoldings: Array<{
     security_name: string;
     security_ticker?: string;
@@ -38,7 +39,7 @@ export default function DashboardPage() {
     as_of_date: string;
   }> = [];
 
-  for (const ticker of ALL_TICKERS) {
+  for (const ticker of tickers) {
     const snap = readLatestSnapshot(ticker);
     if (!snap || isErrorSnapshot(snap)) continue;
     const s = snap as Snapshot;
@@ -53,33 +54,30 @@ export default function DashboardPage() {
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Holdings Dashboard</h1>
           <p className="mt-1 text-sm text-gray-500">
-            Aggregated holdings across {ALL_TICKERS.length} funds
+            Aggregated holdings across {tickers.length} funds
           </p>
         </div>
       </div>
 
-      {/* Fund status cards */}
       <section>
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
           Fund Status
         </h2>
-        <StatusPanel statuses={statuses} />
+        <StatusPanel statuses={statuses} fundConfig={fundConfig} />
       </section>
 
-      {/* Fund quick links */}
       <section className="flex flex-wrap gap-2">
-        {ALL_TICKERS.map((ticker) => (
+        {funds.map((fund) => (
           <Link
-            key={ticker}
-            href={`/fund/${ticker}`}
+            key={fund.ticker}
+            href={`/fund/${fund.ticker}`}
             className="rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 hover:bg-blue-100 transition-colors"
           >
-            {ticker} — {FUND_CONFIG[ticker]?.name}
+            {fund.ticker} — {fund.name}
           </Link>
         ))}
       </section>
 
-      {/* Warnings */}
       {allWarnings.length > 0 && (
         <section>
           <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">
@@ -89,13 +87,12 @@ export default function DashboardPage() {
         </section>
       )}
 
-      {/* Interactive holdings table */}
       <section>
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
           Holdings
         </h2>
         <Suspense fallback={<div className="text-sm text-gray-400">Loading holdings…</div>}>
-          <DashboardClient initialHoldings={initialHoldings} />
+          <DashboardClient initialHoldings={initialHoldings} tickers={tickers} />
         </Suspense>
       </section>
     </div>

@@ -61,6 +61,10 @@ export interface FundMeta {
   website: string;
   type: string;
   dataNote?: string;
+  // Scraper config — populated for all funds, used by Python scrapers via /api/funds
+  cik?: string;
+  series_id?: string | null;
+  form_type?: "N-PORT" | "13F-HR";
 }
 
 export interface FundStatus {

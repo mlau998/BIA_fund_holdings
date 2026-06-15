@@ -1,13 +1,12 @@
 "use client";
 
-import { ALL_TICKERS } from "@/lib/config";
-
 interface Props {
+  tickers: string[];
   selected: string[];
   onChange: (selected: string[]) => void;
 }
 
-export default function FundFilter({ selected, onChange }: Props) {
+export default function FundFilter({ tickers, selected, onChange }: Props) {
   const toggle = (ticker: string) => {
     if (selected.includes(ticker)) {
       onChange(selected.filter((t) => t !== ticker));
@@ -18,7 +17,7 @@ export default function FundFilter({ selected, onChange }: Props) {
 
   return (
     <div className="flex flex-wrap gap-2">
-      {ALL_TICKERS.map((ticker) => {
+      {tickers.map((ticker) => {
         const active = selected.includes(ticker);
         return (
           <button

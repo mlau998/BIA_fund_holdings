@@ -30,6 +30,9 @@ jobs:
 
       - name: Run scrapers
         run: python scrapers/run_all.py
+        env:
+          KV_REST_API_URL: ${{ secrets.KV_REST_API_URL }}
+          KV_REST_API_TOKEN: ${{ secrets.KV_REST_API_TOKEN }}
 
       - name: Commit new snapshots
         run: |

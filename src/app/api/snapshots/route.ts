@@ -1,22 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listSnapshotDates } from "@/lib/snapshots";
-import { ALL_TICKERS } from "@/lib/config";
+import { getFunds } from "@/lib/kv";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const fund = searchParams.get("fund")?.toUpperCase();
 
+  const allFunds = await getFunds();
+  const allTickers = allFunds.map((f) => f.ticker);
+
   if (fund) {
-    if (!ALL_TICKERS.includes(fund)) {
+    if (!allTickers.includes(fund)) {
       return NextResponse.json({ error: "Unknown fund ticker" }, { status: 400 });
     }
     const dates = listSnapshotDates(fund);
     return NextResponse.json({ fund, dates });
   }
 
-  // Return dates for all funds
   const result: Record<string, string[]> = {};
-  for (const ticker of ALL_TICKERS) {
+  for (const ticker of allTickers) {
     result[ticker] = listSnapshotDates(ticker);
   }
   return NextResponse.json(result);

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ChangesPageClient from "./ChangesClient";
-import { ALL_TICKERS } from "@/lib/config";
+import { getFunds } from "@/lib/kv";
 import { listSnapshotDates } from "@/lib/snapshots";
 
 export const dynamic = "force-dynamic";
@@ -10,12 +10,12 @@ interface Props {
 }
 
 export default async function ChangesPage({ searchParams }: Props) {
-  const params = await searchParams;
-  const defaultFund = params.fund?.toUpperCase() || ALL_TICKERS[0];
+  const [params, funds] = await Promise.all([searchParams, getFunds()]);
+  const tickers = funds.map((f) => f.ticker);
+  const defaultFund = params.fund?.toUpperCase() || tickers[0];
 
-  // Pre-fetch snapshot dates for all funds
   const snapshotDatesByFund: Record<string, string[]> = {};
-  for (const ticker of ALL_TICKERS) {
+  for (const ticker of tickers) {
     snapshotDatesByFund[ticker] = listSnapshotDates(ticker);
   }
 
@@ -31,6 +31,7 @@ export default async function ChangesPage({ searchParams }: Props) {
         <ChangesPageClient
           defaultFund={defaultFund}
           snapshotDatesByFund={snapshotDatesByFund}
+          tickers={tickers}
         />
       </Suspense>
     </div>

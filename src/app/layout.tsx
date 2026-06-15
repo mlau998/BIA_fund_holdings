@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import AddFundModal from "@/components/AddFundModal";
 
 export const metadata: Metadata = {
   title: "BIA Fund Holdings Monitor",
@@ -36,8 +37,11 @@ export default function RootLayout({
                 </Link>
               </nav>
             </div>
-            <div className="text-xs text-gray-400 font-mono">
-              {new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+            <div className="flex items-center gap-3">
+              <AddFundModal />
+              <span className="text-xs text-gray-400 font-mono">
+                {new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+              </span>
             </div>
           </div>
         </header>

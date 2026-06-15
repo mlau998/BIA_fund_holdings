@@ -1,11 +1,12 @@
 """SEC EDGAR utilities: N-PORT and 13F-HR fetching and parsing."""
 
 import logging
-from typing import Optional
+from typing import Any, Optional
 from urllib.parse import urljoin
 
 from lxml import etree
 
+from scrapers.base import Connector
 from scrapers.utils import retry_get, parse_number, normalize_key
 
 logger = logging.getLogger(__name__)
@@ -21,8 +22,13 @@ def _submissions_json(cik: str) -> dict:
     return resp.json()
 
 
-def _find_latest_filing(cik: str, form_type: str) -> Optional[dict]:
-    """Return accession number, report date, and primary doc for newest filing of given form type."""
+def _find_latest_filing(cik: str, form_type: str, series_id: Optional[str] = None, skip: int = 0) -> Optional[dict]:
+    """Return the (skip+1)-th most recent filing of the given form type.
+
+    skip=0 → latest, skip=1 → previous. If series_id is provided, skips filings
+    whose seriesId field doesn't match (only reliable for 13F-HR; N-PORT submissions
+    JSON never populates seriesId, so use _find_nport_for_series for that case).
+    """
     data = _submissions_json(cik)
     filings = data.get("filings", {}).get("recent", {})
     forms = filings.get("form", [])
@@ -30,15 +36,22 @@ def _find_latest_filing(cik: str, form_type: str) -> Optional[dict]:
     dates = filings.get("filingDate", [])
     report_dates = filings.get("reportDate", [])
     primary_docs = filings.get("primaryDocument", [])
+    series_ids = filings.get("seriesId", [])
 
+    found = 0
     for i, form in enumerate(forms):
-        if form == form_type:
+        if form != form_type:
+            continue
+        if series_id and i < len(series_ids) and series_ids[i] and series_ids[i] != series_id:
+            continue
+        if found >= skip:
             return {
                 "accession": accessions[i],
                 "filing_date": dates[i],
                 "report_date": report_dates[i] if i < len(report_dates) else dates[i],
                 "primary_doc": primary_docs[i] if i < len(primary_docs) else "",
             }
+        found += 1
     return None
 
 
@@ -91,36 +104,95 @@ NPORT_NS = {
     "n": "http://www.sec.gov/edgar/nport",
 }
 
-def get_latest_nport(cik: str) -> Optional[dict]:
-    """Return info about the latest N-PORT filing for a given CIK."""
-    filing = _find_latest_filing(cik, "N-PORT")
+def _find_nport_for_series(cik: str, series_id: str, skip: int = 0) -> Optional[dict]:
+    """
+    Find the (skip+1)-th most recent NPORT-P filing for a specific fund series.
+    skip=0 → latest, skip=1 → previous quarter. EDGAR submissions JSON never
+    populates seriesId in metadata so we scan candidate XMLs until we find matches.
+    Different series within the same trust can have different filing schedules,
+    so we scan all recent filings rather than just the latest date group.
+    """
+    data = _submissions_json(cik)
+    filings = data.get("filings", {}).get("recent", {})
+    forms = filings.get("form", [])
+    accessions = filings.get("accessionNumber", [])
+    dates = filings.get("filingDate", [])
+    report_dates = filings.get("reportDate", [])
+    primary_docs = filings.get("primaryDocument", [])
+
+    needle = f"<seriesId>{series_id}</seriesId>".encode()
+    found = 0
+
+    for i, form in enumerate(forms):
+        if form not in ("NPORT-P", "NPORT-P/A"):
+            continue
+        candidate = {
+            "accession": accessions[i],
+            "filing_date": dates[i],
+            "report_date": report_dates[i] if i < len(report_dates) else dates[i],
+            "primary_doc": primary_docs[i] if i < len(primary_docs) else "",
+        }
+        try:
+            xml_bytes = fetch_nport_xml(cik, candidate)
+            if needle in xml_bytes:
+                if found >= skip:
+                    return candidate
+                found += 1
+        except Exception as e:
+            logger.debug("Skip accession %s for series %s: %s", accessions[i], series_id, e)
+
+    return None
+
+
+def get_latest_nport(cik: str, series_id: Optional[str] = None) -> Optional[dict]:
+    """Return info about the latest NPORT-P filing, filtered by series ID if provided."""
+    if series_id:
+        return _find_nport_for_series(cik, series_id, skip=0)
+    filing = _find_latest_filing(cik, "NPORT-P")
     if not filing:
-        filing = _find_latest_filing(cik, "N-PORT/A")
+        filing = _find_latest_filing(cik, "NPORT-P/A")
+    return filing
+
+
+def get_previous_nport(cik: str, series_id: Optional[str] = None) -> Optional[dict]:
+    """Return info about the second-most-recent NPORT-P filing (previous quarter)."""
+    if series_id:
+        return _find_nport_for_series(cik, series_id, skip=1)
+    filing = _find_latest_filing(cik, "NPORT-P", skip=1)
+    if not filing:
+        filing = _find_latest_filing(cik, "NPORT-P/A", skip=1)
     return filing
 
 
 def fetch_nport_xml(cik: str, filing: dict) -> bytes:
-    """Fetch the primary N-PORT XML document."""
+    """Fetch the raw N-PORT XML document for a filing.
+
+    The primaryDocument field from submissions JSON often points to an XSLT path
+    (xslFormNPORT-P_X01/primary_doc.xml) that returns an HTML rendering, not raw XML.
+    We use the filing index instead to find the actual XML file.
+    """
     accession = filing["accession"]
-    primary_doc = filing.get("primary_doc", "")
-    if primary_doc:
-        return _fetch_xml_for_filing(cik, accession, primary_doc)
-    # Try to find an XML file in the filing
     docs = _list_filing_docs(cik, accession)
+
+    # Find .xml file in the filing root (skip subdirectory/XSLT paths)
+    xml_name = None
     for doc in docs:
         name = doc.get("name", "")
-        if name.endswith(".xml") and "primary" in name.lower():
-            return _fetch_xml_for_filing(cik, accession, name)
-    # Fallback: guess primary doc name
-    clean = accession.replace("-", "")
-    cik_padded = f"{int(cik):010d}"
-    # Common naming pattern
-    for suffix in ["primary_doc.xml", "form.xml", f"{clean}.xml"]:
-        try:
-            return _fetch_xml_for_filing(cik, accession, suffix)
-        except Exception:
-            continue
-    raise RuntimeError(f"Cannot find N-PORT XML for CIK={cik}, accession={accession}")
+        if name.lower().endswith(".xml") and "/" not in name:
+            xml_name = name
+            if "primary" in name.lower():
+                break  # prefer primary_doc.xml
+
+    if not xml_name:
+        # Fallback: strip any XSLT prefix from primaryDocument and try basename
+        primary_doc = filing.get("primary_doc", "")
+        if primary_doc:
+            xml_name = primary_doc.split("/")[-1]
+
+    if not xml_name:
+        raise RuntimeError(f"Cannot find N-PORT XML for CIK={cik}, accession={accession}")
+
+    return _fetch_xml_for_filing(cik, accession, xml_name)
 
 
 def parse_nport_xml(xml_bytes: bytes) -> list[dict]:
@@ -153,10 +225,18 @@ def parse_nport_xml(xml_bytes: bytes) -> list[dict]:
             val_usd = parse_number(val_usd_str) if val_usd_str else None
             pct_val = parse_number(pct_val_str) if pct_val_str else None
 
+            # CUSIP is an attribute on <cusip> inside <identifiers>, not text content
+            cusip = None
+            for child in elem.iter():
+                if strip_ns(child.tag) == "cusip":
+                    cusip = child.get("value") or (child.text or "").strip() or None
+                    break
+
             if name:
                 holdings.append({
                     "security_name": name,
                     "security_ticker": ticker,
+                    "cusip": cusip,
                     "shares": balance,
                     "market_value": val_usd,
                     "portfolio_weight": pct_val,
@@ -173,6 +253,14 @@ def get_latest_13f(cik: str) -> Optional[dict]:
     filing = _find_latest_filing(cik, "13F-HR")
     if not filing:
         filing = _find_latest_filing(cik, "13F-HR/A")
+    return filing
+
+
+def get_previous_13f(cik: str) -> Optional[dict]:
+    """Return info about the second-most-recent 13F-HR filing (previous quarter)."""
+    filing = _find_latest_filing(cik, "13F-HR", skip=1)
+    if not filing:
+        filing = _find_latest_filing(cik, "13F-HR/A", skip=1)
     return filing
 
 
@@ -252,3 +340,143 @@ def parse_13f_xml(xml_bytes: bytes) -> list[dict]:
         holdings.append(h)
 
     return holdings
+
+
+# ─── Generic N-PORT Connector ──────────────────────────────────────────────────
+
+class NPortConnector(Connector):
+    """
+    Base connector for any ETF that files N-PORT with the SEC.
+    Subclass and set the four class variables — no other code needed.
+
+    To add a new fund:
+        class XYZConnector(NPortConnector):
+            fund_name = "XYZ Fund Name"
+            fund_ticker = "XYZ"
+            cik = "0001234567"
+            series_id = "S000012345"
+    """
+    fund_name: str
+    fund_ticker: str
+    cik: str
+    series_id: str
+
+    def fetch_raw(self) -> Any:
+        filing = get_latest_nport(self.cik, self.series_id)
+        if not filing:
+            raise RuntimeError(
+                f"{self.fund_ticker}: No N-PORT filing found on EDGAR "
+                f"(CIK={self.cik}, series={self.series_id})"
+            )
+        xml_bytes = fetch_nport_xml(self.cik, filing)
+        return {
+            "source": "edgar_nport",
+            "xml": xml_bytes,
+            "filing": filing,
+            "url": (
+                f"https://www.sec.gov/cgi-bin/browse-edgar?"
+                f"action=getcompany&CIK={self.cik}&type=N-PORT"
+            ),
+        }
+
+    def fetch_raw_previous(self) -> Any:
+        filing = get_previous_nport(self.cik, self.series_id)
+        if not filing:
+            return None
+        xml_bytes = fetch_nport_xml(self.cik, filing)
+        return {
+            "source": "edgar_nport",
+            "xml": xml_bytes,
+            "filing": filing,
+            "url": (
+                f"https://www.sec.gov/cgi-bin/browse-edgar?"
+                f"action=getcompany&CIK={self.cik}&type=N-PORT"
+            ),
+        }
+
+    def parse_holdings(self, raw: Any) -> tuple[list[dict], str, str]:
+        from scrapers.utils import cusip_to_tickers
+        holdings = parse_nport_xml(raw["xml"])
+
+        cusips = [h["cusip"] for h in holdings if h.get("cusip") and not h.get("security_ticker")]
+        if cusips:
+            ticker_map = cusip_to_tickers(cusips)
+            for h in holdings:
+                if not h.get("security_ticker") and h.get("cusip") in ticker_map:
+                    h["security_ticker"] = ticker_map[h["cusip"]]
+                    h["holding_key"] = normalize_key(h["security_ticker"], h["security_name"])
+
+        as_of_date = raw["filing"].get("report_date", raw["filing"].get("filing_date", ""))
+        return holdings, as_of_date, raw["url"]
+
+
+# ─── Generic 13F-HR Connector ──────────────────────────────────────────────────
+
+class ThirteenFConnector(Connector):
+    """
+    Base connector for any institutional manager that files 13F-HR with the SEC.
+    Subclass and set fund_name, fund_ticker, CIK, and optionally CUSIP_FALLBACK.
+
+    To add a new fund:
+        class XYZConnector(ThirteenFConnector):
+            fund_name = "XYZ Fund"
+            fund_ticker = "XYZ"
+            CIK = "0001234567"
+            CUSIP_FALLBACK = {"XXXXXXXXX": "TICK"}  # optional
+    """
+    from scrapers.utils import cusip_to_tickers as _cusip_to_tickers  # imported at class level to avoid circular at module load
+
+    fund_name: str
+    fund_ticker: str
+    CIK: str
+    CUSIP_FALLBACK: dict = {}
+
+    def fetch_raw(self) -> Any:
+        filing = get_latest_13f(self.CIK)
+        if not filing:
+            raise RuntimeError(
+                f"{self.fund_ticker}: No 13F-HR filing found on EDGAR (CIK={self.CIK})"
+            )
+        xml_bytes = fetch_13f_xml(self.CIK, filing)
+        return {
+            "source": "edgar_13f",
+            "xml": xml_bytes,
+            "filing": filing,
+            "url": (
+                f"https://www.sec.gov/cgi-bin/browse-edgar?"
+                f"action=getcompany&CIK={self.CIK}&type=13F-HR"
+            ),
+        }
+
+    def fetch_raw_previous(self) -> Any:
+        filing = get_previous_13f(self.CIK)
+        if not filing:
+            return None
+        xml_bytes = fetch_13f_xml(self.CIK, filing)
+        return {
+            "source": "edgar_13f",
+            "xml": xml_bytes,
+            "filing": filing,
+            "url": (
+                f"https://www.sec.gov/cgi-bin/browse-edgar?"
+                f"action=getcompany&CIK={self.CIK}&type=13F-HR"
+            ),
+        }
+
+    def parse_holdings(self, raw: Any) -> tuple[list[dict], str, str]:
+        from scrapers.utils import cusip_to_tickers
+        holdings = parse_13f_xml(raw["xml"])
+
+        cusips = [h["cusip"] for h in holdings if h.get("cusip") and not h.get("security_ticker")]
+        if cusips:
+            ticker_map = cusip_to_tickers(cusips)
+            for h in holdings:
+                if not h.get("security_ticker") and h.get("cusip") in ticker_map:
+                    h["security_ticker"] = ticker_map[h["cusip"]]
+
+        for h in holdings:
+            if not h.get("security_ticker") and h.get("cusip") in self.CUSIP_FALLBACK:
+                h["security_ticker"] = self.CUSIP_FALLBACK[h["cusip"]]
+
+        as_of_date = raw["filing"].get("report_date", raw["filing"].get("filing_date", ""))
+        return holdings, as_of_date, raw["url"]

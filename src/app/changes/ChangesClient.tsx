@@ -1,16 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ALL_TICKERS } from "@/lib/config";
 import ChangesTable from "@/components/ChangesTable";
 import { ChangeResult } from "@/types";
 
 interface Props {
   defaultFund: string;
   snapshotDatesByFund: Record<string, string[]>;
+  tickers: string[];
 }
 
-export default function ChangesPageClient({ defaultFund, snapshotDatesByFund }: Props) {
+export default function ChangesPageClient({ defaultFund, snapshotDatesByFund, tickers }: Props) {
   const [fund, setFund] = useState(defaultFund);
   const [date1, setDate1] = useState("");
   const [date2, setDate2] = useState("");
@@ -84,7 +84,7 @@ export default function ChangesPageClient({ defaultFund, snapshotDatesByFund }: 
               onChange={(e) => setFund(e.target.value)}
               className="rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              {ALL_TICKERS.map((t) => (
+              {tickers.map((t: string) => (
                 <option key={t} value={t}>{t}</option>
               ))}
             </select>

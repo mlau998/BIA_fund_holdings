@@ -10,10 +10,7 @@ from pathlib import Path
 # Allow running from project root
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from scrapers.grny import GRNYConnector
-from scrapers.ives import IVESConnector
-from scrapers.mply import MPLYConnector
-from scrapers.tci import TCIConnector
+from scrapers.funds import get_connectors
 
 logging.basicConfig(
     level=logging.INFO,
@@ -96,26 +93,54 @@ def write_error_snapshot(ticker: str, error_message: str) -> Path:
     return out_path
 
 
+def snapshot_exists(ticker: str, as_of_date: str) -> bool:
+    return (SNAPSHOTS_DIR / ticker / f"{as_of_date}.json").exists()
+
+
 def run_connector(connector) -> bool:
     ticker = connector.fund_ticker
     logger.info("=== Running %s connector ===", ticker)
     try:
         raw = connector.fetch_raw()
         holdings, as_of_date, source_url = connector.parse_holdings(raw)
-
         source = raw.get("source", "unknown")
+
+        # Backfill previous quarter if no prior snapshot exists for comparison
         prev_holdings = read_prev_holdings(ticker, as_of_date)
+        if not prev_holdings and hasattr(connector, "fetch_raw_previous"):
+            try:
+                logger.info("[%s] No prior snapshot — fetching previous quarter for comparison", ticker)
+                prev_raw = connector.fetch_raw_previous()
+                if prev_raw:
+                    prev_hld, prev_date, prev_url = connector.parse_holdings(prev_raw)
+                    if prev_date and not snapshot_exists(ticker, prev_date):
+                        write_snapshot(
+                            ticker=ticker,
+                            fund_name=connector.fund_name,
+                            as_of_date=prev_date,
+                            holdings=prev_hld,
+                            warnings=[],
+                            source=prev_raw.get("source", source),
+                            source_url=prev_url,
+                        )
+                    prev_holdings = prev_hld
+            except Exception as e:
+                logger.warning("[%s] Previous quarter backfill failed: %s", ticker, e)
+
         warnings = connector.validate_snapshot(holdings, prev_holdings or None)
 
-        write_snapshot(
-            ticker=ticker,
-            fund_name=connector.fund_name,
-            as_of_date=as_of_date,
-            holdings=holdings,
-            warnings=warnings,
-            source=source,
-            source_url=source_url,
-        )
+        if snapshot_exists(ticker, as_of_date):
+            logger.info("[%s] Snapshot for %s already up to date — skipping write", ticker, as_of_date)
+        else:
+            write_snapshot(
+                ticker=ticker,
+                fund_name=connector.fund_name,
+                as_of_date=as_of_date,
+                holdings=holdings,
+                warnings=warnings,
+                source=source,
+                source_url=source_url,
+            )
 
         if warnings:
             for w in warnings:
@@ -129,12 +154,7 @@ def run_connector(connector) -> bool:
 
 
 def main():
-    connectors = [
-        GRNYConnector(),
-        IVESConnector(),
-        MPLYConnector(),
-        TCIConnector(),
-    ]
+    connectors = get_connectors()
 
     results = {}
     for connector in connectors:

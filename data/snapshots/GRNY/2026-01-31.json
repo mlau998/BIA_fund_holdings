@@ -1,0 +1,336 @@
+{
+  "fund_name": "Fundstrat Granny Shots US Large Cap ETF",
+  "fund_ticker": "GRNY",
+  "as_of_date": "2026-01-31",
+  "source": "edgar_nport",
+  "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1722388&type=N-PORT",
+  "scrape_timestamp": "2026-06-15T05:21:44Z",
+  "warnings": [
+    {
+      "level": "warning",
+      "message": "Low ticker coverage: only 0% of holdings have tickers"
+    }
+  ],
+  "holdings": [
+    {
+      "security_name": "Advanced Micro Devices Inc",
+      "security_ticker": null,
+      "shares": 420207.0,
+      "market_value": 99475603.11,
+      "portfolio_weight": 2.3143044622265805,
+      "holding_key": "ADVANCED MICRO DEVICES INC"
+    },
+    {
+      "security_name": "Alphabet Inc",
+      "security_ticker": null,
+      "shares": 384341.0,
+      "market_value": 129907258.0,
+      "portfolio_weight": 3.0222983069785148,
+      "holding_key": "ALPHABET INC"
+    },
+    {
+      "security_name": "Amazon.com Inc",
+      "security_ticker": null,
+      "shares": 447020.0,
+      "market_value": 106971886.0,
+      "portfolio_weight": 2.488705826983883,
+      "holding_key": "AMAZON.COM INC"
+    },
+    {
+      "security_name": "American Express Co",
+      "security_ticker": null,
+      "shares": 292621.0,
+      "market_value": 103052337.6,
+      "portfolio_weight": 2.3975173539469083,
+      "holding_key": "AMERICAN EXPRESS CO"
+    },
+    {
+      "security_name": "Apple Inc",
+      "security_ticker": null,
+      "shares": 398570.0,
+      "market_value": 103420943.6,
+      "portfolio_weight": 2.4060929894186547,
+      "holding_key": "APPLE INC"
+    },
+    {
+      "security_name": "Arista Networks Inc",
+      "security_ticker": null,
+      "shares": 813989.0,
+      "market_value": 115374800.9,
+      "portfolio_weight": 2.6842000269765776,
+      "holding_key": "ARISTA NETWORKS INC"
+    },
+    {
+      "security_name": "Axon Enterprise Inc",
+      "security_ticker": null,
+      "shares": 191807.0,
+      "market_value": 92754029.06,
+      "portfolio_weight": 2.1579267341126847,
+      "holding_key": "AXON ENTERPRISE INC"
+    },
+    {
+      "security_name": "Bank of New York Mellon Corp/T",
+      "security_ticker": null,
+      "shares": 966252.0,
+      "market_value": 115872939.8,
+      "portfolio_weight": 2.6957892512992876,
+      "holding_key": "BANK OF NEW YORK MELLON CORP/T"
+    },
+    {
+      "security_name": "Broadcom Inc",
+      "security_ticker": null,
+      "shares": 308272.0,
+      "market_value": 102130513.6,
+      "portfolio_weight": 2.3760710763683903,
+      "holding_key": "BROADCOM INC"
+    },
+    {
+      "security_name": "Cadence Design Systems Inc",
+      "security_ticker": null,
+      "shares": 342935.0,
+      "market_value": 101632216.6,
+      "portfolio_weight": 2.3644781738419396,
+      "holding_key": "CADENCE DESIGN SYSTEMS INC"
+    },
+    {
+      "security_name": "Caterpillar Inc",
+      "security_ticker": null,
+      "shares": 189011.0,
+      "market_value": 124248271.0,
+      "portfolio_weight": 2.890641715248179,
+      "holding_key": "CATERPILLAR INC"
+    },
+    {
+      "security_name": "Costco Wholesale Corp",
+      "security_ticker": null,
+      "shares": 119172.0,
+      "market_value": 112051473.0,
+      "portfolio_weight": 2.606882651178341,
+      "holding_key": "COSTCO WHOLESALE CORP"
+    },
+    {
+      "security_name": "Crowdstrike Holdings Inc",
+      "security_ticker": null,
+      "shares": 199529.0,
+      "market_value": 88073098.25,
+      "portfolio_weight": 2.049024664436589,
+      "holding_key": "CROWDSTRIKE HOLDINGS INC"
+    },
+    {
+      "security_name": "Deere & Co",
+      "security_ticker": null,
+      "shares": 226493.0,
+      "market_value": 119588304.0,
+      "portfolio_weight": 2.7822273695718525,
+      "holding_key": "DEERE & CO"
+    },
+    {
+      "security_name": "Eaton Corp PLC",
+      "security_ticker": null,
+      "shares": 297466.0,
+      "market_value": 104535501.7,
+      "portfolio_weight": 2.432023234660681,
+      "holding_key": "EATON CORP PLC"
+    },
+    {
+      "security_name": "Emerson Electric Co",
+      "security_ticker": null,
+      "shares": 820615.0,
+      "market_value": 120597580.4,
+      "portfolio_weight": 2.8057082312415935,
+      "holding_key": "EMERSON ELECTRIC CO"
+    },
+    {
+      "security_name": "Expedia Group Inc",
+      "security_ticker": null,
+      "shares": 402190.0,
+      "market_value": 106515999.6,
+      "portfolio_weight": 2.478099609008791,
+      "holding_key": "EXPEDIA GROUP INC"
+    },
+    {
+      "security_name": "First American Government Obli",
+      "security_ticker": null,
+      "shares": 55148263.32,
+      "market_value": 55148263.32,
+      "portfolio_weight": 1.2830268718691709,
+      "holding_key": "FIRST AMERICAN GOVERNMENT OBLI"
+    },
+    {
+      "security_name": "GE Vernova Inc",
+      "security_ticker": null,
+      "shares": 189057.0,
+      "market_value": 137325333.1,
+      "portfolio_weight": 3.194880163919637,
+      "holding_key": "GE VERNOVA INC"
+    },
+    {
+      "security_name": "General Electric Co",
+      "security_ticker": null,
+      "shares": 356568.0,
+      "market_value": 109391496.7,
+      "portfolio_weight": 2.5449981807348734,
+      "holding_key": "GENERAL ELECTRIC CO"
+    },
+    {
+      "security_name": "Goldman Sachs Group Inc/The",
+      "security_ticker": null,
+      "shares": 131179.0,
+      "market_value": 122706148.4,
+      "portfolio_weight": 2.854764162331672,
+      "holding_key": "GOLDMAN SACHS GROUP INC/THE"
+    },
+    {
+      "security_name": "JPMorgan Chase & Co",
+      "security_ticker": null,
+      "shares": 341164.0,
+      "market_value": 104358656.0,
+      "portfolio_weight": 2.427908911350844,
+      "holding_key": "JPMORGAN CHASE & CO"
+    },
+    {
+      "security_name": "KLA Corp",
+      "security_ticker": null,
+      "shares": 91145.0,
+      "market_value": 130149591.3,
+      "portfolio_weight": 3.0279362023016114,
+      "holding_key": "KLA CORP"
+    },
+    {
+      "security_name": "Lam Research Corp",
+      "security_ticker": null,
+      "shares": 681826.0,
+      "market_value": 159179098.0,
+      "portfolio_weight": 3.703309005196362,
+      "holding_key": "LAM RESEARCH CORP"
+    },
+    {
+      "security_name": "Meta Platforms Inc",
+      "security_ticker": null,
+      "shares": 179392.0,
+      "market_value": 128534368.0,
+      "portfolio_weight": 2.9903579582516735,
+      "holding_key": "META PLATFORMS INC"
+    },
+    {
+      "security_name": "Microsoft Corp",
+      "security_ticker": null,
+      "shares": 218832.0,
+      "market_value": 94161221.28,
+      "portfolio_weight": 2.19066512555883,
+      "holding_key": "MICROSOFT CORP"
+    },
+    {
+      "security_name": "Monster Beverage Corp",
+      "security_ticker": null,
+      "shares": 1531392.0,
+      "market_value": 123675217.9,
+      "portfolio_weight": 2.877309608631482,
+      "holding_key": "MONSTER BEVERAGE CORP"
+    },
+    {
+      "security_name": "Netflix Inc",
+      "security_ticker": null,
+      "shares": 957790.0,
+      "market_value": 79965887.1,
+      "portfolio_weight": 1.8604100257305487,
+      "holding_key": "NETFLIX INC"
+    },
+    {
+      "security_name": "NVIDIA Corp",
+      "security_ticker": null,
+      "shares": 568793.0,
+      "market_value": 108713406.1,
+      "portfolio_weight": 2.5292223718700746,
+      "holding_key": "NVIDIA CORP"
+    },
+    {
+      "security_name": "Palantir Technologies Inc",
+      "security_ticker": null,
+      "shares": 603955.0,
+      "market_value": 88533763.45,
+      "portfolio_weight": 2.0597420614125452,
+      "holding_key": "PALANTIR TECHNOLOGIES INC"
+    },
+    {
+      "security_name": "Palo Alto Networks Inc",
+      "security_ticker": null,
+      "shares": 514538.0,
+      "market_value": 91057789.86,
+      "portfolio_weight": 2.1184636514388084,
+      "holding_key": "PALO ALTO NETWORKS INC"
+    },
+    {
+      "security_name": "PNC Financial Services Group I",
+      "security_ticker": null,
+      "shares": 588444.0,
+      "market_value": 131399545.2,
+      "portfolio_weight": 3.0570164370316157,
+      "holding_key": "PNC FINANCIAL SERVICES GROUP I"
+    },
+    {
+      "security_name": "Quanta Services Inc",
+      "security_ticker": null,
+      "shares": 242450.0,
+      "market_value": 115074043.5,
+      "portfolio_weight": 2.6772028922912217,
+      "holding_key": "QUANTA SERVICES INC"
+    },
+    {
+      "security_name": "Robinhood Markets Inc",
+      "security_ticker": null,
+      "shares": 847500.0,
+      "market_value": 84309300.0,
+      "portfolio_weight": 1.9614597257725483,
+      "holding_key": "ROBINHOOD MARKETS INC"
+    },
+    {
+      "security_name": "S&P Global Inc",
+      "security_ticker": null,
+      "shares": 219635.0,
+      "market_value": 115921156.7,
+      "portfolio_weight": 2.696911019686068,
+      "holding_key": "S&P GLOBAL INC"
+    },
+    {
+      "security_name": "SoFi Technologies Inc",
+      "security_ticker": null,
+      "shares": 3495029.0,
+      "market_value": 79721611.49,
+      "portfolio_weight": 1.8547269424763466,
+      "holding_key": "SOFI TECHNOLOGIES INC"
+    },
+    {
+      "security_name": "Strategy Inc",
+      "security_ticker": null,
+      "shares": 484716.0,
+      "market_value": 72566832.36,
+      "portfolio_weight": 1.6882706783359378,
+      "holding_key": "STRATEGY INC"
+    },
+    {
+      "security_name": "Tesla Inc",
+      "security_ticker": null,
+      "shares": 255257.0,
+      "market_value": 109865165.4,
+      "portfolio_weight": 2.556018104733875,
+      "holding_key": "TESLA INC"
+    },
+    {
+      "security_name": "TJX Cos Inc/The",
+      "security_ticker": null,
+      "shares": 745439.0,
+      "market_value": 111674216.6,
+      "portfolio_weight": 2.5981057637544156,
+      "holding_key": "TJX COS INC/THE"
+    },
+    {
+      "security_name": "Vistra Corp",
+      "security_ticker": null,
+      "shares": 615057.0,
+      "market_value": 97394275.95,
+      "portfolio_weight": 2.265882290526702,
+      "holding_key": "VISTRA CORP"
+    }
+  ]
+}
