@@ -45,9 +45,11 @@ _IVES_NAME_FALLBACK = {
     "IREN LTD": "IREN",
 }
 
-# GRNY: N/A CUSIP for Irish-domiciled holding — match by name
+# GRNY: N/A CUSIPs for foreign-domiciled holdings — match by name
 _GRNY_NAME_FALLBACK = {
     "EATON CORP PLC": "ETN",
+    "GARMIN LTD": "GRMN",
+    "WILLIS TOWERS WATSON PLC": "WTW",
 }
 
 
