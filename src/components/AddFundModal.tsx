@@ -58,14 +58,20 @@ export default function AddFundModal() {
     }
   };
 
+  const inputCls =
+    "w-full rounded-[9px] border border-[#E4DECF] bg-[#F5F1E8] px-3 py-2 text-sm text-[#211C13] focus:outline-none focus:border-[#1F3D63] focus:ring-1 focus:ring-[#1F3D63] transition-colors";
+  const labelCls =
+    "block text-[11px] font-semibold uppercase tracking-wide text-[#A39A86] mb-1";
+
   const input = (
     label: string,
     field: Field,
     opts?: { placeholder?: string; required?: boolean; hint?: string; type?: string }
   ) => (
     <div>
-      <label className="block text-xs font-medium text-gray-700 mb-1">
-        {label}{opts?.required !== false && <span className="text-red-400 ml-0.5">*</span>}
+      <label className={labelCls}>
+        {label}
+        {opts?.required !== false && <span className="text-[#C23B30] ml-0.5">*</span>}
       </label>
       <input
         type={opts?.type ?? (field === "password" ? "password" : "text")}
@@ -73,24 +79,27 @@ export default function AddFundModal() {
         onChange={(e) => set(field, e.target.value)}
         placeholder={opts?.placeholder}
         required={opts?.required !== false}
-        className="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className={inputCls}
       />
-      {opts?.hint && <p className="mt-0.5 text-xs text-gray-400">{opts.hint}</p>}
+      {opts?.hint && <p className="mt-1 text-xs text-[#A39A86]">{opts.hint}</p>}
     </div>
   );
 
   const select = (label: string, field: Field, options: { value: string; label: string }[]) => (
     <div>
-      <label className="block text-xs font-medium text-gray-700 mb-1">
-        {label}<span className="text-red-400 ml-0.5">*</span>
+      <label className={labelCls}>
+        {label}
+        <span className="text-[#C23B30] ml-0.5">*</span>
       </label>
       <select
         value={form[field]}
         onChange={(e) => set(field, e.target.value)}
-        className="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className={inputCls}
       >
         {options.map((o) => (
-          <option key={o.value} value={o.value}>{o.label}</option>
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
         ))}
       </select>
     </div>
@@ -100,32 +109,35 @@ export default function AddFundModal() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="text-sm font-medium text-blue-600 hover:text-blue-800 border border-blue-200 rounded-md px-3 py-1 hover:bg-blue-50 transition-colors"
+        className="rounded-[9px] px-[15px] py-2 text-[13.5px] font-semibold text-[#211C13] bg-white border border-[#DCD4C2] hover:border-[#C9C0AC] transition-colors"
       >
         + Add Fund
       </button>
 
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/40" onClick={handleClose} />
+          <div
+            className="absolute inset-0 bg-[rgba(19,24,32,0.42)] backdrop-blur-[3px]"
+            onClick={handleClose}
+          />
 
-          <div className="relative bg-white rounded-lg shadow-xl w-full max-w-lg mx-4 p-6 space-y-4 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-start justify-between">
+          <div className="relative bg-white rounded-[18px] shadow-2xl w-full max-w-lg mx-4 overflow-hidden max-h-[90vh] overflow-y-auto">
+            <div className="px-6 pt-5 pb-4 border-b border-[#EAE4D7] flex items-start justify-between">
               <div>
-                <h2 className="text-base font-bold text-gray-900">Add Fund</h2>
-                <p className="text-xs text-gray-500 mt-0.5">
+                <h2 className="font-serif italic text-2xl font-medium text-[#211C13]">Add Fund</h2>
+                <p className="text-xs text-[#A39A86] mt-1">
                   New fund will be scraped on the next run.
                 </p>
               </div>
               <button
                 onClick={handleClose}
-                className="text-gray-400 hover:text-gray-600 text-2xl leading-none -mt-1"
+                className="w-[30px] h-[30px] bg-[#F0EBE0] rounded-[8px] flex items-center justify-center text-[#8A8170] hover:text-[#211C13] text-lg font-medium transition-colors"
               >
                 ×
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 {input("Ticker", "ticker", { placeholder: "e.g. XYZ" })}
                 {input("Fund Name", "name", { placeholder: "e.g. XYZ Growth ETF" })}
@@ -158,25 +170,25 @@ export default function AddFundModal() {
                 })}
               </div>
 
-              <div className="border-t border-gray-100 pt-3">
+              <div className="border-t border-[#EAE4D7] pt-4">
                 {input("Password", "password", { placeholder: "Admin password" })}
               </div>
 
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full rounded bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full rounded-[9px] bg-[#211C13] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#2C261B] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {status === "loading" ? "Adding…" : "Add Fund"}
               </button>
 
               {status === "success" && (
-                <p className="rounded bg-green-50 border border-green-200 px-3 py-2 text-sm text-green-800">
+                <p className="rounded-[9px] bg-[#F0F8F3] border border-[#DDEBE2] px-3 py-2 text-sm text-[#0E7C4A]">
                   {message}
                 </p>
               )}
               {status === "error" && (
-                <p className="rounded bg-red-50 border border-red-200 px-3 py-2 text-sm text-red-800">
+                <p className="rounded-[9px] bg-[#FBF0EF] border border-[#F0DAD7] px-3 py-2 text-sm text-[#C23B30]">
                   {message}
                 </p>
               )}

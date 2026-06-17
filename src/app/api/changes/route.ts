@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { readSnapshot } from "@/lib/snapshots";
 import { computeChanges } from "@/lib/diff";
 import { isErrorSnapshot } from "@/types";
+import { STATIC_TICKERS } from "@/lib/config";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
@@ -9,11 +10,16 @@ export async function GET(request: NextRequest) {
   const date1 = searchParams.get("date1");
   const date2 = searchParams.get("date2");
 
-  if (!fund || !date1 || !date2) {
+  const dateRe = /^\d{4}-\d{2}-\d{2}$/;
+  if (!fund || !date1 || !date2 || !dateRe.test(date1) || !dateRe.test(date2)) {
     return NextResponse.json(
-      { error: "Required params: fund, date1, date2" },
+      { error: "Required params: fund, date1, date2 (dates must be YYYY-MM-DD)" },
       { status: 400 }
     );
+  }
+
+  if (!STATIC_TICKERS.includes(fund)) {
+    return NextResponse.json({ error: `Unknown fund: ${fund}` }, { status: 400 });
   }
 
   const snap1 = readSnapshot(fund, date1);

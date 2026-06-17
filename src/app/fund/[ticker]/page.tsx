@@ -5,14 +5,12 @@ import { STATIC_TICKERS } from "@/lib/config";
 import { readLatestSnapshot, listSnapshotDates } from "@/lib/snapshots";
 import { isErrorSnapshot, Snapshot } from "@/types";
 import HoldingsTable from "@/components/HoldingsTable";
-import MPLYHoldingsTable from "@/components/MPLYHoldingsTable";
 import WarningBanner from "@/components/WarningBanner";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  // Use static list at build time; dynamicParams=true handles any KV-added funds at runtime
   return STATIC_TICKERS.map((ticker) => ({ ticker }));
 }
 
@@ -40,52 +38,96 @@ export default async function FundDetailPage({ params }: Props) {
   const warnings = snapshot?.warnings || [];
 
   return (
-    <div className="space-y-6">
-      <nav className="text-sm text-gray-500">
-        <Link href="/" className="hover:text-blue-600">Dashboard</Link>
-        {" / "}
-        <span className="font-medium text-gray-900">{upperTicker}</span>
+    <div className="space-y-[24px]">
+      {/* Breadcrumb */}
+      <nav className="flex items-center gap-2 text-[14px] text-[#A39A86]">
+        <Link href="/" className="hover:text-[#1F3D63] transition-colors">
+          Dashboard
+        </Link>
+        <span>/</span>
+        <span className="font-semibold text-[#211C13]">{upperTicker}</span>
       </nav>
 
-      <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="rounded bg-blue-100 px-2 py-1 font-mono text-sm font-bold text-blue-800">
-                {upperTicker}
-              </span>
-              <span className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
-                {config.type}
-              </span>
-            </div>
-            <h1 className="mt-2 text-xl font-bold text-gray-900">{config.name}</h1>
-            <p className="mt-1 text-sm text-gray-600">{config.description}</p>
-            {config.dataNote && (
-              <p className="mt-2 text-xs text-amber-700 bg-amber-50 rounded px-2 py-1 inline-block">
-                {config.dataNote}
-              </p>
-            )}
-          </div>
-          <div className="text-right text-xs text-gray-400 space-y-1">
-            <div>
-              <a href={config.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                {config.website}
-              </a>
-            </div>
-            {snapshot && (
-              <>
-                <div>As of: <strong>{snapshot.as_of_date}</strong></div>
-                <div>Source: {snapshot.source}</div>
-                <div>Updated: {new Date(snapshot.scrape_timestamp).toLocaleString()}</div>
-              </>
-            )}
-            <div>{dates.length} snapshot{dates.length !== 1 ? "s" : ""} available</div>
-          </div>
+      {/* Fund meta card */}
+      <div className="bg-white border border-[#E4DECF] rounded-[16px] p-[26px_28px]">
+        <div className="flex items-center gap-[9px]">
+          <span className="font-mono text-[15px] font-semibold text-[#1F3D63] bg-[#E5EAF1] px-[11px] py-[5px] rounded-[7px]">
+            {upperTicker}
+          </span>
+          {config?.type && (
+            <span className="font-mono text-[12.5px] font-semibold text-[#7C7563] bg-[#EFE9DD] px-[10px] py-[5px] rounded-[7px]">
+              {config.type}
+            </span>
+          )}
+          {config?.website && (
+            <a
+              href={config.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-auto text-[13px] text-[#1F3D63] hover:underline"
+            >
+              {config.website.replace(/^https?:\/\//, "")} →
+            </a>
+          )}
         </div>
+
+        <h1 className="mt-4 font-serif text-[32px] font-medium tracking-[-0.01em] text-[#211C13] leading-snug m-0 mt-4">
+          {config?.name || upperTicker}
+        </h1>
+
+        {config?.description && (
+          <p className="mt-[10px] text-[15px] leading-relaxed text-[#7C7563] max-w-[680px]">
+            {config.description}
+          </p>
+        )}
+
+        {config?.dataNote && (
+          <p className="mt-2 text-xs text-[#B45309] bg-[#FEF3DC] rounded-[7px] px-3 py-1.5 inline-block">
+            {config.dataNote}
+          </p>
+        )}
+
+        {snapshot && (
+          <div className="mt-5 pt-[18px] border-t border-[#EAE4D7] flex items-center gap-7 flex-wrap">
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.05em] text-[#A39A86] uppercase">
+                As of
+              </span>
+              <span className="font-mono text-[14px] font-semibold text-[#2C261B]">
+                {snapshot.as_of_date}
+              </span>
+            </div>
+            <div className="w-px self-stretch bg-[#EAE4D7]" />
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.05em] text-[#A39A86] uppercase">
+                Source
+              </span>
+              <span className="font-mono text-[14px] font-semibold text-[#2C261B]">
+                {snapshot.source}
+              </span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.05em] text-[#A39A86] uppercase">
+                Updated
+              </span>
+              <span className="font-mono text-[14px] font-semibold text-[#2C261B]">
+                {new Date(snapshot.scrape_timestamp).toLocaleString()}
+              </span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.05em] text-[#A39A86] uppercase">
+                Snapshots
+              </span>
+              <span className="font-mono text-[14px] font-semibold text-[#2C261B]">
+                {dates.length}
+              </span>
+            </div>
+          </div>
+        )}
       </div>
 
       {isError && (
-        <div className="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800">
+        <div className="rounded-[12px] border border-[#F0DAD7] bg-[#FBF0EF] px-4 py-3 text-sm text-[#C23B30]">
           <strong>Failed to fetch holdings.</strong>{" "}
           {snap && isErrorSnapshot(snap) ? snap.error_message : "No snapshot found."}
         </div>
@@ -93,7 +135,9 @@ export default async function FundDetailPage({ params }: Props) {
 
       {warnings.length > 0 && (
         <section>
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">Notifications</h2>
+          <div className="text-[11.5px] font-semibold tracking-[0.06em] text-[#A39A86] uppercase mb-2">
+            Notifications
+          </div>
           <WarningBanner warnings={warnings} />
         </section>
       )}
@@ -101,17 +145,24 @@ export default async function FundDetailPage({ params }: Props) {
       {snapshot && (
         <section>
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+            <div className="text-[11.5px] font-semibold tracking-[0.06em] text-[#A39A86] uppercase">
               Holdings ({snapshot.holdings.length})
-            </h2>
-            <Link href={`/changes?fund=${upperTicker}`} className="text-xs text-blue-600 hover:underline">
+            </div>
+            <Link
+              href={`/changes?fund=${upperTicker}`}
+              className="text-[14px] font-semibold text-[#1F3D63] hover:underline"
+            >
               View changes →
             </Link>
           </div>
           {upperTicker === "MPLY" ? (
-            <MPLYHoldingsTable holdings={snapshot.holdings} />
+            <HoldingsTable holdings={snapshot.holdings} fundTicker="MPLY" showFund={false} />
           ) : (
-            <HoldingsTable holdings={snapshot.holdings} showFund={false} showExtraColumns fundTicker={upperTicker} />
+            <HoldingsTable
+              holdings={snapshot.holdings}
+              showFund={false}
+              fundTicker={upperTicker}
+            />
           )}
         </section>
       )}

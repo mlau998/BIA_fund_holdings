@@ -1,12 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f9fafb;
-  --foreground: #111827;
+@theme {
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --font-serif: 'Newsreader', Georgia, serif;
+
+  --color-cream: #ECE8DF;
+  --color-cream-light: #F9F6EF;
+  --color-cream-card: #F5F1E8;
+  --color-cream-border: #E4DECF;
+  --color-cream-divider: #EAE4D7;
+  --color-cream-row: #F0EBE0;
+  --color-cream-hover: #F7F3EA;
+  --color-ink: #211C13;
+  --color-ink-2: #2C261B;
+  --color-ink-muted: #7C7563;
+  --color-ink-faint: #A39A86;
+  --color-navy: #1F3D63;
+  --color-navy-bg: #E5EAF1;
+  --color-tan-text: #7C7563;
+  --color-tan-bg: #EFE9DD;
+  --color-positive: #0E7C4A;
+  --color-positive-dim: #16A06A;
+  --color-positive-bg: #E8F4EE;
+  --color-positive-surface: #F0F8F3;
+  --color-positive-border: #DDEBE2;
+  --color-positive-text: #5C9678;
+  --color-negative: #C23B30;
+  --color-negative-deep: #A8362C;
+  --color-negative-bg: #FBECEA;
+  --color-negative-surface: #FBF0EF;
+  --color-negative-border: #F0DAD7;
+  --color-negative-text: #C08A84;
+  --color-amber: #B45309;
+  --color-amber-dim: #574F3D;
+  --color-amber-bg: #FEF3DC;
+  --color-changes-bg: #EAEEF4;
+  --color-changes-border: #D3DAE6;
+  --color-changes-text: #243E60;
+  --color-changes-muted: #6E83A8;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #ECE8DF;
+  color: #211C13;
+  -webkit-font-smoothing: antialiased;
 }

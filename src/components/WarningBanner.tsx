@@ -53,18 +53,18 @@ export default function WarningBanner({ warnings }: Props) {
         return (
           <div
             key={key}
-            className="flex items-start gap-2 rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+            className="flex items-start gap-2 rounded-[12px] border border-[#F0DAD7] bg-[#FBF0EF] px-4 py-3 text-sm text-[#C23B30]"
           >
-            <span className="mt-0.5 shrink-0 font-bold">ERROR</span>
+            <span className="mt-0.5 shrink-0 font-bold text-[11px] tracking-wide uppercase">Error</span>
             {w.fund_ticker && (
-              <span className="shrink-0 rounded bg-red-200 px-1.5 py-0.5 text-xs font-mono font-semibold">
+              <span className="shrink-0 rounded-[5px] bg-[#FBECEA] border border-[#F0DAD7] px-1.5 py-0.5 text-xs font-mono font-semibold">
                 {w.fund_ticker}
               </span>
             )}
             <span>{w.message}</span>
             <button
               onClick={() => dismiss(key)}
-              className="ml-auto shrink-0 text-red-500 hover:text-red-700"
+              className="ml-auto shrink-0 text-[#C08A84] hover:text-[#C23B30] transition-colors"
               aria-label="Dismiss"
             >
               ✕
@@ -77,18 +77,18 @@ export default function WarningBanner({ warnings }: Props) {
         return (
           <div
             key={key}
-            className="flex items-start gap-2 rounded-md border border-yellow-300 bg-yellow-50 px-4 py-3 text-sm text-yellow-800"
+            className="flex items-start gap-2 rounded-[12px] border border-[#F5E8C0] bg-[#FFFBEB] px-4 py-3 text-sm text-[#B45309]"
           >
-            <span className="mt-0.5 shrink-0 font-bold">NOTICE</span>
+            <span className="mt-0.5 shrink-0 font-bold text-[11px] tracking-wide uppercase">Notice</span>
             {w.fund_ticker && (
-              <span className="shrink-0 rounded bg-yellow-200 px-1.5 py-0.5 text-xs font-mono font-semibold">
+              <span className="shrink-0 rounded-[5px] bg-[#FEF3DC] border border-[#F5E8C0] px-1.5 py-0.5 text-xs font-mono font-semibold">
                 {w.fund_ticker}
               </span>
             )}
             <span>{w.message}</span>
             <button
               onClick={() => dismiss(key)}
-              className="ml-auto shrink-0 text-yellow-500 hover:text-yellow-700"
+              className="ml-auto shrink-0 text-[#D4A455] hover:text-[#B45309] transition-colors"
               aria-label="Dismiss"
             >
               ✕

@@ -48,37 +48,41 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-start justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">Holdings Dashboard</h1>
-          <p className="mt-1 text-sm text-gray-500">
-            Aggregated holdings across {tickers.length} funds
-          </p>
+    <div className="space-y-[26px]">
+      {/* Page header */}
+      <div>
+        <div className="font-mono text-[11px] font-semibold tracking-[0.2em] text-[#A39A86] uppercase mb-[9px]">
+          Portfolio Intelligence
         </div>
+        <h1 className="font-serif text-[38px] font-medium tracking-[-0.01em] text-[#211C13] leading-none m-0">
+          Holdings Dashboard
+        </h1>
+        <p className="mt-[7px] text-[15px] text-[#8A8170]">
+          Aggregated holdings across {tickers.length} funds · {initialHoldings.length} positions
+        </p>
       </div>
 
+      {/* Fund status */}
       <section>
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
-          Fund Status
-        </h2>
+        <div className="text-[11.5px] font-semibold tracking-[0.06em] text-[#A39A86] uppercase mb-3">
+          Funds
+        </div>
         <StatusPanel statuses={statuses} fundConfig={fundConfig} />
       </section>
 
-{allWarnings.length > 0 && (
+      {/* Warnings */}
+      {allWarnings.length > 0 && (
         <section>
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">
+          <div className="text-[11.5px] font-semibold tracking-[0.06em] text-[#A39A86] uppercase mb-2">
             Notifications
-          </h2>
+          </div>
           <WarningBanner warnings={allWarnings} />
         </section>
       )}
 
+      {/* Holdings */}
       <section>
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
-          Holdings
-        </h2>
-        <Suspense fallback={<div className="text-sm text-gray-400">Loading holdings…</div>}>
+        <Suspense fallback={<div className="text-sm text-[#A39A86]">Loading holdings…</div>}>
           <DashboardClient initialHoldings={initialHoldings} tickers={tickers} />
         </Suspense>
       </section>

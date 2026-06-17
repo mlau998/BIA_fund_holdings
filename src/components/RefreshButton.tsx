@@ -12,12 +12,17 @@ export default function RefreshButton({ onRefreshComplete }: Props) {
   const [isError, setIsError] = useState(false);
 
   const handleRefresh = async () => {
+    const password = window.prompt("Enter admin password to refresh data:");
+    if (!password) return;
     setLoading(true);
     setMessage(null);
     setIsError(false);
 
     try {
-      const resp = await fetch("/api/refresh", { method: "POST" });
+      const resp = await fetch("/api/refresh", {
+        method: "POST",
+        headers: { "x-admin-password": password },
+      });
       const data = await resp.json();
 
       if (resp.ok) {
@@ -34,7 +39,7 @@ export default function RefreshButton({ onRefreshComplete }: Props) {
         setMessage(data.error || "Refresh failed");
         setIsError(true);
       }
-    } catch (e) {
+    } catch {
       setMessage("Network error");
       setIsError(true);
     } finally {
@@ -47,22 +52,22 @@ export default function RefreshButton({ onRefreshComplete }: Props) {
       <button
         onClick={handleRefresh}
         disabled={loading}
-        className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="flex items-center gap-1.5 rounded-[9px] border border-[#E4DECF] bg-white px-[14px] py-[7px] text-[13px] font-semibold text-[#4A4232] hover:border-[#C9C0AC] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
         {loading ? (
-          <span className="flex items-center gap-2">
-            <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+          <>
+            <svg className="animate-spin h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            Refreshing...
-          </span>
+            Refreshing…
+          </>
         ) : (
-          "Refresh Data"
+          "↻ Refresh Data"
         )}
       </button>
       {message && (
-        <span className={`text-sm ${isError ? "text-red-600" : "text-green-600"}`}>
+        <span className={`text-[12.5px] font-mono ${isError ? "text-[#C23B30]" : "text-[#0E7C4A]"}`}>
           {message}
         </span>
       )}

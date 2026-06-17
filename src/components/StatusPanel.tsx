@@ -8,89 +8,92 @@ interface Props {
   fundConfig: Record<string, FundMeta>;
 }
 
-/** Next expected filing date = quarter end (as_of_date + 3 months) + filing window */
-function nextFilingDeadline(asOfDate: string, formType?: string): Date {
+// Estimate: one quarter after last as_of_date + ~60 day filing lag.
+// If already past (stale data), keep advancing by quarters.
+function estimatedRelease(asOfDate: string): Date {
   const d = new Date(asOfDate + "T00:00:00Z");
   d.setUTCMonth(d.getUTCMonth() + 3);
-  // N-PORT: 60 days after quarter end; 13F-HR: 45 days
-  d.setUTCDate(d.getUTCDate() + (formType === "13F-HR" ? 45 : 60));
+  d.setUTCDate(d.getUTCDate() + 60);
+  const now = Date.now();
+  while (d.getTime() <= now) {
+    d.setUTCMonth(d.getUTCMonth() + 3);
+  }
   return d;
 }
 
-function countdownLabel(deadline: Date): string {
-  const diffMs = deadline.getTime() - Date.now();
-  const days = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
-  if (days < 0) return "overdue";
-  if (days === 0) return "due today";
-  if (days === 1) return "due tomorrow";
-  return `in ${days}d`;
+function daysUntil(date: Date): number {
+  return Math.ceil((date.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+}
+
+function fmtDate(d: Date): string {
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
 export default function StatusPanel({ statuses, fundConfig }: Props) {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px]">
       {statuses.map((status) => {
         const config = fundConfig[status.ticker];
-        const deadline =
+        const release =
           status.latestDate && !status.hasError
-            ? nextFilingDeadline(status.latestDate, config?.form_type)
+            ? estimatedRelease(status.latestDate)
             : null;
-        const daysLabel = deadline ? countdownLabel(deadline) : null;
-        const isOverdue = deadline && deadline.getTime() < Date.now();
+        const days = release ? daysUntil(release) : null;
+        const urgent = !status.hasError && days !== null && days <= 14;
 
         return (
           <Link
             key={status.ticker}
             href={`/fund/${status.ticker}`}
-            className={`block rounded-lg border p-3 transition-shadow hover:shadow-md ${
-              status.hasError
-                ? "border-red-300 bg-red-50"
-                : status.warningCount > 0
-                ? "border-yellow-300 bg-yellow-50"
-                : "border-green-300 bg-green-50"
-            }`}
+            className="block bg-white border border-[#E4DECF] rounded-[14px] p-[18px_20px] transition-all duration-150 hover:border-[#C9C0AC] hover:shadow-md"
           >
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-sm font-bold text-gray-800">
+            {/* Badge row */}
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[13px] font-semibold text-[#1F3D63] bg-[#E5EAF1] px-[9px] py-1 rounded-[6px] leading-none">
                 {status.ticker}
               </span>
-              <span
-                className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                  status.hasError
-                    ? "bg-red-200 text-red-800"
-                    : status.warningCount > 0
-                    ? "bg-yellow-200 text-yellow-800"
-                    : "bg-green-200 text-green-800"
-                }`}
-              >
-                {status.hasError
-                  ? "Error"
-                  : status.warningCount > 0
-                  ? `${status.warningCount} notice`
-                  : "OK"}
-              </span>
+              {config?.type && (
+                <span className="font-mono text-[11.5px] font-semibold text-[#7C7563] bg-[#EFE9DD] px-2 py-1 rounded-[6px] leading-none whitespace-nowrap">
+                  {config.type}
+                </span>
+              )}
+              {status.latestDate && !status.hasError && (
+                <span className="ml-auto flex items-center gap-1.5 text-[11.5px] font-semibold text-[#0E7C4A] whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A06A] inline-block shrink-0" />
+                  As of {status.latestDate}
+                </span>
+              )}
             </div>
 
-            <p className="mt-1 text-xs text-gray-500 truncate">{config?.name}</p>
+            {/* Fund name */}
+            <div className="mt-[13px] font-serif text-[19px] font-medium text-[#211C13] leading-snug">
+              {config?.name || status.ticker}
+            </div>
 
-            {status.hasError ? (
-              <p className="mt-1 text-xs text-red-700 truncate" title={status.errorMessage}>
-                {status.errorMessage}
-              </p>
-            ) : (
-              <p className="mt-1 text-xs text-gray-600">
-                {status.latestDate ? `As of ${status.latestDate}` : "No data"}
-              </p>
-            )}
-
-            {deadline && (
-              <p className={`mt-1 text-xs ${isOverdue ? "text-orange-600 font-medium" : "text-gray-400"}`}>
-                Next update {daysLabel}
-                <span className="ml-1 text-gray-300">
-                  ({deadline.toLocaleDateString("en-US", { month: "short", day: "numeric" })})
+            {/* Countdown row */}
+            <div className="mt-[14px] pt-[13px] border-t border-[#EAE4D7] flex items-center gap-2">
+              {status.hasError ? (
+                <span className="text-[11.5px] font-semibold text-[#C23B30] bg-[#FBECEA] px-[9px] py-1 rounded-[7px]">
+                  Error
                 </span>
-              </p>
-            )}
+              ) : days !== null ? (
+                <span
+                  title="Estimated: ~3 months after last filing + 60-day SEC publication lag"
+                  className={`flex items-center gap-1.5 text-[11.5px] font-semibold px-[9px] py-1 rounded-[7px] whitespace-nowrap cursor-help ${
+                    urgent ? "text-[#B45309] bg-[#FEF3DC]" : "text-[#574F3D] bg-[#EFE9DD]"
+                  }`}
+                >
+                  ↻ Est. release in {days} day{days === 1 ? "" : "s"}
+                </span>
+              ) : (
+                <span className="text-[11.5px] text-[#A39A86]">No data</span>
+              )}
+              {release && (
+                <span className="ml-auto font-mono text-[11.5px] text-[#A39A86]">
+                  ~{fmtDate(release)}
+                </span>
+              )}
+            </div>
           </Link>
         );
       })}

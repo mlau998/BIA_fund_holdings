@@ -35,10 +35,27 @@ jobs:
           REPORT_EMAIL_FROM: ${{ secrets.REPORT_EMAIL_FROM }}
           APP_URL: ${{ secrets.APP_URL }}
 
+      - name: Check for new snapshots
+        id: check_changes
+        run: |
+          git add data/snapshots/
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Commit new snapshots
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config user.name "BIA Bot"
           git config user.email "bot@bia.local"
-          git add data/snapshots/
-          git diff --staged --quiet || git commit -m "chore: daily snapshot $(date -u +%Y-%m-%d)"
+          git commit -m "chore: daily snapshot $(date -u +%Y-%m-%d)"
           git push
+
+      - name: Send holdings change report
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          curl -s -X POST "${{ secrets.APP_URL }}/api/send-report" \
+            -H "x-admin-password: ${{ secrets.ADMIN_PASSWORD }}" \
+            -H "Content-Type: application/json"

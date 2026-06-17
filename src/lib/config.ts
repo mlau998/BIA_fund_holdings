@@ -11,6 +11,7 @@ export const STATIC_FUND_CONFIG: Record<string, FundMeta> = {
     cik: "1722388",
     series_id: "S000088227",
     form_type: "N-PORT",
+    dataNote: "Holdings reported monthly via SEC N-PORT filings. Data lags up to 60 days after month-end.",
   },
   IVES: {
     name: "Dan Ives Wedbush AI Revolution ETF",
@@ -22,6 +23,7 @@ export const STATIC_FUND_CONFIG: Record<string, FundMeta> = {
     cik: "2055464",
     series_id: "S000091902",
     form_type: "N-PORT",
+    dataNote: "Holdings reported monthly via SEC N-PORT filings. Data lags up to 60 days after month-end.",
   },
   MPLY: {
     name: "Monopoly ETF",
@@ -33,6 +35,7 @@ export const STATIC_FUND_CONFIG: Record<string, FundMeta> = {
     cik: "1506213",
     series_id: "S000092393",
     form_type: "N-PORT",
+    dataNote: "Holdings reported monthly via SEC N-PORT filings. Data lags up to 60 days after month-end.",
   },
   TCI: {
     name: "TCI Fund Management",
@@ -40,7 +43,7 @@ export const STATIC_FUND_CONFIG: Record<string, FundMeta> = {
     description:
       "London-based hedge fund managed by Sir Christopher Hohn. Holdings sourced from quarterly SEC 13F-HR filings.",
     website: "https://www.tcifund.com/",
-    type: "Hedge Fund",
+    type: "Hedgefund",
     dataNote:
       "Holdings reported quarterly via SEC 13F filings. Data lags ~45 days after quarter-end.",
     cik: "1647251",
@@ -50,7 +53,3 @@ export const STATIC_FUND_CONFIG: Record<string, FundMeta> = {
 };
 
 export const STATIC_TICKERS = Object.keys(STATIC_FUND_CONFIG);
-
-// Legacy aliases — used by any code that hasn't been migrated to getFunds() yet
-export const FUND_CONFIG = STATIC_FUND_CONFIG;
-export const ALL_TICKERS = STATIC_TICKERS;

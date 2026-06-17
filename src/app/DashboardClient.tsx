@@ -22,47 +22,53 @@ interface Props {
 }
 
 export default function DashboardClient({ initialHoldings, tickers }: Props) {
-  const [selectedFunds, setSelectedFunds] = useState<string[]>(tickers);
-  const [nameSearch, setNameSearch] = useState("");
-  const [tickerSearch, setTickerSearch] = useState("");
+  const [selectedFund, setSelectedFund] = useState<string>("ALL");
+  const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
     return initialHoldings.filter((h) => {
-      if (!selectedFunds.includes(h.fund_ticker)) return false;
-      if (nameSearch && !h.security_name.toLowerCase().includes(nameSearch.toLowerCase())) return false;
-      if (tickerSearch && !(h.security_ticker || "").toLowerCase().includes(tickerSearch.toLowerCase())) return false;
+      if (selectedFund !== "ALL" && h.fund_ticker !== selectedFund) return false;
+      if (
+        q &&
+        !h.security_name.toLowerCase().includes(q) &&
+        !(h.security_ticker || "").toLowerCase().includes(q)
+      )
+        return false;
       return true;
     });
-  }, [initialHoldings, selectedFunds, nameSearch, tickerSearch]);
+  }, [initialHoldings, selectedFund, search]);
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center gap-3">
         <RefreshButton onRefreshComplete={() => window.location.reload()} />
-        <FundFilter tickers={tickers} selected={selectedFunds} onChange={setSelectedFunds} />
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <input
-          type="text"
-          placeholder="Search by name..."
-          value={nameSearch}
-          onChange={(e) => setNameSearch(e.target.value)}
-          className="rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-48"
-        />
-        <input
-          type="text"
-          placeholder="Search by ticker..."
-          value={tickerSearch}
-          onChange={(e) => setTickerSearch(e.target.value)}
-          className="rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-40"
-        />
-        <span className="self-center text-xs text-gray-400">
-          {filtered.length} holdings
-        </span>
-      </div>
+      <div className="bg-white border border-[#E4DECF] rounded-[16px] overflow-hidden">
+        {/* Filter + search bar */}
+        <div className="px-5 py-4 border-b border-[#EAE4D7] flex items-center gap-4 flex-wrap">
+          <FundFilter tickers={tickers} selected={selectedFund} onChange={setSelectedFund} />
+          <div className="ml-auto flex items-center gap-3">
+            <div className="relative">
+              <span className="absolute left-[11px] top-1/2 -translate-y-1/2 text-[#B3AB97] text-[13px] pointer-events-none select-none">
+                ⌕
+              </span>
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search name or ticker…"
+                className="text-[13.5px] text-[#211C13] bg-[#F5F1E8] border border-[#E4DECF] rounded-[9px] py-2 pl-[30px] pr-3 w-[230px] outline-none focus:border-[#1F3D63] transition-colors"
+              />
+            </div>
+            <span className="font-mono text-[12.5px] text-[#A39A86] whitespace-nowrap">
+              {filtered.length} shown
+            </span>
+          </div>
+        </div>
 
-      <HoldingsTable holdings={filtered} showFund={true} />
+        <HoldingsTable holdings={filtered} showFund borderless />
+      </div>
     </div>
   );
 }

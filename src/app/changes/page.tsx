@@ -20,14 +20,16 @@ export default async function ChangesPage({ searchParams }: Props) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-[20px]">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Holdings Changes</h1>
-        <p className="mt-1 text-sm text-gray-500">
-          Compare holdings between two snapshot dates for a fund
-        </p>
+        <div className="font-mono text-[11px] font-semibold tracking-[0.2em] text-[#A39A86] uppercase mb-[9px]">
+          Position Changes
+        </div>
+        <h1 className="font-serif text-[38px] font-medium tracking-[-0.01em] text-[#211C13] leading-none m-0">
+          Changes in Holdings
+        </h1>
       </div>
-      <Suspense fallback={<div className="text-sm text-gray-400">Loading…</div>}>
+      <Suspense fallback={<div className="text-sm text-[#A39A86]">Loading…</div>}>
         <ChangesPageClient
           defaultFund={defaultFund}
           snapshotDatesByFund={snapshotDatesByFund}

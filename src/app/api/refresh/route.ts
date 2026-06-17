@@ -1,6 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST() {
+export async function POST(req: NextRequest) {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminPassword || req.headers.get("x-admin-password") !== adminPassword) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   // Production: trigger GitHub Actions workflow_dispatch
   const githubToken = process.env.GITHUB_TOKEN;
   const githubRepo = process.env.GITHUB_REPO;
