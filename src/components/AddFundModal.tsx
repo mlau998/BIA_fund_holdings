@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 const DEFAULTS = {
   ticker: "",
@@ -114,7 +115,7 @@ export default function AddFundModal() {
         + Add Fund
       </button>
 
-      {open && (
+      {open && createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div
             className="absolute inset-0 bg-[rgba(19,24,32,0.42)] backdrop-blur-[3px]"
@@ -195,7 +196,7 @@ export default function AddFundModal() {
             </form>
           </div>
         </div>
-      )}
+      , document.body)}
     </>
   );
 }
