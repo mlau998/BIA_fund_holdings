@@ -90,11 +90,11 @@ function SectionHeader({ label, count, open, onToggle, variant }: SectionHeaderP
 
 // ─── Tooltip ─────────────────────────────────────────────────────────────────
 
-function Tooltip({ text }: { text: string }) {
+function Tooltip({ text, x, y }: { text: string; x: number; y: number }) {
   return (
     <div
-      className="absolute bottom-[calc(100%+6px)] left-1/2 -translate-x-1/2 bg-[#211C13] text-white font-mono text-[11.5px] font-medium whitespace-nowrap px-[10px] py-[6px] rounded-[7px] shadow-lg z-50 pointer-events-none"
-      style={{ animation: "tipIn .12s ease" }}
+      className="fixed bg-[#211C13] text-white font-mono text-[11.5px] font-medium whitespace-nowrap px-[10px] py-[6px] rounded-[7px] shadow-lg z-[9999] pointer-events-none -translate-x-1/2 -translate-y-full"
+      style={{ animation: "tipIn .12s ease", left: x, top: y - 6 }}
     >
       {text}
     </div>
@@ -103,16 +103,22 @@ function Tooltip({ text }: { text: string }) {
 
 // ─── Modified rows ────────────────────────────────────────────────────────────
 
+interface HoverState {
+  key: string;
+  x: number;
+  y: number;
+}
+
 interface ModRowProps {
   before: HoldingRecord;
   after: HoldingRecord;
   maxAbsWDelta: number;
-  hoverKey: string | null;
-  onHover: (key: string | null) => void;
+  hover: HoverState | null;
+  onHover: (state: HoverState | null) => void;
   rowKey: string;
 }
 
-function ModifiedRow({ before, after, maxAbsWDelta, hoverKey, onHover, rowKey }: ModRowProps) {
+function ModifiedRow({ before, after, maxAbsWDelta, hover, onHover, rowKey }: ModRowProps) {
   const wBefore = before.portfolio_weight ?? 0;
   const wAfter = after.portfolio_weight ?? 0;
   const wDelta = wAfter - wBefore;
@@ -158,7 +164,10 @@ function ModifiedRow({ before, after, maxAbsWDelta, hoverKey, onHover, rowKey }:
       <td className="px-5 py-[13px]">
         <div
           className="relative flex items-center gap-3"
-          onMouseEnter={() => onHover(`${rowKey}:w`)}
+          onMouseEnter={(e) => {
+            const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+            onHover({ key: `${rowKey}:w`, x: r.left + r.width / 2, y: r.top });
+          }}
           onMouseLeave={() => onHover(null)}
         >
           <span className={deltaTextCls} style={{ color: wColor }}>
@@ -184,8 +193,8 @@ function ModifiedRow({ before, after, maxAbsWDelta, hoverKey, onHover, rowKey }:
               />
             )}
           </div>
-          {hoverKey === `${rowKey}:w` && (
-            <Tooltip text={`${fmt(wBefore)}% → ${fmt(wAfter)}%`} />
+          {hover?.key === `${rowKey}:w` && (
+            <Tooltip text={`${fmt(wBefore)}% → ${fmt(wAfter)}%`} x={hover.x} y={hover.y} />
           )}
         </div>
       </td>
@@ -194,14 +203,17 @@ function ModifiedRow({ before, after, maxAbsWDelta, hoverKey, onHover, rowKey }:
       <td className="px-5 py-[13px] text-right">
         <div
           className="relative inline-flex justify-end"
-          onMouseEnter={() => onHover(`${rowKey}:v`)}
+          onMouseEnter={(e) => {
+            const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+            onHover({ key: `${rowKey}:v`, x: r.left + r.width / 2, y: r.top });
+          }}
           onMouseLeave={() => onHover(null)}
         >
           <span className={deltaTextCls} style={{ color: vColor }}>
             {vUp ? "▲" : "▼"} {fmtCurrency(Math.abs(vDelta))}
           </span>
-          {hoverKey === `${rowKey}:v` && (
-            <Tooltip text={`${fmtCurrency(vBefore)} → ${fmtCurrency(vAfter)}`} />
+          {hover?.key === `${rowKey}:v` && (
+            <Tooltip text={`${fmtCurrency(vBefore)} → ${fmtCurrency(vAfter)}`} x={hover.x} y={hover.y} />
           )}
         </div>
       </td>
@@ -210,14 +222,17 @@ function ModifiedRow({ before, after, maxAbsWDelta, hoverKey, onHover, rowKey }:
       <td className="px-5 py-[13px] text-right">
         <div
           className="relative inline-flex justify-end"
-          onMouseEnter={() => onHover(`${rowKey}:s`)}
+          onMouseEnter={(e) => {
+            const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+            onHover({ key: `${rowKey}:s`, x: r.left + r.width / 2, y: r.top });
+          }}
           onMouseLeave={() => onHover(null)}
         >
           <span className={deltaTextCls} style={{ color: sColor }}>
             {sUp ? "▲" : "▼"} {sDelta !== 0 ? Math.abs(sDelta).toLocaleString() : "0"}
           </span>
-          {hoverKey === `${rowKey}:s` && (
-            <Tooltip text={`${sBefore.toLocaleString()} → ${sAfter.toLocaleString()}`} />
+          {hover?.key === `${rowKey}:s` && (
+            <Tooltip text={`${sBefore.toLocaleString()} → ${sAfter.toLocaleString()}`} x={hover.x} y={hover.y} />
           )}
         </div>
       </td>
@@ -237,7 +252,7 @@ export default function ChangesTable({ changes }: Props) {
   const [addOpen, setAddOpen] = useState(true);
   const [rmOpen, setRmOpen] = useState(true);
   const [modOpen, setModOpen] = useState(true);
-  const [hoverKey, setHoverKey] = useState<string | null>(null);
+  const [hover, setHover] = useState<HoverState | null>(null);
 
   const maxAbsWDelta = Math.max(
     0.01,
@@ -343,8 +358,8 @@ export default function ChangesTable({ changes }: Props) {
                     before={before}
                     after={after}
                     maxAbsWDelta={maxAbsWDelta}
-                    hoverKey={hoverKey}
-                    onHover={setHoverKey}
+                    hover={hover}
+                    onHover={setHover}
                     rowKey={`mod-${i}`}
                   />
                 ))}
