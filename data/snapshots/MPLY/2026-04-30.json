@@ -1,0 +1,893 @@
+{
+  "fund_name": "Monopoly ETF",
+  "fund_ticker": "MPLY",
+  "as_of_date": "2026-04-30",
+  "source": "edgar_nport",
+  "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1506213&type=N-PORT",
+  "scrape_timestamp": "2026-07-01T21:14:26Z",
+  "warnings": [],
+  "holdings": [
+    {
+      "security_name": "ABBOTT LABORATORIES",
+      "security_ticker": "ABT",
+      "cusip": "002824100",
+      "shares": 594.0,
+      "market_value": 53929.26,
+      "portfolio_weight": 0.40940441056,
+      "holding_key": "ABT"
+    },
+    {
+      "security_name": "ABBVIE INC.",
+      "security_ticker": "ABBV",
+      "cusip": "00287Y109",
+      "shares": 601.0,
+      "market_value": 127003.32,
+      "portfolio_weight": 0.96414672413,
+      "holding_key": "ABBV"
+    },
+    {
+      "security_name": "ADOBE INC.",
+      "security_ticker": "ADBE",
+      "cusip": "00724F101",
+      "shares": 134.0,
+      "market_value": 32977.4,
+      "portfolio_weight": 0.250348197041,
+      "holding_key": "ADBE"
+    },
+    {
+      "security_name": "ADVANCED MICRO DEVICES, INC.",
+      "security_ticker": "AMD",
+      "cusip": "007903107",
+      "shares": 556.0,
+      "market_value": 197096.44,
+      "portfolio_weight": 1.496259207741,
+      "holding_key": "AMD"
+    },
+    {
+      "security_name": "AGILENT TECHNOLOGIES, INC.",
+      "security_ticker": "A",
+      "cusip": "00846U101",
+      "shares": 90.0,
+      "market_value": 10399.5,
+      "portfolio_weight": 0.0789478878,
+      "holding_key": "A"
+    },
+    {
+      "security_name": "ALPHABET INC.",
+      "security_ticker": "GOOG",
+      "cusip": "02079K107",
+      "shares": 3493.0,
+      "market_value": 1334116.42,
+      "portfolio_weight": 10.12795552078,
+      "holding_key": "GOOG"
+    },
+    {
+      "security_name": "AMAZON.COM, INC.",
+      "security_ticker": "AMZN",
+      "cusip": "023135106",
+      "shares": 3298.0,
+      "market_value": 874167.88,
+      "portfolio_weight": 6.636252484125,
+      "holding_key": "AMZN"
+    },
+    {
+      "security_name": "AMERICAN EXPRESS COMPANY",
+      "security_ticker": "AXP",
+      "cusip": "025816109",
+      "shares": 233.0,
+      "market_value": 75270.65,
+      "portfolio_weight": 0.571417744202,
+      "holding_key": "AXP"
+    },
+    {
+      "security_name": "CENCORA, INC.",
+      "security_ticker": "COR",
+      "cusip": "03073E105",
+      "shares": 66.0,
+      "market_value": 20328.66,
+      "portfolio_weight": 0.154325185711,
+      "holding_key": "COR"
+    },
+    {
+      "security_name": "AMGEN INC.",
+      "security_ticker": "AMGN",
+      "cusip": "031162100",
+      "shares": 185.0,
+      "market_value": 64056.25,
+      "portfolio_weight": 0.486283536505,
+      "holding_key": "AMGN"
+    },
+    {
+      "security_name": "APOLLO GLOBAL MANAGEMENT, INC.",
+      "security_ticker": "APO",
+      "cusip": "03769M106",
+      "shares": 196.0,
+      "market_value": 25229.12,
+      "portfolio_weight": 0.191527067171,
+      "holding_key": "APO"
+    },
+    {
+      "security_name": "APPLE INC.",
+      "security_ticker": "AAPL",
+      "cusip": "037833100",
+      "shares": 4507.0,
+      "market_value": 1222974.45,
+      "portfolio_weight": 9.284220362608,
+      "holding_key": "AAPL"
+    },
+    {
+      "security_name": "APPLIED MATERIALS, INC.",
+      "security_ticker": "AMAT",
+      "cusip": "038222105",
+      "shares": 270.0,
+      "market_value": 106512.3,
+      "portfolio_weight": 0.808588981174,
+      "holding_key": "AMAT"
+    },
+    {
+      "security_name": "APPLOVIN CORPORATION",
+      "security_ticker": "APP",
+      "cusip": "03831W108",
+      "shares": 113.0,
+      "market_value": 50437.55,
+      "portfolio_weight": 0.382897066042,
+      "holding_key": "APP"
+    },
+    {
+      "security_name": "ARES MANAGEMENT CORPORATION",
+      "security_ticker": "ARES",
+      "cusip": "03990B101",
+      "shares": 110.0,
+      "market_value": 12914.0,
+      "portfolio_weight": 0.098036734751,
+      "holding_key": "ARES"
+    },
+    {
+      "security_name": "AUTODESK, INC.",
+      "security_ticker": "ADSK",
+      "cusip": "052769106",
+      "shares": 72.0,
+      "market_value": 17064.0,
+      "portfolio_weight": 0.129541493092,
+      "holding_key": "ADSK"
+    },
+    {
+      "security_name": "AUTOMATIC DATA PROCESSING, INC.",
+      "security_ticker": "ADP",
+      "cusip": "053015103",
+      "shares": 136.0,
+      "market_value": 28823.84,
+      "portfolio_weight": 0.218816412932,
+      "holding_key": "ADP"
+    },
+    {
+      "security_name": "AXON ENTERPRISE, INC.",
+      "security_ticker": "AXON",
+      "cusip": "05464C101",
+      "shares": 26.0,
+      "market_value": 10445.76,
+      "portfolio_weight": 0.079299070961,
+      "holding_key": "AXON"
+    },
+    {
+      "security_name": "BLACKSTONE INC.",
+      "security_ticker": "BX",
+      "cusip": "09260D107",
+      "shares": 431.0,
+      "market_value": 54124.98,
+      "portfolio_weight": 0.410890220512,
+      "holding_key": "BX"
+    },
+    {
+      "security_name": "BLACKROCK, INC.",
+      "security_ticker": "BLK",
+      "cusip": "09290D101",
+      "shares": 56.0,
+      "market_value": 59673.6,
+      "portfolio_weight": 0.45301261382,
+      "holding_key": "BLK"
+    },
+    {
+      "security_name": "BOSTON SCIENTIFIC CORPORATION",
+      "security_ticker": "BSX",
+      "cusip": "101137107",
+      "shares": 495.0,
+      "market_value": 28516.95,
+      "portfolio_weight": 0.216486655031,
+      "holding_key": "BSX"
+    },
+    {
+      "security_name": "BROADRIDGE FINANCIAL SOLUTIONS, INC.",
+      "security_ticker": "BR",
+      "cusip": "11133T103",
+      "shares": 39.0,
+      "market_value": 6005.22,
+      "portfolio_weight": 0.045588675876,
+      "holding_key": "BR"
+    },
+    {
+      "security_name": "BROADCOM INC.",
+      "security_ticker": "AVGO",
+      "cusip": "11135F101",
+      "shares": 1543.0,
+      "market_value": 644094.49,
+      "portfolio_weight": 4.88964849552,
+      "holding_key": "AVGO"
+    },
+    {
+      "security_name": "CBOE GLOBAL MARKETS, INC.",
+      "security_ticker": "CBOE",
+      "cusip": "12503M108",
+      "shares": 35.0,
+      "market_value": 10503.15,
+      "portfolio_weight": 0.079734747607,
+      "holding_key": "CBOE"
+    },
+    {
+      "security_name": "THE CIGNA GROUP",
+      "security_ticker": "CI",
+      "cusip": "125523100",
+      "shares": 91.0,
+      "market_value": 26442.78,
+      "portfolio_weight": 0.200740576812,
+      "holding_key": "CI"
+    },
+    {
+      "security_name": "CME GROUP INC.",
+      "security_ticker": "CME",
+      "cusip": "12572Q105",
+      "shares": 121.0,
+      "market_value": 34826.22,
+      "portfolio_weight": 0.264383528925,
+      "holding_key": "CME"
+    },
+    {
+      "security_name": "CSX Corporation",
+      "security_ticker": "CSX",
+      "cusip": "126408103",
+      "shares": 641.0,
+      "market_value": 29120.63,
+      "portfolio_weight": 0.221069496601,
+      "holding_key": "CSX"
+    },
+    {
+      "security_name": "CADENCE DESIGN SYSTEMS, INC.",
+      "security_ticker": "CDNS",
+      "cusip": "127387108",
+      "shares": 92.0,
+      "market_value": 30322.28,
+      "portfolio_weight": 0.23019183223,
+      "holding_key": "CDNS"
+    },
+    {
+      "security_name": "CATERPILLAR INC.",
+      "security_ticker": "CAT",
+      "cusip": "149123101",
+      "shares": 158.0,
+      "market_value": 140637.38,
+      "portfolio_weight": 1.067649800157,
+      "holding_key": "CAT"
+    },
+    {
+      "security_name": "CISCO SYSTEMS, INC.",
+      "security_ticker": "CSCO",
+      "cusip": "17275R102",
+      "shares": 1341.0,
+      "market_value": 122701.5,
+      "portfolio_weight": 0.931489423039,
+      "holding_key": "CSCO"
+    },
+    {
+      "security_name": "CINTAS CORPORATION",
+      "security_ticker": "CTAS",
+      "cusip": "172908105",
+      "shares": 133.0,
+      "market_value": 23236.43,
+      "portfolio_weight": 0.176399545027,
+      "holding_key": "CTAS"
+    },
+    {
+      "security_name": "COPART, INC.",
+      "security_ticker": "CPRT",
+      "cusip": "217204106",
+      "shares": 323.0,
+      "market_value": 10694.53,
+      "portfolio_weight": 0.081187610415,
+      "holding_key": "CPRT"
+    },
+    {
+      "security_name": "COSTCO WHOLESALE CORPORATION",
+      "security_ticker": "COST",
+      "cusip": "22160K105",
+      "shares": 151.0,
+      "market_value": 153194.03,
+      "portfolio_weight": 1.162973709512,
+      "holding_key": "COST"
+    },
+    {
+      "security_name": "COSTAR GROUP, INC.",
+      "security_ticker": "CSGP",
+      "cusip": "22160N109",
+      "shares": 139.0,
+      "market_value": 4810.79,
+      "portfolio_weight": 0.036521150935,
+      "holding_key": "CSGP"
+    },
+    {
+      "security_name": "D.R. HORTON, INC.",
+      "security_ticker": "DHI",
+      "cusip": "23331A109",
+      "shares": 96.0,
+      "market_value": 14770.56,
+      "portfolio_weight": 0.112130824907,
+      "holding_key": "DHI"
+    },
+    {
+      "security_name": "DEERE & COMPANY",
+      "security_ticker": "DE",
+      "cusip": "244199105",
+      "shares": 91.0,
+      "market_value": 53678.17,
+      "portfolio_weight": 0.407498258807,
+      "holding_key": "DE"
+    },
+    {
+      "security_name": "EQUIFAX INC.",
+      "security_ticker": "EFX",
+      "cusip": "294429105",
+      "shares": 41.0,
+      "market_value": 7131.54,
+      "portfolio_weight": 0.054139143205,
+      "holding_key": "EFX"
+    },
+    {
+      "security_name": "EQUINIX, INC.",
+      "security_ticker": "EQIX",
+      "cusip": "29444U700",
+      "shares": 34.0,
+      "market_value": 36816.22,
+      "portfolio_weight": 0.279490629913,
+      "holding_key": "EQIX"
+    },
+    {
+      "security_name": "META PLATFORMS, INC.",
+      "security_ticker": "META",
+      "cusip": "30303M102",
+      "shares": 864.0,
+      "market_value": 528690.24,
+      "portfolio_weight": 4.013556204482,
+      "holding_key": "META"
+    },
+    {
+      "security_name": "FISERV, INC.",
+      "security_ticker": "FISV",
+      "cusip": "337738108",
+      "shares": 198.0,
+      "market_value": 12404.7,
+      "portfolio_weight": 0.094170379709,
+      "holding_key": "FISV"
+    },
+    {
+      "security_name": "FORTINET, INC.",
+      "security_ticker": "FTNT",
+      "cusip": "34959E109",
+      "shares": 252.0,
+      "market_value": 21246.12,
+      "portfolio_weight": 0.161290090672,
+      "holding_key": "FTNT"
+    },
+    {
+      "security_name": "HCA HEALTHCARE, INC.",
+      "security_ticker": "HCA",
+      "cusip": "40412C101",
+      "shares": 75.0,
+      "market_value": 32583.75,
+      "portfolio_weight": 0.247359799904,
+      "holding_key": "HCA"
+    },
+    {
+      "security_name": "JACK HENRY & ASSOCIATES, INC.",
+      "security_ticker": "JKHY",
+      "cusip": "426281101",
+      "shares": 25.0,
+      "market_value": 3843.75,
+      "portfolio_weight": 0.029179859005,
+      "holding_key": "JKHY"
+    },
+    {
+      "security_name": "THE HOME DEPOT, INC.",
+      "security_ticker": "HD",
+      "cusip": "437076102",
+      "shares": 341.0,
+      "market_value": 112120.8,
+      "portfolio_weight": 0.851165953983,
+      "holding_key": "HD"
+    },
+    {
+      "security_name": "IDEXX LABORATORIES, INC.",
+      "security_ticker": "IDXX",
+      "cusip": "45168D104",
+      "shares": 28.0,
+      "market_value": 15702.4,
+      "portfolio_weight": 0.119204895753,
+      "holding_key": "IDXX"
+    },
+    {
+      "security_name": "INTERCONTINENTAL EXCHANGE, INC.",
+      "security_ticker": "ICE",
+      "cusip": "45866F104",
+      "shares": 191.0,
+      "market_value": 30195.19,
+      "portfolio_weight": 0.229227027474,
+      "holding_key": "ICE"
+    },
+    {
+      "security_name": "INTUIT INC.",
+      "security_ticker": "INTU",
+      "cusip": "461202103",
+      "shares": 96.0,
+      "market_value": 37296.0,
+      "portfolio_weight": 0.283132883637,
+      "holding_key": "INTU"
+    },
+    {
+      "security_name": "INTUITIVE SURGICAL, INC.",
+      "security_ticker": "ISRG",
+      "cusip": "46120E602",
+      "shares": 121.0,
+      "market_value": 55370.81,
+      "portfolio_weight": 0.420347948966,
+      "holding_key": "ISRG"
+    },
+    {
+      "security_name": "IQVIA HOLDINGS INC",
+      "security_ticker": "IQV",
+      "cusip": "46266C105",
+      "shares": 54.0,
+      "market_value": 8551.98,
+      "portfolio_weight": 0.064922424877,
+      "holding_key": "IQV"
+    },
+    {
+      "security_name": "KLA CORPORATION",
+      "security_ticker": "KLAC",
+      "cusip": "482480100",
+      "shares": 45.0,
+      "market_value": 78765.75,
+      "portfolio_weight": 0.597950823932,
+      "holding_key": "KLAC"
+    },
+    {
+      "security_name": "LAM RESEARCH CORPORATION",
+      "security_ticker": "LRCX",
+      "cusip": "512807306",
+      "shares": 427.0,
+      "market_value": 110106.22,
+      "portfolio_weight": 0.835872253728,
+      "holding_key": "LRCX"
+    },
+    {
+      "security_name": "LANTHEUS HOLDINGS, INC.",
+      "security_ticker": "LNTH",
+      "cusip": "516544103",
+      "shares": 25.0,
+      "market_value": 2115.5,
+      "portfolio_weight": 0.016059835246,
+      "holding_key": "LNTH"
+    },
+    {
+      "security_name": "LENNAR CORPORATION",
+      "security_ticker": "LEN",
+      "cusip": "526057104",
+      "shares": 84.0,
+      "market_value": 7585.2,
+      "portfolio_weight": 0.057583106739,
+      "holding_key": "LEN"
+    },
+    {
+      "security_name": "ELI LILLY AND COMPANY",
+      "security_ticker": "LLY",
+      "cusip": "532457108",
+      "shares": 320.0,
+      "market_value": 299072.0,
+      "portfolio_weight": 2.270407490758,
+      "holding_key": "LLY"
+    },
+    {
+      "security_name": "LIVE NATION ENTERTAINMENT, INC.",
+      "security_ticker": "LYV",
+      "cusip": "538034109",
+      "shares": 84.0,
+      "market_value": 13266.96,
+      "portfolio_weight": 0.100716233427,
+      "holding_key": "LYV"
+    },
+    {
+      "security_name": "LOCKHEED MARTIN CORPORATION",
+      "security_ticker": "LMT",
+      "cusip": "539830109",
+      "shares": 80.0,
+      "market_value": 41437.6,
+      "portfolio_weight": 0.314573873311,
+      "holding_key": "LMT"
+    },
+    {
+      "security_name": "LOWE'S COMPANIES, INC.",
+      "security_ticker": "LOW",
+      "cusip": "548661107",
+      "shares": 189.0,
+      "market_value": 45131.31,
+      "portfolio_weight": 0.342614702452,
+      "holding_key": "LOW"
+    },
+    {
+      "security_name": "MSCI INC.",
+      "security_ticker": "MSCI",
+      "cusip": "55354G100",
+      "shares": 27.0,
+      "market_value": 15968.07,
+      "portfolio_weight": 0.121221731693,
+      "holding_key": "MSCI"
+    },
+    {
+      "security_name": "MASTERCARD INCORPORATED",
+      "security_ticker": "MA",
+      "cusip": "57636Q104",
+      "shares": 301.0,
+      "market_value": 151378.92,
+      "portfolio_weight": 1.149194287365,
+      "holding_key": "MA"
+    },
+    {
+      "security_name": "MICROSOFT CORPORATION",
+      "security_ticker": "MSFT",
+      "cusip": "594918104",
+      "shares": 2402.0,
+      "market_value": 979487.56,
+      "portfolio_weight": 7.435787680988,
+      "holding_key": "MSFT"
+    },
+    {
+      "security_name": "MOODY'S CORPORATION",
+      "security_ticker": "MCO",
+      "cusip": "615369105",
+      "shares": 60.0,
+      "market_value": 27711.0,
+      "portfolio_weight": 0.210368279131,
+      "holding_key": "MCO"
+    },
+    {
+      "security_name": "NASDAQ, INC.",
+      "security_ticker": "NDAQ",
+      "cusip": "631103108",
+      "shares": 192.0,
+      "market_value": 17646.72,
+      "portfolio_weight": 0.133965216654,
+      "holding_key": "NDAQ"
+    },
+    {
+      "security_name": "NETFLIX, INC.",
+      "security_ticker": "NFLX",
+      "cusip": "64110L106",
+      "shares": 1434.0,
+      "market_value": 134236.74,
+      "portfolio_weight": 1.019059290174,
+      "holding_key": "NFLX"
+    },
+    {
+      "security_name": "Northrop Grumman Corporation",
+      "security_ticker": "NOC",
+      "cusip": "666807102",
+      "shares": 48.0,
+      "market_value": 27815.04,
+      "portfolio_weight": 0.211158099627,
+      "holding_key": "NOC"
+    },
+    {
+      "security_name": "NVIDIA CORPORATION",
+      "security_ticker": "NVDA",
+      "cusip": "67066G104",
+      "shares": 6608.0,
+      "market_value": 1318758.56,
+      "portfolio_weight": 10.0113662032,
+      "holding_key": "NVDA"
+    },
+    {
+      "security_name": "OLD DOMINION FREIGHT LINE, INC.",
+      "security_ticker": "ODFL",
+      "cusip": "679580100",
+      "shares": 66.0,
+      "market_value": 14020.38,
+      "portfolio_weight": 0.10643582741,
+      "holding_key": "ODFL"
+    },
+    {
+      "security_name": "ORACLE CORPORATION",
+      "security_ticker": "ORCL",
+      "cusip": "68389X105",
+      "shares": 973.0,
+      "market_value": 157032.47,
+      "portfolio_weight": 1.192113257611,
+      "holding_key": "ORCL"
+    },
+    {
+      "security_name": "PALANTIR TECHNOLOGIES INC.",
+      "security_ticker": "PLTR",
+      "cusip": "69608A108",
+      "shares": 813.0,
+      "market_value": 113096.43,
+      "portfolio_weight": 0.858572456966,
+      "holding_key": "PLTR"
+    },
+    {
+      "security_name": "PARKER-HANNIFIN CORPORATION",
+      "security_ticker": "PH",
+      "cusip": "701094104",
+      "shares": 43.0,
+      "market_value": 39105.06,
+      "portfolio_weight": 0.296866377161,
+      "holding_key": "PH"
+    },
+    {
+      "security_name": "POOL CORPORATION",
+      "security_ticker": "POOL",
+      "cusip": "73278L105",
+      "shares": 10.0,
+      "market_value": 2133.2,
+      "portfolio_weight": 0.016194204938,
+      "holding_key": "POOL"
+    },
+    {
+      "security_name": "QUALCOMM INCORPORATED",
+      "security_ticker": "QCOM",
+      "cusip": "747525103",
+      "shares": 358.0,
+      "market_value": 64289.64,
+      "portfolio_weight": 0.488055318565,
+      "holding_key": "QCOM"
+    },
+    {
+      "security_name": "REPUBLIC SERVICES, INC.",
+      "security_ticker": "RSG",
+      "cusip": "760759100",
+      "shares": 107.0,
+      "market_value": 22386.54,
+      "portfolio_weight": 0.169947598264,
+      "holding_key": "RSG"
+    },
+    {
+      "security_name": "ROLLINS, INC.",
+      "security_ticker": "ROL",
+      "cusip": "775711104",
+      "shares": 168.0,
+      "market_value": 9362.64,
+      "portfolio_weight": 0.071076556779,
+      "holding_key": "ROL"
+    },
+    {
+      "security_name": "S&P GLOBAL INC.",
+      "security_ticker": "SPGI",
+      "cusip": "78409V104",
+      "shares": 100.0,
+      "market_value": 43123.0,
+      "portfolio_weight": 0.327368600952,
+      "holding_key": "SPGI"
+    },
+    {
+      "security_name": "SALESFORCE, INC.",
+      "security_ticker": "CRM",
+      "cusip": "79466L302",
+      "shares": 306.0,
+      "market_value": 54018.18,
+      "portfolio_weight": 0.410079447454,
+      "holding_key": "CRM"
+    },
+    {
+      "security_name": "SERVICENOW, INC.",
+      "security_ticker": "NOW",
+      "cusip": "81762P102",
+      "shares": 348.0,
+      "market_value": 30731.88,
+      "portfolio_weight": 0.233301313921,
+      "holding_key": "NOW"
+    },
+    {
+      "security_name": "THE SHERWIN-WILLIAMS COMPANY",
+      "security_ticker": "SHW",
+      "cusip": "824348106",
+      "shares": 86.0,
+      "market_value": 27658.46,
+      "portfolio_weight": 0.209969421299,
+      "holding_key": "SHW"
+    },
+    {
+      "security_name": "A. O. SMITH CORPORATION",
+      "security_ticker": "AOS",
+      "cusip": "831865209",
+      "shares": 37.0,
+      "market_value": 2288.08,
+      "portfolio_weight": 0.017369977702,
+      "holding_key": "AOS"
+    },
+    {
+      "security_name": "STRYKER CORPORATION",
+      "security_ticker": "SYK",
+      "cusip": "863667101",
+      "shares": 133.0,
+      "market_value": 41912.29,
+      "portfolio_weight": 0.31817748626,
+      "holding_key": "SYK"
+    },
+    {
+      "security_name": "SYNOPSYS, INC.",
+      "security_ticker": "SNPS",
+      "cusip": "871607107",
+      "shares": 66.0,
+      "market_value": 31851.6,
+      "portfolio_weight": 0.241801677297,
+      "holding_key": "SNPS"
+    },
+    {
+      "security_name": "T-MOBILE US, INC.",
+      "security_ticker": "TMUS",
+      "cusip": "872590104",
+      "shares": 370.0,
+      "market_value": 72335.0,
+      "portfolio_weight": 0.549131733642,
+      "holding_key": "TMUS"
+    },
+    {
+      "security_name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "security_ticker": "TSM",
+      "cusip": "874039100",
+      "shares": 1642.0,
+      "market_value": 650330.52,
+      "portfolio_weight": 4.936989367365,
+      "holding_key": "TSM"
+    },
+    {
+      "security_name": "TESLA, INC.",
+      "security_ticker": "TSLA",
+      "cusip": "88160R101",
+      "shares": 1249.0,
+      "market_value": 476655.87,
+      "portfolio_weight": 3.61853686658,
+      "holding_key": "TSLA"
+    },
+    {
+      "security_name": "TEXAS INSTRUMENTS INCORPORATED",
+      "security_ticker": "TXN",
+      "cusip": "882508104",
+      "shares": 318.0,
+      "market_value": 89383.44,
+      "portfolio_weight": 0.67855510287,
+      "holding_key": "TXN"
+    },
+    {
+      "security_name": "TRANSDIGM GROUP INCORPORATED",
+      "security_ticker": "TDG",
+      "cusip": "893641100",
+      "shares": 19.0,
+      "market_value": 22039.62,
+      "portfolio_weight": 0.167313952297,
+      "holding_key": "TDG"
+    },
+    {
+      "security_name": "UBER TECHNOLOGIES, INC.",
+      "security_ticker": "UBER",
+      "cusip": "90353T100",
+      "shares": 1224.0,
+      "market_value": 91322.64,
+      "portfolio_weight": 0.69327655525,
+      "holding_key": "UBER"
+    },
+    {
+      "security_name": "UNITEDHEALTH GROUP INCORPORATED",
+      "security_ticker": "UNH",
+      "cusip": "91324P102",
+      "shares": 309.0,
+      "market_value": 114478.32,
+      "portfolio_weight": 0.869063086004,
+      "holding_key": "UNH"
+    },
+    {
+      "security_name": "VERISIGN, INC.",
+      "security_ticker": "VRSN",
+      "cusip": "92343E102",
+      "shares": 32.0,
+      "market_value": 8597.12,
+      "portfolio_weight": 0.065265105549,
+      "holding_key": "VRSN"
+    },
+    {
+      "security_name": "VERTEX PHARMACEUTICALS INCORPORATED",
+      "security_ticker": "VRTX",
+      "cusip": "92532F100",
+      "shares": 84.0,
+      "market_value": 35899.92,
+      "portfolio_weight": 0.272534531101,
+      "holding_key": "VRTX"
+    },
+    {
+      "security_name": "VISA INC.",
+      "security_ticker": "V",
+      "cusip": "92826C839",
+      "shares": 655.0,
+      "market_value": 216045.2,
+      "portfolio_weight": 1.640108871517,
+      "holding_key": "V"
+    },
+    {
+      "security_name": "VULCAN MATERIALS COMPANY",
+      "security_ticker": "VMC",
+      "cusip": "929160109",
+      "shares": 44.0,
+      "market_value": 13276.56,
+      "portfolio_weight": 0.100789111904,
+      "holding_key": "VMC"
+    },
+    {
+      "security_name": "WALMART INC.",
+      "security_ticker": "WMT",
+      "cusip": "931142103",
+      "shares": 2713.0,
+      "market_value": 357926.09,
+      "portfolio_weight": 2.717198787829,
+      "holding_key": "WMT"
+    },
+    {
+      "security_name": "WASTE MANAGEMENT, INC.",
+      "security_ticker": "WM",
+      "cusip": "94106L109",
+      "shares": 133.0,
+      "market_value": 30929.15,
+      "portfolio_weight": 0.234798890711,
+      "holding_key": "WM"
+    },
+    {
+      "security_name": "WEST PHARMACEUTICAL SERVICES, INC.",
+      "security_ticker": "WST",
+      "cusip": "955306105",
+      "shares": 25.0,
+      "market_value": 7439.75,
+      "portfolio_weight": 0.056478921896,
+      "holding_key": "WST"
+    },
+    {
+      "security_name": "ZOETIS INC.",
+      "security_ticker": "ZTS",
+      "cusip": "98978V103",
+      "shares": 150.0,
+      "market_value": 17245.5,
+      "portfolio_weight": 0.130919351801,
+      "holding_key": "ZTS"
+    },
+    {
+      "security_name": "AON PUBLIC LIMITED COMPANY",
+      "security_ticker": "AON",
+      "cusip": "G0403H108",
+      "shares": 72.0,
+      "market_value": 22438.8,
+      "portfolio_weight": 0.170344330474,
+      "holding_key": "AON"
+    },
+    {
+      "security_name": "LINDE PUBLIC LIMITED COMPANY",
+      "security_ticker": "LIN",
+      "cusip": "G54950103",
+      "shares": 159.0,
+      "market_value": 79681.26,
+      "portfolio_weight": 0.604900925452,
+      "holding_key": "LIN"
+    },
+    {
+      "security_name": "ASML Holding N.V.",
+      "security_ticker": "ASML",
+      "cusip": "N07059210",
+      "shares": 132.0,
+      "market_value": 189946.68,
+      "portfolio_weight": 1.44198174726,
+      "holding_key": "ASML"
+    }
+  ]
+}

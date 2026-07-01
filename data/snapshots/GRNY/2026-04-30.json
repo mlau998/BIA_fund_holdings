@@ -1,0 +1,380 @@
+{
+  "fund_name": "Fundstrat Granny Shots US Large Cap ETF",
+  "fund_ticker": "GRNY",
+  "as_of_date": "2026-04-30",
+  "source": "edgar_nport",
+  "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1722388&type=N-PORT",
+  "scrape_timestamp": "2026-07-01T21:14:03Z",
+  "warnings": [],
+  "holdings": [
+    {
+      "security_name": "Advanced Micro Devices Inc",
+      "security_ticker": "AMD",
+      "cusip": "007903107",
+      "shares": 509088.0,
+      "market_value": 180466605.12,
+      "portfolio_weight": 4.126656992341419,
+      "holding_key": "AMD"
+    },
+    {
+      "security_name": "Air Products and Chemicals Inc",
+      "security_ticker": "APD",
+      "cusip": "009158106",
+      "shares": 357717.0,
+      "market_value": 107332985.85,
+      "portfolio_weight": 2.454340049630037,
+      "holding_key": "APD"
+    },
+    {
+      "security_name": "Alphabet Inc",
+      "security_ticker": "GOOGL",
+      "cusip": "02079K305",
+      "shares": 332516.0,
+      "market_value": 127952156.8,
+      "portfolio_weight": 2.925830306348291,
+      "holding_key": "GOOGL"
+    },
+    {
+      "security_name": "Amazon.com Inc",
+      "security_ticker": "AMZN",
+      "cusip": "023135106",
+      "shares": 493230.0,
+      "market_value": 130735543.8,
+      "portfolio_weight": 2.989476893030102,
+      "holding_key": "AMZN"
+    },
+    {
+      "security_name": "American Express Co",
+      "security_ticker": "AXP",
+      "cusip": "025816109",
+      "shares": 290058.0,
+      "market_value": 93703236.9,
+      "portfolio_weight": 2.142674083669323,
+      "holding_key": "AXP"
+    },
+    {
+      "security_name": "Amgen Inc",
+      "security_ticker": "AMGN",
+      "cusip": "031162100",
+      "shares": 269162.0,
+      "market_value": 93197342.5,
+      "portfolio_weight": 2.1311060006893268,
+      "holding_key": "AMGN"
+    },
+    {
+      "security_name": "Apple Inc",
+      "security_ticker": "AAPL",
+      "cusip": "037833100",
+      "shares": 382796.0,
+      "market_value": 103871694.6,
+      "portfolio_weight": 2.3751921001806364,
+      "holding_key": "AAPL"
+    },
+    {
+      "security_name": "Arista Networks Inc",
+      "security_ticker": "ANET",
+      "cusip": "040413205",
+      "shares": 722490.0,
+      "market_value": 124781247.9,
+      "portfolio_weight": 2.8533224128487618,
+      "holding_key": "ANET"
+    },
+    {
+      "security_name": "Bank of New York Mellon Corp/T",
+      "security_ticker": "BNY",
+      "cusip": "064058100",
+      "shares": 835240.0,
+      "market_value": 112231198.8,
+      "portfolio_weight": 2.566345507407969,
+      "holding_key": "BNY"
+    },
+    {
+      "security_name": "Broadcom Inc",
+      "security_ticker": "AVGO",
+      "cusip": "11135F101",
+      "shares": 305230.0,
+      "market_value": 127412158.9,
+      "portfolio_weight": 2.9134823924037536,
+      "holding_key": "AVGO"
+    },
+    {
+      "security_name": "Cadence Design Systems Inc",
+      "security_ticker": "CDNS",
+      "cusip": "127387108",
+      "shares": 333185.0,
+      "market_value": 109814444.15,
+      "portfolio_weight": 2.5110825546385933,
+      "holding_key": "CDNS"
+    },
+    {
+      "security_name": "Caterpillar Inc",
+      "security_ticker": "CAT",
+      "cusip": "149123101",
+      "shares": 130969.0,
+      "market_value": 116576816.59,
+      "portfolio_weight": 2.6657149947833334,
+      "holding_key": "CAT"
+    },
+    {
+      "security_name": "Chevron Corp",
+      "security_ticker": "CVX",
+      "cusip": "166764100",
+      "shares": 550323.0,
+      "market_value": 106382939.13,
+      "portfolio_weight": 2.432615714883827,
+      "holding_key": "CVX"
+    },
+    {
+      "security_name": "Costco Wholesale Corp",
+      "security_ticker": "COST",
+      "cusip": "22160K105",
+      "shares": 99579.0,
+      "market_value": 101025882.87,
+      "portfolio_weight": 2.3101180724031276,
+      "holding_key": "COST"
+    },
+    {
+      "security_name": "Deere & Co",
+      "security_ticker": "DE",
+      "cusip": "244199105",
+      "shares": 168816.0,
+      "market_value": 99579493.92,
+      "portfolio_weight": 2.2770440802914345,
+      "holding_key": "DE"
+    },
+    {
+      "security_name": "Eaton Corp PLC",
+      "security_ticker": "ETN",
+      "cusip": "N/A",
+      "shares": 255898.0,
+      "market_value": 110806392.98,
+      "portfolio_weight": 2.5337650480153733,
+      "holding_key": "ETN"
+    },
+    {
+      "security_name": "First American Government Obli",
+      "security_ticker": "FGXXX",
+      "cusip": "31846V336",
+      "shares": 45518986.0,
+      "market_value": 45518986.02,
+      "portfolio_weight": 1.0408642741343785,
+      "holding_key": "FGXXX"
+    },
+    {
+      "security_name": "GE Vernova Inc",
+      "security_ticker": "GEV",
+      "cusip": "36828A101",
+      "shares": 121966.0,
+      "market_value": 132145282.36,
+      "portfolio_weight": 3.0217128154719797,
+      "holding_key": "GEV"
+    },
+    {
+      "security_name": "General Electric Co",
+      "security_ticker": "GE",
+      "cusip": "369604301",
+      "shares": 304173.0,
+      "market_value": 88188877.89,
+      "portfolio_weight": 2.0165794627184495,
+      "holding_key": "GE"
+    },
+    {
+      "security_name": "Goldman Sachs Group Inc/The",
+      "security_ticker": "GS",
+      "cusip": "38141G104",
+      "shares": 106233.0,
+      "market_value": 98134858.41,
+      "portfolio_weight": 2.2440101833842356,
+      "holding_key": "GS"
+    },
+    {
+      "security_name": "JPMorgan Chase & Co",
+      "security_ticker": "JPM",
+      "cusip": "46625H100",
+      "shares": 322617.0,
+      "market_value": 101053322.91,
+      "portfolio_weight": 2.310745532718352,
+      "holding_key": "JPM"
+    },
+    {
+      "security_name": "KLA Corp",
+      "security_ticker": "KLAC",
+      "cusip": "482480100",
+      "shares": 67863.0,
+      "market_value": 118784002.05,
+      "portfolio_weight": 2.716185813502657,
+      "holding_key": "KLAC"
+    },
+    {
+      "security_name": "Meta Platforms Inc",
+      "security_ticker": "META",
+      "cusip": "30303M102",
+      "shares": 158719.0,
+      "market_value": 97121743.29,
+      "portfolio_weight": 2.2208436890003314,
+      "holding_key": "META"
+    },
+    {
+      "security_name": "Microsoft Corp",
+      "security_ticker": "MSFT",
+      "cusip": "594918104",
+      "shares": 252514.0,
+      "market_value": 102970158.92,
+      "portfolio_weight": 2.3545770477988213,
+      "holding_key": "MSFT"
+    },
+    {
+      "security_name": "Monster Beverage Corp",
+      "security_ticker": "MNST",
+      "cusip": "61174X109",
+      "shares": 1218288.0,
+      "market_value": 93893456.16,
+      "portfolio_weight": 2.147023750682979,
+      "holding_key": "MNST"
+    },
+    {
+      "security_name": "Netflix Inc",
+      "security_ticker": "NFLX",
+      "cusip": "64110L106",
+      "shares": 1305644.0,
+      "market_value": 122221334.84,
+      "portfolio_weight": 2.794785914520937,
+      "holding_key": "NFLX"
+    },
+    {
+      "security_name": "Northrop Grumman Corp",
+      "security_ticker": "NOC",
+      "cusip": "666807102",
+      "shares": 143004.0,
+      "market_value": 82867957.92,
+      "portfolio_weight": 1.8949081341904424,
+      "holding_key": "NOC"
+    },
+    {
+      "security_name": "NVIDIA Corp",
+      "security_ticker": "NVDA",
+      "cusip": "67066G104",
+      "shares": 533485.0,
+      "market_value": 106467601.45,
+      "portfolio_weight": 2.4345516539711918,
+      "holding_key": "NVDA"
+    },
+    {
+      "security_name": "ONEOK Inc",
+      "security_ticker": "OKE",
+      "cusip": "682680103",
+      "shares": 1164162.0,
+      "market_value": 107638418.52,
+      "portfolio_weight": 2.4613242551704855,
+      "holding_key": "OKE"
+    },
+    {
+      "security_name": "Packaging Corp of America",
+      "security_ticker": "PKG",
+      "cusip": "695156109",
+      "shares": 420515.0,
+      "market_value": 89758926.75,
+      "portfolio_weight": 2.052481136061994,
+      "holding_key": "PKG"
+    },
+    {
+      "security_name": "Palantir Technologies Inc",
+      "security_ticker": "PLTR",
+      "cusip": "69608A108",
+      "shares": 724838.0,
+      "market_value": 100832214.18,
+      "portfolio_weight": 2.3056895286664365,
+      "holding_key": "PLTR"
+    },
+    {
+      "security_name": "PNC Financial Services Group I",
+      "security_ticker": "PNC",
+      "cusip": "693475105",
+      "shares": 428501.0,
+      "market_value": 95555723.0,
+      "portfolio_weight": 2.1850341353403624,
+      "holding_key": "PNC"
+    },
+    {
+      "security_name": "PPG Industries Inc",
+      "security_ticker": "PPG",
+      "cusip": "693506107",
+      "shares": 778055.0,
+      "market_value": 84418967.5,
+      "portfolio_weight": 1.9303744440057102,
+      "holding_key": "PPG"
+    },
+    {
+      "security_name": "Quanta Services Inc",
+      "security_ticker": "PWR",
+      "cusip": "74762E102",
+      "shares": 190445.0,
+      "market_value": 138600157.65,
+      "portfolio_weight": 3.169313842445687,
+      "holding_key": "PWR"
+    },
+    {
+      "security_name": "Robinhood Markets Inc",
+      "security_ticker": "HOOD",
+      "cusip": "770700102",
+      "shares": 1328825.0,
+      "market_value": 96858054.25,
+      "portfolio_weight": 2.214814018192282,
+      "holding_key": "HOOD"
+    },
+    {
+      "security_name": "Strategy Inc",
+      "security_ticker": "MSTR",
+      "cusip": "594972408",
+      "shares": 788017.0,
+      "market_value": 130377412.65,
+      "portfolio_weight": 2.9812876526255407,
+      "holding_key": "MSTR"
+    },
+    {
+      "security_name": "Tesla Inc",
+      "security_ticker": "TSLA",
+      "cusip": "88160R101",
+      "shares": 244104.0,
+      "market_value": 93157409.52,
+      "portfolio_weight": 2.130192869359392,
+      "holding_key": "TSLA"
+    },
+    {
+      "security_name": "Texas Pacific Land Corp",
+      "security_ticker": "TPL",
+      "cusip": "88262P102",
+      "shares": 234074.0,
+      "market_value": 103851611.58,
+      "portfolio_weight": 2.374732869871211,
+      "holding_key": "TPL"
+    },
+    {
+      "security_name": "TJX Cos Inc/The",
+      "security_ticker": "TJX",
+      "cusip": "872540109",
+      "shares": 642766.0,
+      "market_value": 100753570.5,
+      "portfolio_weight": 2.303891215389807,
+      "holding_key": "TJX"
+    },
+    {
+      "security_name": "Union Pacific Corp",
+      "security_ticker": "UNP",
+      "cusip": "907818108",
+      "shares": 383447.0,
+      "market_value": 103331297.56,
+      "portfolio_weight": 2.3628350592628795,
+      "holding_key": "UNP"
+    },
+    {
+      "security_name": "Vistra Corp",
+      "security_ticker": "VST",
+      "cusip": "92840M102",
+      "shares": 587274.0,
+      "market_value": 92695328.16,
+      "portfolio_weight": 2.1196266414747,
+      "holding_key": "VST"
+    }
+  ]
+}
