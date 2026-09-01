@@ -1,0 +1,121 @@
+{
+  "fund_name": "TCI Fund Management",
+  "fund_ticker": "TCI",
+  "as_of_date": "2026-06-30",
+  "source": "edgar_13f",
+  "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1647251&type=13F-HR",
+  "scrape_timestamp": "2026-09-01T22:07:19Z",
+  "warnings": [],
+  "holdings": [
+    {
+      "security_name": "ALPHABET INC",
+      "security_ticker": "GOOGL",
+      "cusip": "02079K305",
+      "shares": 2457000.0,
+      "market_value": 878058090.0,
+      "title_of_class": "CAP STK CL A",
+      "holding_key": "02079K305",
+      "portfolio_weight": 1.6639
+    },
+    {
+      "security_name": "ALPHABET INC",
+      "security_ticker": "GOOG",
+      "cusip": "02079K107",
+      "shares": 9938819.0,
+      "market_value": 3511682917.0,
+      "title_of_class": "CAP STK CL C",
+      "holding_key": "02079K107",
+      "portfolio_weight": 6.6547
+    },
+    {
+      "security_name": "CANADIAN NATL RY CO",
+      "security_ticker": "CNI",
+      "cusip": "136375102",
+      "shares": 9433422.0,
+      "market_value": 1124534915.0,
+      "title_of_class": "COM",
+      "holding_key": "136375102",
+      "portfolio_weight": 2.131
+    },
+    {
+      "security_name": "CANADIAN PACIFIC KANSAS CITY",
+      "security_ticker": "CP",
+      "cusip": "13646K108",
+      "shares": 45325726.0,
+      "market_value": 3925911608.0,
+      "title_of_class": "COM",
+      "holding_key": "13646K108",
+      "portfolio_weight": 7.4397
+    },
+    {
+      "security_name": "FERROVIAL NV",
+      "security_ticker": "FERR",
+      "cusip": "N3168P101",
+      "shares": 20940441.0,
+      "market_value": 1434611939.0,
+      "title_of_class": "ORD SHS",
+      "holding_key": "N3168P101",
+      "portfolio_weight": 2.7186
+    },
+    {
+      "security_name": "GE AEROSPACE",
+      "security_ticker": "GE",
+      "cusip": "369604301",
+      "shares": 47428233.0,
+      "market_value": 17725353519.0,
+      "title_of_class": "COM NEW",
+      "holding_key": "369604301",
+      "portfolio_weight": 33.5899
+    },
+    {
+      "security_name": "MARTIN MARIETTA MATLS INC",
+      "security_ticker": "MLM",
+      "cusip": "573284106",
+      "shares": 1315109.0,
+      "market_value": 758423360.0,
+      "title_of_class": "COM",
+      "holding_key": "573284106",
+      "portfolio_weight": 1.4372
+    },
+    {
+      "security_name": "MOODYS CORP",
+      "security_ticker": "MCO",
+      "cusip": "615369105",
+      "shares": 14334027.0,
+      "market_value": 6492167509.0,
+      "title_of_class": "COM",
+      "holding_key": "615369105",
+      "portfolio_weight": 12.3028
+    },
+    {
+      "security_name": "S&P GLOBAL INC",
+      "security_ticker": "SPGI",
+      "cusip": "78409V104",
+      "shares": 14081957.0,
+      "market_value": 5735017808.0,
+      "title_of_class": "COM",
+      "holding_key": "78409V104",
+      "portfolio_weight": 10.868
+    },
+    {
+      "security_name": "VISA INC",
+      "security_ticker": "V",
+      "cusip": "92826C839",
+      "shares": 30494133.0,
+      "market_value": 10462232091.0,
+      "title_of_class": "COM CL A",
+      "holding_key": "92826C839",
+      "portfolio_weight": 19.8261
+    },
+    {
+      "security_name": "VULCAN MATLS CO",
+      "security_ticker": "VMC",
+      "cusip": "929160109",
+      "shares": 2447004.0,
+      "market_value": 721890650.0,
+      "title_of_class": "COM",
+      "holding_key": "929160109",
+      "portfolio_weight": 1.368
+    }
+  ]
+}
