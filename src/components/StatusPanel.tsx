@@ -8,17 +8,69 @@ interface Props {
   fundConfig: Record<string, FundMeta>;
 }
 
-// Estimate: one quarter after last as_of_date + ~60 day filing lag.
-// If already past (stale data), keep advancing by quarters.
-function estimatedRelease(asOfDate: string): Date {
+function fedHolidays(year: number): Set<string> {
+  const fmt = (d: Date) => d.toISOString().slice(0, 10);
+  const obs = (d: Date) => {
+    const day = d.getUTCDay();
+    if (day === 0) d.setUTCDate(d.getUTCDate() + 1);
+    if (day === 6) d.setUTCDate(d.getUTCDate() - 1);
+    return d;
+  };
+  const nth = (y: number, month: number, weekday: number, n: number) => {
+    const d = new Date(Date.UTC(y, month, 1));
+    let count = 0;
+    while (true) {
+      if (d.getUTCDay() === weekday && ++count === n) return d;
+      d.setUTCDate(d.getUTCDate() + 1);
+    }
+  };
+  const last = (y: number, month: number, weekday: number) => {
+    const d = new Date(Date.UTC(y, month + 1, 0));
+    while (d.getUTCDay() !== weekday) d.setUTCDate(d.getUTCDate() - 1);
+    return d;
+  };
+  return new Set([
+    fmt(obs(new Date(Date.UTC(year, 0, 1)))),
+    fmt(nth(year, 0, 1, 3)),
+    fmt(nth(year, 1, 1, 3)),
+    fmt(last(year, 4, 1)),
+    fmt(obs(new Date(Date.UTC(year, 5, 19)))),
+    fmt(obs(new Date(Date.UTC(year, 6, 4)))),
+    fmt(nth(year, 8, 1, 1)),
+    fmt(nth(year, 9, 1, 2)),
+    fmt(obs(new Date(Date.UTC(year, 10, 11)))),
+    fmt(nth(year, 10, 4, 4)),
+    fmt(obs(new Date(Date.UTC(year, 11, 25)))),
+  ]);
+}
+
+function nextBusinessDay(d: Date): Date {
+  const result = new Date(d);
+  let holidays = fedHolidays(result.getUTCFullYear());
+  const fmt = (x: Date) => x.toISOString().slice(0, 10);
+  while (true) {
+    const day = result.getUTCDay();
+    if (day !== 0 && day !== 6 && !holidays.has(fmt(result))) break;
+    result.setUTCDate(result.getUTCDate() + 1);
+    if (result.getUTCFullYear() !== d.getUTCFullYear()) {
+      holidays = new Set([...holidays, ...fedHolidays(result.getUTCFullYear())]);
+    }
+  }
+  return result;
+}
+
+// 13F: due 45 days after quarter end. N-PORT: due 60 days after quarter end.
+// Roll forward past weekends and federal holidays.
+function estimatedRelease(asOfDate: string, formType?: string): Date {
+  const lagDays = formType === "13F-HR" ? 45 : 60;
   const d = new Date(asOfDate + "T00:00:00Z");
   d.setUTCMonth(d.getUTCMonth() + 3);
-  d.setUTCDate(d.getUTCDate() + 60);
+  d.setUTCDate(d.getUTCDate() + lagDays);
   const now = Date.now();
-  while (d.getTime() <= now) {
+  while (nextBusinessDay(d).getTime() <= now) {
     d.setUTCMonth(d.getUTCMonth() + 3);
   }
-  return d;
+  return nextBusinessDay(d);
 }
 
 function daysUntil(date: Date): number {
@@ -36,7 +88,7 @@ export default function StatusPanel({ statuses, fundConfig }: Props) {
         const config = fundConfig[status.ticker];
         const release =
           status.latestDate && !status.hasError
-            ? estimatedRelease(status.latestDate)
+            ? estimatedRelease(status.latestDate, config?.form_type)
             : null;
         const days = release ? daysUntil(release) : null;
         const urgent = !status.hasError && days !== null && days <= 14;
